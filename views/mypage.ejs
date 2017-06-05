@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>instagram</title>
+    <style>
+    #top_form{
+      box-sizing : border-box;
+      align-items: center;
+      height: 77px;
+      box-sizing: border-box;
+    }
+    #top_name{
+      display: inline-block;
+      font-family: "Cookie", cursive;
+      font-size: 25px;
+      color: black;
+      vertical-align: middle;
+      text-align: center;
+    }
+    #top_field{
+      display : inline-block;
+      vertical-align: middle;
+      text-align: center;
+      margin-left: 11%;
+    }
+    #left_img{
+      display: inline-block;
+      vertical-align: middle;
+      border-right-style: solid;
+      margin-right: 12px;
+      margin-left:14%;
+      max-width: 100%;
+      }
+    #right_img{
+      display : inline-block;
+      vertical-align: middle;
+      margin-right: 15%;
+      float:right;
+    }
+    #center{
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align:center;
+        padding-top: 60px;
+        background-color: #fafafa;
+    }
+#profile_update{
+  float:left;
+  margin-left:30px;
+}
+  #profile{
+      display: inline-block;
+      top : 140px;
+      width : 200%;
+    }
+
+  #profile_img{
+      display: inline-block;
+      padding-left: 40px;
+      float:left;
+      background-color: #fafafa;
+      border:0px;
+      outline :none;
+      margin-bottom:20px;
+
+    }
+
+   #user_id{
+      display: inline-block;
+      vertical-align : middle;
+      font-size : 25px;
+      margin-bottom:20px;
+      float:left;
+      margin-left: 70px;
+    }
+    #profile_update{
+      display: inline-block;
+      vertical-align:middle;
+      margin-bottom:20px;
+    }
+  #profile_btn{
+    margin-bottom:20px;
+    float:left;
+    margin-left:20px;
+    background-color: #fafafa;
+    border:0px;
+    outline :none;
+    margin-bottom:20px;
+    }
+  #count{
+      font-size: 15px;
+      margin-bottom:20px;
+      display: inline-block;
+    }
+
+    #middle2{
+      display: inline-block;
+      margin-right:140px;
+      margin-left:30px;
+    }
+    #bottom2{
+      display:inline-block;
+    }
+    #username{
+      display: inline-block;
+      margin-right:400px;
+    }
+    #profile{
+      display:inline-block;
+      float:left;
+      width:800px;
+      margin-bottom:20px;
+      margin-left:230px;
+    }
+    #bottom{
+      display:inline-block;
+      width: 830px;
+    }
+    #modalheader{
+    border-bottom: 1px solid #efefef;
+    height: 50px;
+    padding: 10px 0;
+    right: 24px;
+    top: 0;
+    width: 400px;
+    padding-left:300px;
+}
+
+    #modalidimg{
+     display: inline-block;
+     width:50px;
+     height:50px;
+     float:left;
+     margin-left:15px;
+    }
+    #modalid{
+      display: inline-block;
+      float:left;
+      margin-left:10px;
+      margin-top:10px;
+    }
+    #img0{
+      width:300px;
+      height:350px;
+      float:left
+    }
+    #modalmiddle{
+      display: inherit;
+      padding: 10px 0;
+      height: 30px;
+
+      width: 400px;
+      padding-left:300px;
+    }
+    #modalgood{
+      vertical-align: middle;
+      float: left;
+      margin-top:4px;
+      margin-left: 5%;
+      margin-right: 50%;
+    }
+    #modaltime{
+      display:inline-block;
+      vertical-align:middle;
+      float:right;
+      padding-right : 20px;
+      color : gray;
+      margin-top:4px;
+    }
+    #modalform{
+
+    }
+
+#myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+}
+#myUL li a:hover {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+    #modaltag span{
+      color: #3897f0;
+        margin-left: 3px;
+        cursor: pointer;
+        vertical-align: -webkit-baseline-middle;
+      }
+      #modaltag{
+        height : 50px;
+
+              width: 400px;
+              padding-left:300px;
+      }
+      #modalid{
+        vertical-align : middle;
+        height: 50px;
+        margin-left: 20px;
+      }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;/* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .imgmodalclass{
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;/* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-right:300px;
+
+    }
+    .modal-content3{
+      background-color: #fefefe;
+      border: 1px solid #888;
+      width: 46%;
+      margin: auto;
+      height: 46%;
+
+    }
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+
+    }
+    .modal-content2 {
+        background-color: #fefefe;
+        margin: auto;
+        border: 1px solid #888;
+        width: 40%;
+
+    }
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close2 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close2:hover,
+    .close2:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close3 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close3:hover,
+    .close3:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .text{
+      width:340px;
+	    height:217px;
+	    background:#FFF;
+	    opacity:0;
+      color:white;
+      line-height: 217px;
+
+    }
+    .imgclass{
+      width:250px;
+      height:250px;
+      display: inline-block;
+      margin-right:25px;
+      margin-bottom:25px;
+      float:left;
+      background : url(images/asdfasdf.jpg);
+    }
+    .imgclass:hover .text{
+      width:250px;
+      height:250px;
+      display: inline-block;
+      margin-right:25px;
+      margin-bottom:25px;
+      float:left;
+      opacity : 0.4;
+      font-size:20px;
+      background-color:black;
+      text-align: center;
+    }
+
+    </style>
+
+  </head>
+  <body>
+      <div id="top_form">
+        <div id ="left_img"><img src = "images/camera.PNG"></div>
+        <div id="top_name"><a>instagram</a></div>
+          <div id="top_field" class="_form">
+
+          <input type="text" name="field" placeholder="검색"autocomplete="off">
+
+        </div>
+        <div id = "right_img"><img src ="images/rightimg.PNG"></div>
+        <hr></hr>
+      </div>
+
+      <div id ="center">
+        <div id= "profile">
+        <button id = "profile_img" data-toggle="modal">
+          <img src = "images/tonytony.PNG" style="width:170px;">
+        </button>
+        <div id = "myModal2" class="modal" style="display:none;">
+          <div class = "modal-content2" >
+            <span class="close2">&times;</span>
+            <p>프로필 사진 바꾸기</p>
+            <hr>
+            <p>현재 사진 삭제</p>
+            <hr>
+            <p>사진 찍기</p>
+            <hr>
+            <p>사진 업로드</p>
+            <hr>
+            <p>취소</p>
+          </div>
+        </div>
+
+          <div id = "user_id">loveiulove</div>
+          <div id = "profile_update"> <button type="update">프로필 편집</button> </div>
+          <button id = "profile_btn" data-toggle="modal" style="display:inline-block;">
+            <img src= "images/373032_none.png" style="width:20px; height:20px; display:inline-block;">
+          </button>
+
+          <div id = "myModal" class="modal" style="display:none;">
+            <div class = "modal-content" >
+              <span class="close">&times;</span>
+              <ul id="myUL">
+              <li><a href="/logout">로그아웃</a></li>
+              <li><a href="#">취소</a><li>
+            </ul>
+            </div>
+          </div>
+                <script>
+                  var modal = document.getElementById("myModal");
+                  var btn = document.getElementById("profile_btn");
+                  var span = document.getElementsByClassName("close")[0];
+                  btn.onclick = function(){
+                    modal.style.display = "block";
+                  }
+                  span.onclick = function(){
+                    modal.style.display = "none";
+                  }
+                  window.onclick = function(event){
+                    if(event.target == modal){
+                      modal.style.display = "none";
+                    }
+                  }
+                  var modal2 = document.getElementById("myModal2");
+                  var btn2 = document.getElementById("profile_img");
+                  var span = document.getElementsByClassName("close2")[0];
+
+                  btn2.onclick = function(){
+                    modal2.style.display = "block";
+                  }
+                  span.onclick = function(){
+                    modal2.style.display = "none";
+                  }
+                  window.onclick = function(event){
+                    if(event.target == modal2){
+                      modal2.style.display = "none";
+                    }
+                  }
+                  function myFunction() {
+                    // Declare variables
+                    var input, filter, ul, li, a, i;
+                    input = document.getElementById('myInput');
+                    filter = input.value.toUpperCase();
+                    ul = document.getElementById("myUL");
+                    li = ul.getElementsByTagName('li');
+                  }
+
+                </script>
+
+      <div id = "middle2">
+        <div id = "count"> 게시물 2개　　　팔로워 100명　　　팔로우100명</div>
+    </div>
+    <div id = "bottom2">
+      <div id ="username">아이유</div>
+    </div>
+  </div>
+
+    <div id = "bottom">
+      <div id="imgc" class="imgclass">
+        <div class="text">
+          ♥ 20개 ● 10개
+        </div>
+      </div>
+      <div id = "imgModal" class="imgmodalclass" style="display:none;">
+        <div class = "modal-content3" >
+          <span class="close3" onclick="document.getElementById('imgc').style.display='none'">&times;</span>
+          <img id ="img0" src = "images/asdfasdf.jpg">
+          <div id = "modalheader">
+          <div id ="modalidimg" > <img src = 'images/idimg.PNG' style="width:50px; height:50px;"> </div>
+          <div id ="modalid" >loveiulove</div>
+          </div>
+          <div id = "modalmiddle">
+            <div id = "modalgood">좋아요 20개</div>
+            <div id = "modaltime">2일</div>
+          </div>
+          <div id = "modalform">
+            <div id="modalid"><a>loveiulove</a>  아이유 밤편지</div>
+            <div id="modaltag"> <span>#아이유 #밤편지 </span> </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+      var imgmodal = document.getElementById("imgModal");
+      var imgmodalbtn = document.getElementById("imgc");
+      var span = document.getElementsByClassName("close3")[0];
+      imgmodalbtn.onclick = function(){
+        imgmodal.style.display = "block";
+      }
+      span.onclick = function(){
+        imgmodal.style.display = "none";
+      }
+      window.onclick = function(event){
+        if(event.target == modal2){
+          imgmodal.style.display = "none";
+        }
+      }
+      </script>
+
+      <script>
+      var main;
+      var img;
+      for(var i = 0 ; i <8 ; i++){
+        main = document.getElementById('bottom');
+        img = document.getElementById('imgc');
+        img = document.createElement('div');
+        img.className='imgclass';
+        //img.setAttribute("id","imgid");
+
+        main.appendChild(img);
+
+      }
+      var imgclass = document.getElementsByClassName("imgclass");
+      var imgmouseover = function(){
+          this.style.backgroundImage =  "url('images/asdfasdf.jpg')";
+          this.style.backgroundColor = "black";
+          this.style.opacity = "0.4";
+      }
+      var imgmouseout = function(){
+        this.style.background =  "url('images/asdfasdf.jpg')";
+        this.style.opacity = "1";
+
+      }
+      for (var i = 1; i < imgclass.length; i++) {
+          imgclass[i].addEventListener('mouseover', imgmouseover, false);
+          imgclass[i].addEventListener('mouseout', imgmouseout, false);
+      }
+
+
+      </script>
+
+    </div>
+
+    </div>
+
+
+  </body>
+</html>

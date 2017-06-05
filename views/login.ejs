@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagram</title>
+    <style>
+      #left{
+        display:inline-block;
+        vertical-align: middle;
+      }
+      #right{
+        display:inline-block;
+        vertical-align: middle;
+      }
+      #center{
+        margin-top:100px;
+      }
+      body #center #right #login_form {
+            margin-left: 2%;
+            margin-top: 30px;
+            height: 300px;
+            width: 140%;
+            border-radius: 2px;
+            border-color: rgba(158, 158, 158, 0.35);
+            border-style: solid;
+            border-width: 1px;
+            background-color: white;
+          }
+      body #center #right #login_form #logo_name {
+              padding-top: 20px;
+              padding-bottom: 10px;
+              margin-top: 20px;
+              text-decoration: none;
+              font-family: "Cookie", cursive;
+              font-size: 30px;
+              color: black;
+              text-align: center;
+            }
+            body #center #right #login_form ._form input{
+              width : 80%;
+              height: 27px;
+              border-radius:2px;
+              border-style:solid;
+              border-width:1px;
+              margin-top:5px;
+              margin-bottom:5px;
+              margin-left:1%;
+              padding-left: 2%;
+              font-size: 15px;
+              border-color: rgba(158, 158, 158, 0.35);
+            }
+      body #center #right #login_form .submit_button button {
+             width: 80%;
+             height: 35px;
+             border-radius: 2px;
+             border-style: hidden;
+             margin-top: 7px;
+             margin-left: 1%;
+             background-color: #3897f0;
+             color: white;
+             font-size: 15px;
+             cursor: pointer;
+            }
+            body #center #right #login_form #small_caption {
+              color: grey;
+              text-align: center;
+              margin-top: 20px;
+              font-size: 13px; }
+          body #center #right #login_form #other_login {
+            height: 60px;
+            margin-top: 30px;
+            margin-left: 12%;
+            margin-right: 12%;
+            border-top-style: solid;
+            border-top-color: rgba(158, 158, 158, 0.35);
+            border-width: 2px;
+            padding-top: 20px;
+            text-align: center;
+            color: #385185;
+           }
+            body #center #right #login_form #other_login a {
+              cursor: pointer;
+            }
+
+            body #center #right #question ._question {
+            margin-left: 2%;
+            margin-top: 15px;
+            height: 30px;
+            width: 140%;
+            border-radius: 2px;
+            border-color: rgba(158, 158, 158, 0.35);
+            border-style: solid;
+            border-width: 1px;
+            background-color: white;
+            display: inline-block;
+            text-align: center;
+            padding-top: 20px;
+          }
+            body #center #right #question ._question span {
+              color: #3897f0;
+              margin-left: 3px;
+              cursor: pointer;
+            }
+    </style>
+  </head>
+  <body>
+    <center>
+    <div id="center">
+    <div id="left"><img src = "images/img.PNG" style="
+      width:343px;
+      height:500px;
+      margin:0 auto;
+      "></div>
+    <div id="right">
+      <div id="login_form">
+        <div id="logo_name">Instagram</div>
+        <div id="join_group">
+        <div id="join_name" class="_form">
+          <input id="join_name_input" type="text" name="name" placeholder="전화번호, 사용자 이름 또는 이메일" autocomplete="off">
+        </div>
+        <div id="join_password" class="_form">
+          <input id="password_input" type="password" name="password" placeholder="비밀번호" autocomplete="off">
+        </div>
+        <div id="join_button" class="submit_button">
+          <button type = "submit">로그인</button>
+        </div>
+      </div>
+      <div id="other_login"><a>비밀번호를 잊으셨나요?</a></div>
+    </div>
+      <div id="question">
+        <div id="login" class="_question"> 계정이 없으신가요? <span>가입하기</span></div>
+      </div>
+    </center>
+
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type = "text/javascript">
+
+    var btn = document.getElementById("join_button");
+    var var_1 = document.getElementById("join_name_input");
+    var var_2 = document.getElementById("password_input");
+
+    $(document).ready(function(){
+      $("#join_button").click(function(){
+        var user_id = $('#join_name_input').val();
+        var password = $('#password_input').val();
+        var data = {
+          'id' : user_id,
+          'password': password
+        }
+        $.ajax({
+          url:"/login",
+          dataType :"json",
+          type:"POST",
+          cashe:false,
+          data:data,
+          success: function(result){
+            console.log(result);
+            $(window).attr('location','/mypage');
+          }
+          ,error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+          }
+        });
+      });
+    });
+
+    </script>
+  </body>
+</html>

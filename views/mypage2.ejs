@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>instagram</title>
+    <style>
+    #top_form{
+      box-sizing : border-box;
+      align-items: center;
+      height: 77px;
+
+    }
+    #top_name{
+      display: inline-block;
+      font-family: "Cookie", cursive;
+      font-size: 25px;
+      color: black;
+      vertical-align: middle;
+      text-align: center;
+    }
+    #top_field{
+      display : inline-block;
+      vertical-align: middle;
+      text-align: center;
+      margin-left: 11%;
+    }
+    #center{
+        margin-left: 160px;
+        margin-right: 160px;
+    }
+    #main{
+      margin-left: 2%;
+      margin-top: 30px;
+      height: 900px;
+      width: 600px;
+      border-radius: 2px;
+      border-color: rgba(158, 158, 158, 0.35);
+      border-style: solid;
+      border-width: 1px;
+      background-color: white;
+      display: inline-block;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    #main:hover {
+    -moz-box-shadow: 0 0 30px #ccc;
+		-webkit-box-shadow: 0 0 30px #ccc;
+		box-shadow: 0 0 30px #ccc;
+    width:650px;
+    height:950px;
+
+    }
+    #user_id{
+        display:inline-block;
+        vertical-align: middle;
+        float: left;
+        margin-top:7px;
+    }
+    #idimg{
+          display:inline-block;
+          vertical-align: middle;
+          float: left;
+          margin-bottom: 5px;
+    }
+    #time{
+      display:inline-block;
+      vertical-align:middle;
+      float:right;
+      padding-right : 20px;
+      color : gray;
+      margin-top:4px;
+    }
+    #good{
+      vertical-align: middle;
+      float: left;
+      margin-top:3%;
+      margin-left: 5%;
+      margin-right: 50%;
+    }
+
+    #tag span{
+      color: #3897f0;
+        margin-left: 3px;
+        cursor: pointer;
+      }
+      #tag{
+        height : 50px;
+      }
+      #idid{
+        vertical-align : middle;
+        height: 50px;
+      }
+      #content_form{
+        display: flex;
+        float: left;
+        margin-top:3%;
+        margin-left: 5%;
+        width :660px;
+        height :130px;
+      }
+      #left_img{
+        display: inline-block;
+        vertical-align: middle;
+        border-right-style: solid;
+        margin-right: 12px;
+        margin-left:14%;
+        max-width: 100%;
+        }
+      #right_img{
+        display : inline-block;
+        vertical-align: middle;
+        margin-right: 15%;
+        float:right;
+      }
+      #btn {
+        display :inline-block;
+        float: right;
+        margin-right: 5%;
+        background-color: white;
+        border:0px;
+        outline :none;
+        height:20px;
+      }
+      #main #heart{
+        display: inline-block;
+        float: left;
+        margin-left : 5%;
+      }
+      #under{
+        width:600px;
+        height :245px;
+      }
+      .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .big{
+
+        margin-top: 30px;
+        height: 900px;
+        width: 600px;
+        border-radius: 2px;
+        border-color: rgba(158, 158, 158, 0.35);
+        border-style: solid;
+        border-width: 1px;
+        background-color: white;
+        display: inline-block;
+        text-align: center;
+        padding-top: 20px;
+
+      }
+      .big:hover {
+      -moz-box-shadow: 0 0 30px #ccc;
+  		-webkit-box-shadow: 0 0 30px #ccc;
+  		box-shadow: 0 0 30px #ccc;
+      width:630px;
+      height:950px;
+}
+      .small{
+        display: flex;
+        float: left;
+        margin-left: 1%;
+        width :660px;
+        height :60px;
+      }
+
+      .timeclass{
+
+          display:inline-block;
+          vertical-align:middle;
+          float:right;
+          padding-right : 20px;
+          color : gray;
+          padding-left: 400px;
+
+      }
+      .idimgclass{
+        display:inline-block;
+        vertical-align: middle;
+      }
+      .mainimgclass{
+        width:300px;
+        height:300px;
+      }
+      .underclass{
+        display:inline-block;
+        width:600px;
+        height:245px;
+        padding-top: 380px;
+      }
+      .goodclass{
+        display: inline-block;
+        margin-right : 440px;
+      }
+      .contentclass{
+        display: flex;
+        float: left;
+        margin-top:3%;
+        margin-left: 5%;
+        width :660px;
+        height :110px;
+      }
+      .idclass{
+        vertical-align : middle;
+        height: 50px;
+      }
+      .tagclass{
+        color: #3897f0;
+          margin-left: 3px;
+          cursor: pointer;
+      }
+      .moreclass{
+        display :inline-block;
+        float: right;
+        margin-right: 5%;
+        background-color: white;
+        border:0px;
+        outline :none;
+
+      }
+      .heartclass{
+
+          width:50px;
+          height: 50px;
+    padding-left: 18px;
+    }
+    </style>
+
+  </head>
+  <body>
+
+
+      <div id="top_form">
+        <div id ="left_img"><img src = "images/camera.PNG"></div>
+        <div id="top_name"><a>instagram</a></div>
+          <div id="top_field" class="_form">
+          <input type="text" name="field" placeholder="검색"autocomplete="off" >
+        </div>
+        <div id = "right_img"><img src ="images/rightimg.PNG"></div>
+        <hr></hr>
+      </div>
+
+      <div id="center">
+      <center>
+
+      <div id="main">
+        <div id="main_top">
+          <div id = "idimg"><img src = "images/idimg.PNG">  </div>
+          <div id ="user_id"> loveiulove </div>
+          <div id ="time" >4시간</div>
+        </div>
+
+        <div id="image"><img src = "images/letter.jpg" style="
+          width:600px;
+          height:600px;
+          margin:0 auto;
+          "></div>
+        <div id = "under">
+        <div id="good">좋아요 5,530개 </div>
+
+        <div id="content_form">
+        <div id="idid"><a>loveiulove</a>  아이유 밤편지</div>
+        <div id="tag"> <span>#아이유 #밤편지 </span> </div>
+        </div>
+      <div id="heart" class="heartclass" onclick="redheartfunc()"><img src = "images/121c27_none.png" style = "width:50px; height:50px;"></div>
+
+      <script>
+      state = 0 ;
+      function redheartfunc(){
+        if(state==0){
+        state = 1;
+        document.getElementById('heart').innerHTML = "<img src ='images/ed073c_none.png' style = 'width:50px; height:50px;'>";
+        }else{
+        state = 0 ;
+        document.getElementById('heart').innerHTML = "<img src = 'images/121c27_none.png' style = 'width:50px; height:50px;'>";
+      }
+
+
+    }
+      </script>
+      <button id = "btn" data-toggle="modal"><img src = "images/373032_none.png" style = "width:50px; height:50px;"></button>
+    </div>
+
+      <div id = "myModal" class="modal" style="display:none;">
+        <div class = "modal-content" >
+          <span class="close">&times;</span>
+          <p>부적절한 콘텐츠 신고</p>
+          <p>퍼가기</p>
+          <p>취소</p>
+        </div>
+      </div>
+
+
+      <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("btn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function(){
+          modal.style.display = "block";
+          //window.showModalDialog("modal-content","",);
+        }
+        span.onclick = function(){
+          modal.style.display = "none";
+        }
+        window.onclick = function(event){
+          if(event.target == modal){
+            modal.style.display = "none";
+          }
+        }
+      </script>
+      </div>
+      </div>
+
+      <script>
+
+      for(var i = 0; i<10; i++){
+        var main = document.getElementById('main');
+        var newdiv = document.createElement('div');
+        newdiv.id ='r'+i;
+        newdiv.className = 'big';
+        main.appendChild(newdiv);
+        var big = document.getElementById('r'+i);
+        var smalldiv = document.createElement('div');
+        smalldiv.id='a'+i;
+        smalldiv.className = 'small';
+        big.appendChild(smalldiv);
+
+        //image
+
+        var img = document.createElement("div");
+        img.className='idimgclass';
+        img.setAttribute("id","idimg");
+        img.innerHTML = "<img src='images/idimg.PNG'>";
+        smalldiv.appendChild(img);
+
+        var id = document.createElement('div');
+        id.setAttribute("id","user_id");
+        id.innerHTML="loveiulove";
+        smalldiv.appendChild(id);
+
+        var time = document.createElement('div');
+        time.className = 'timeclass';
+        time.setAttribute("id","time");
+        time.innerHTML = "8시간";
+        smalldiv.appendChild(time);
+
+        var mainimg = document.createElement('div');
+        mainimg.className = 'mainimgclass';
+        mainimg.innerHTML = "<img src='images/letter.jpg' style='width:600px; height:600px;'>"
+        big.appendChild(mainimg);
+
+        var newdiv2 = document.createElement('div');
+        newdiv2.className = 'underclass';
+        big.appendChild(newdiv2);
+
+        var good = document.createElement('div');
+        good.className = 'goodclass';
+        good.innerHTML = "좋아요 1000개";
+        newdiv2.appendChild(good);
+
+        var content_form2 = document.createElement('div');
+        content_form2.className = 'contentclass';
+        newdiv2.appendChild(content_form2);
+
+        var contentid = document.createElement('div');
+        contentid.className = 'idclass';
+        contentid.innerHTML = "loveiulove     아이유 밤편지";
+        content_form2.appendChild(contentid);
+
+        var content_tag = document.createElement('div');
+        content_tag.className = 'tagclass';
+        content_tag.innerHTML = "#아이유 #밤편지";
+        content_form2.appendChild(content_tag);
+
+        var heart2 = document.createElement('div');
+        heart2.className = 'heartclass';
+        heart2.innerHTML="<img src = 'images/121c27_none.png' style = 'width:50px; height:50px;'>";
+        newdiv2.appendChild(heart2);
+
+        var more = document.createElement('div');
+        more.className='moreclass';
+        more.setAttribute("more","Button");
+        more.innerHTML="<img src = 'images/373032_none.png' style = 'width:50px; height:50px;'>";
+        newdiv2.appendChild(more);
+      }
+      var heartclass = document.getElementsByClassName("heartclass");
+      state=0;
+      var heartclick = function(){
+        if(state==0){
+          state = 1;
+          this.innerHTML = "<img src ='images/ed073c_none.png' style = 'width:50px; height:50px;'>";
+        }else{
+          state = 0 ;
+          this.innerHTML = "<img src = 'images/121c27_none.png' style = 'width:50px; height:50px;'>";
+        }
+      }
+      for (var i = 0; i < heartclass.length; i++) {
+          heartclass[i].addEventListener('click', heartclick, false);
+      }
+
+      </script>
+
+
+    </center>
+  </body>
+</html>

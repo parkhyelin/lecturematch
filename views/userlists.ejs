@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <!--<script src="/javascripts/userlists.js"></script>-->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><a href='/practice'>Instagram</a></h1>
+    <table id="table" >
+<%
+      for(var i = 0; i < rows.length; i++){
+        var oneItem = rows[i];
+%>
+        <li><%=oneItem.name%></li>
+<%
+      }
+%>
+    </table>
+  </body>
+</html>
