@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    게시판
+  </title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="/javascripts/ft_board.js"></script>
+  <link rel='stylesheet' href='/stylesheets/board.css' />
+</head>
+
+<style>
+  #myModal {
+    background-color: gray;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    display: none;
+    left: 0;
+    top: 0;
+    padding-top: 100px;
+    overflow: auto;
+  }
+
+ .modalcontent {
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    margin: 15px 456px 0px 456px;
+  }
+
+ td.titleButton:hover {
+    color: red;
+    cursor: pointer;
+  }
+</style>
+
+<body style=" width: 1200px; height: 768px; position : relative;">
+  <div id="line_1">
+   </div>
+   <div id="first_area">
+     <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
+     <p id="first_FAQ">FAQ</p>
+     <% if(!session) { %>
+     <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+     <% } else  {%>
+     <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+     <% } %>
+     <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+
+             <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+                     메일함
+             </button>
+
+             <div class = "modal" id= "MailBoxModal" style="display:none;" >
+             <div class = "modal-dialog">
+               <div class = "modal-content">
+                 <!-- remote ajax call이 되는영역 -->
+               </div>
+               </div>
+               </div>
+   </div>
+     <p id="mention1">버림/구함</p>
+        <div id="small_rectangle"></div>
+        <p id="mention2">교환</p>
+        <div>
+          <p id="mention3">버림/구함</p>
+          <div id="rectangle_2"></div>
+        </div>
+
+  <form action="/first_test/search" method="get">
+      <input type="text" name="searchText">
+      <input type="submit" class="btn" value='검색'>
+  </form>
+ <table border="1px solid black;" id='lists'>
+    <thead>
+      <tr>
+        <td>게시글번호</td>
+        <td>버림/구함</td>
+        <td>글제목</td>
+        <td>작성일자</td>
+        <td>작성자</td>
+     </tr>
+    </thead>
+    <tbody>
+        <%
+          for(var i = leng-((page*page_num)-page_num); i>leng-(page*page_num); i--){
+            if(i < 0){
+              break;
+            }else{
+              var item = result[i];
+        %>
+           <tr>
+             <td>
+               <%= i+1 %>
+             </td>
+              <td>
+                <%=item.choice%>
+              </td>
+              <td class='titleButton' onclick="location.href='/first_test/title_content/<%=item.id%>'">
+                <%=item.title%>
+              </td>
+              <td>
+                <%=item.date%>
+              </td>
+              <td>
+                <%=item.writer_name%>
+              </td>
+              <td><input type='button' value='삭제' onclick="location.href='/first_test/boarddelete/<%=item.id%>'"></td>
+            </tr>
+       <%
+            }
+          }
+       %>
+        <tr>
+          <td colspan = "5">
+            <%
+              for(var j = 0 ; j < result.length/10 ; j++){
+            %>
+              [ <a href="/first_test/board/<%= j+1 %>"><%=j+1%> </a>]
+            <%
+              }
+            %>
+          </td>
+        </tr>
+
+   </tbody>
+  </table>
+
+  <input type='button' name='write' value='글쓰기' id='writeButton'>
+  <p><a href='/first_test/mypage'>마이페이지</a></p>
+  <div id="myModal" class="modal">
+    <div class="modalcontent">
+      <input type="radio" name="choice" value="버림" >버림
+      <input type="radio" name="choice" value="구함">구함
+      <p>글제목</p>
+      <input type='text' id='title'>
+      <p>내용</p>
+      <textarea rows='5' cols='20' name='comments' id='content'></textarea>
+      <input type='button' id='ok' value='등록'>
+      <input type='button' id='out' value='취소'>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

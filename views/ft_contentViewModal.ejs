@@ -1,0 +1,42 @@
+
+  <div class = "modal-header">
+
+         <%=rows[0].send_name%> 님이 보낸 쪽지<br>
+         보낸 시간 : <%=rows[0].date_sent%>
+        <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">x</button>
+      </div>
+
+      <div class= "modal-body">
+          <textarea row= "5" cols= "50" readonly class="form-control">
+            <%=rows[0].content%>
+          </textarea>
+      </div>
+      <div class = "modal-footer">
+          <button type = "button" href = "/first_test/replymodal/<%=rows[0].id%>" id="Replybtn" data-toggle="modal" data-target="#ReplyModal<%=rows[0].id%>" class= "btn btn-primary"> 답장 </button>
+          <button type = "button" class = "btn btn-default" data-dismiss="modal" id="Okbtn"> 취소</button>
+      </div>
+
+
+        <div class = "modal" id= "ReplyModal<%=rows[0].id%>" tabindex="-1" data-focus-on="input:first">
+          <div class = "modal-dialog">
+            <div class = "modal-content">
+
+            </div>
+          </div>
+        </div>
+
+
+      <script>
+      $('#Replybtn').click('show.bs.modal',function(event){
+          $('#ReplyModal<%=rows[0].id%>').modal({
+            remote : '/first_test/replymodal/<%=rows[0].id%>'
+          });
+        });
+      $('#ReplyModal<%=rows[0].id%>').on('loaded.bs.modal',function(event){
+        $('#ReplyModal<%=rows[0].id%>').modal('show');
+      });
+      $('#ReplyModal<%=rows[0].id%>').on('hidden.bs.modal', function () {
+          $(this).removeData('bs.modal');
+      });
+
+      </script>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>board</title>
+       <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+       <script src="/javascripts/ft_main.js"></script>
+  </head>
+  <body ondragstart="return false">
+     <div id="wrapper">
+
+
+    <div id="first_area">
+      <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
+      <div id="z">
+      </div>
+      <div id="div_login">
+      <p id="first_FAQ">FAQ</p>
+      <% if(!session) { %>
+      <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+      <% } else  {%>
+      <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+      <% } %>
+      <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+
+              <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+                      메일함
+              </button>
+
+              <div class = "modal" id= "MailBoxModal" style="display:none;" >
+              <div class = "modal-dialog">
+                <div class = "modal-content">
+                  <!-- remote ajax call이 되는영역 -->
+                </div>
+                </div>
+                </div>
+              </div>
+    </div>
+    <ul class = "tabs" role= "tablist" id="tabs">
+      <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">강의교환</p><div id="small_rectangle"></div></a></li>
+      <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">버림/구함</p><div id="small_rectangle"></div></a></li>
+    </ul>
+
+    <div id="line_1">
+    </div>
+    <div id="main_area">
+
+                <form action="/first_test/search/1" method="get">
+                    <input type="text" name="searchText">
+                    <input type="submit" class="btn" value='검색'>
+                </form>
+    <div id="main_area_second">
+    <div class = "tab-content">
+        <div id="board" class="tab-pane">
+          <p id="mention3">버림/구함</p>
+          <div id="rectangle_2"></div>
+
+          <table border="1px solid black;">
+              <thead>
+                <tr>
+                  <td>게시글번호</td>
+                  <td>버림/구함</td>
+                  <td>글제목</td>
+                  <td>작성일자</td>
+                  <td>작성자</td>
+               </tr>
+              </thead>
+                <tbody>
+                    <%
+                      for(var i = leng-((page*page_num)-page_num); i>leng-(page*page_num); i--){
+                        if(i < 0){
+                          break;
+                        }else{
+                          var item = result[i];
+                    %>
+                       <tr>
+                         <td>
+                           <%= i+1 %>
+                         </td>
+                          <td>
+                            <%=item.choice%>
+                          </td>
+                          <td>
+                            <a href = "#board_content_view_modal<%=item.id%>" id = "board_content_view_title<%=item.id%>" data-toggle = "modal" ><%=item.title%></a>
+                          </td>
+                          <div class = "modal" id= "board_content_view_modal<%=item.id%>" style="display:none;" >
+                          <div class = "modal-dialog">
+                            <div class = "modal-content">
+                              <!-- remote ajax call이 되는영역 -->
+                            </div>
+                            </div>
+                            </div>
+                          <td>
+                            <%=item.date%>
+                          </td>
+                          <td>
+                            <%=item.writer_name%>
+                          </td>
+                        </tr>
+                        <script>
+                        $('#board_content_view_title<%=item.id%>').click('show.bs.modal',function(event){
+                            $('#board_content_view_modal<%=item.id%>').modal({
+                              remote : '/first_test/title_content/<%=item.id%>'
+                            });
+                          });
+                        $('#board_content_view_modal<%=item.id%>').on('loaded.bs.modal',function(event){
+                          $('#board_content_view_modal<%=item.id%>').modal('show');
+                        });
+                        $('#board_content_view_modal<%=item.id%>').on('hidden.bs.modal', function () {
+                            $(this).removeData('bs.modal');
+                        });
+
+                        </script>
+                   <%
+                        }
+                      }
+                   %>
+                    <tr>
+                      <td colspan = "5">
+                        <%
+                          for(var j = 0 ; j < result.length/10 ; j++){
+                        %>
+                        <%
+                          if(!flag){
+                        %>
+                            [ <a href="/first_test/main/<%= j+1 %>"><%=j+1%> </a>]
+                        <%
+                          }else{
+                        %>
+                            [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>"><%=j+1%> </a>]
+                        <%
+                          }
+                        }
+                        %>
+                      </td>
+                    </tr>
+
+               </tbody>
+            </table>
+
+            <input type='button' name='write' value='글쓰기' id='writeButton'>
+            <p><a href='/first_test/mypage'>마이페이지</a></p>
+
+            <div id="myModal" class="modal">
+              <div class= "modal-dialog">
+              <div class="modal-content">
+                <div class = "modal-header">
+                  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class = "modal-title" id = "write_matching_title"> 버림/구함 글쓰기 </h4>
+                </div>
+                <div class = "modal-body">
+                <form>
+                  <div class = "form-group">
+                <input type="radio" name="choice" value="버림" >버림
+                <input type="radio" name="choice" value="구함">구함
+              </div>
+              <div class = "form-group">
+                 <label for="title" class="control-label"> 글제목 : </label>
+                <input type='text' class = "form-control" id='title'>
+              </div>
+              <div class ="form-group">
+                 <label for="content" class="control-label"> 내용 : </label>
+                <textarea rows='5' cols='20' name='comments' class = "form-control" id='content'></textarea>
+              </div>
+              </form>
+              <div class = "modal-footer">
+                <input type='button' id='ok' class = "btn btn-primary" value='등록'>
+                <input type='button' id='out' class = "btn btn-default" data-dismiss = "modal" value='취소'>
+              </div>
+              </div>
+              </div>
+            </div>
+            </div>
+            <script>
+                  $('#writeButton').click(function() {
+                    if(!'<%=session%>'){
+                      alert('로그인이 필요합니다.');
+                      $(window).attr('location','/first_test/login');
+                    }else{
+                    $('#myModal').show('2000');
+                  }
+                });
+            </script>
+        </div>
+
+        <div id="exchange" class="tab-pane active">
+          <p id="mention3">강의교환</p>
+          <div id="rectangle_2"></div>
+          <table class ="buttons width-25" border="1px solid black;">
+            <thead>
+              <tr>
+                <td>게시글번호</td>
+                <td>작성자</td>
+                <td>구하는 과목명</td>
+                <td>교수</td>
+                <td>시간</td>
+                <td>버리는 과목명</td>
+                <td>교수</td>
+                <td>시간</td>
+                <td>교환신청</td>
+              </tr>
+            </thead>
+            <tbody>
+              <%
+                  for(var i = leng2-((page*page_num)-page_num); i>leng2-(page*page_num); i--){
+                    if(i < 0){
+                      break;
+                    }else{
+                      var oneItem = result2[i];
+                      if(oneItem.request == 'Y') {continue;}
+                %>
+
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= oneItem.writer %></td>
+                  <td><%= oneItem.class_name%></td>
+                  <td><%= oneItem.prof_name%></td>
+                  <td><%= oneItem.time%></td>
+                  <td><%= oneItem.change_class_name%></td>
+                  <td><%= oneItem.change_prof_name%></td>
+                  <td><%= oneItem.change_time%></td>
+                  <td><input type="button" value="교환신청" class="select_matching" id="exchange_req_btn<%=oneItem.id%>" data-toggle= "modal" data-target = "exchange_req_modal<%=oneItem.id%>"></td>
+                </tr>
+                <% }
+                  }
+                  %>
+                  <tr>
+                    <td colspan = "9">
+                      <%
+                        for(var j = 0 ; j < result2.length/10 ; j++){
+                      %>
+                      <%
+                        if(!flag){
+                      %>
+                          [ <a href="/first_test/main/<%= j+1 %>"><%=j+1%> </a>]
+                      <%
+                        }else{
+                      %>
+                          [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>"><%=j+1%> </a>]
+                      <%
+                        }
+                      }
+                      %>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <%
+                  for(var i = 0; i < result2.length; i++){
+                    var oneItem = result2[i];
+            %>
+            <div class = "modal" id= "exchange_req_modal<%=oneItem.id%>" data-backdrop="" >
+            <div class = "modal-dialog">
+            <div class = "modal-content">
+                <!-- remote ajax call이 되는영역 -->
+            </div>
+            </div>
+            </div>
+
+
+            <script>
+
+            $('#exchange_req_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
+              if(!'<%=session%>'){
+                alert('로그인이 필요합니다.');
+                $(window).attr('location','/first_test/login');
+              }else{
+                $('#exchange_req_modal<%=oneItem.id%>').modal({
+                  remote : '/first_test/exchangerequest/<%=oneItem.id%>'
+                });
+              }
+              });
+
+              $('#exchange_req_modal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+                $('#exchange_req_modal<%=oneItem.id%>').modal('show');
+              });
+              $('#exchange_req_modal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+                  $(this).removeData('bs.modal');
+              });
+
+            </script>
+
+            <%
+                }
+            %>
+
+              <button type = "button" id="write_matching_modalbtn" class = "write_matching_modalbtn_cls" data-toggle"modal">
+                강의교환글쓰기
+              </button>
+              <div class = "modal" id= "write_matching_modal" tabindex="-1" role="dialog" aria-labelledby="WriteMatchingModalLabel" aria-hidden="true">
+                <div class = "modal-dialog">
+                  <div class = "modal-content">
+                    <div class = "modal-header">
+                      <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class = "modal-title" id = "write_matching_title"> 강의교환글쓰기 </h4>
+                    </div>
+                    <div class= "modal-body">
+                      <form>
+                        <div class = "form-group">
+                          <label for="class-name" class="control-label"> 구하는과목 : </label>
+                          <input type = "text" class = "form-control" id = "class_name">
+                        </div>
+                        <div class = "form-group">
+                          <label for="prof-name" class="control-label"> 교수 : </label>
+                          <input type = "text" class = "form-control" id = "prof_name">
+                        </div>
+                        <div class = "form-group">
+                          <label for="time" class="control-label"> 시간 : </label>
+                          <input type = "text" class = "form-control" id = "time">
+                        </div>
+                        <div class = "form-group">
+                          <label for="change-class-name" class="control-label"> 바꿀 과목 : </label>
+                          <input type = "text" class = "form-control" id = "change_class_name">
+                        </div>
+                        <div class = "form-group">
+                          <label for="change-prof-name" class="control-label"> 교수 : </label>
+                          <input type = "text" class = "form-control" id = "change_prof_name">
+                        </div>
+                        <div class = "form-group">
+                          <label for="change-time" class="control-label"> 시간 : </label>
+                          <input type = "text" class = "form-control" id = "change_time">
+                        </div>
+                      </form>
+                    </div>
+                    <div class = "modal-footer">
+                      <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Closebtn"> Close </button>
+                      <button type = "button" class = "btn btn-primary" id = "OKbtn"> 올리기 </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              var write_matching_modal = document.getElementById("write_matching_modal");
+              var write_matching_modalbtn = document.getElementById("write_matching_modalbtn");
+              var Closebtn = document.getElementById("Closebtn");
+              var span = document.getElementsByClassName("close")[0];
+              write_matching_modalbtn.onclick = function(){
+                if(!'<%=session%>'){
+                  alert('로그인이 필요합니다.');
+                  $(window).attr('location','/first_test/login');
+                }else{
+                write_matching_modal.style.display = "block";
+              }
+              }
+              span.onclick = function(){
+                write_matching_modal.style.display = "none";
+              }
+
+              window.onclick = function(event){
+                if(event.target == write_matching_modal){
+                  write_matching_modal.style.display = "none";
+                }
+              }
+              Closebtn.onclick = function(event){
+                  write_matching_modal.style.display = "none";
+              }
+            </script>
+        </div>
+    </div>
+  </div>
+  </div>
+
+</div> <!-- wrapper -->
+
+      <script>
+      $('.tabs > li > a').click(function(event){
+        //get displaying tab content jQuery selector
+        event.preventDefault();//stop browser to take action for clicked anchor
+
+        //get displaying tab content jQuery selector
+        var active_tab_selector = $('.tabs > li.active > a').attr('href');
+
+        //find actived navigation and remove 'active' css
+        var actived_nav = $('.tabs > li.active');
+        actived_nav.removeClass('active');
+
+        //add 'active' css into clicked navigation
+        $(this).parents('li').addClass('active');
+
+        //hide displaying tab content
+        $(active_tab_selector).removeClass('active');
+        //$(active_tab_selector).addClass('hide');
+
+        //show target tab content
+        var target_tab_selector = $(this).attr('href');
+        //$(target_tab_selector).removeClass('hide');
+        $(target_tab_selector).addClass('active');
+      });
+
+
+      </script>
+  </body>
+</html>

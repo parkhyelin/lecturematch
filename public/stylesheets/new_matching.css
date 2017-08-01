@@ -1,0 +1,146 @@
+#wrapper
+{
+  width : 1020px;
+  margin : 0 auto;
+}
+#first_area
+{
+  width : 1020px;
+  height : 170px;
+
+  display: inline-flex;
+}
+#div_logo
+{
+  height : 150px;
+
+  width : 300px;
+  padding : 10px;
+}
+#z{
+  width: 420px;
+
+  height: 170px;
+}
+#logo
+{
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  cursor: pointer;
+  margin-top: 80px;
+}
+#div_login
+{
+  height : 170px;
+
+  width : 300px;
+}
+
+#first_login
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
+#first_join
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#first_mypage
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  left: 42px;
+  top: 189px;
+  width: 1020px;
+  height: 4px;
+  z-index: 6;
+}
+#mention1
+{
+  font-size: 20px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  margin-top : 140px;
+  margin-left: 200px;
+  z-index: 7;
+  position:absolute;
+}
+#mention2
+{
+  font-size: 20px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-top : 140px;
+  position: absolute;
+  margin-left : 330px;
+  z-index: 7;
+}
+#small_rectangle
+{
+  background-color: rgb(153, 153, 153);
+ position: absolute;
+ margin-top: 145px;
+ margin-left: 315px;
+ width: 2px;
+ height: 25px;
+ z-index: 9;
+}
+#mention3
+{
+  font-size: 25px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ line-height: 1.2;
+ text-align: center;
+ -moz-transform: matrix( 0.9998704848244,0,0,1,0,0);
+ -webkit-transform: matrix( 0.9998704848244,0,0,1,0,0);
+ -ms-transform: matrix( 0.9998704848244,0,0,1,0,0);
+ position: absolute;
+ margin-top : 200px;
+ margin-left: 30px;
+ z-index: 8;
+}
+#rectangle_2
+{
+  background-color: rgb(128, 175, 181);
+  position: absolute;
+  margin-top: 235px;
+  width: 130px;
+  height: 7px;
+  z-index: 10;
+}
+#main_area
+{
+  width : 1020px;
+  height : 600px;
+
+}
+#main_area_second
+{
+  width : 1020px;
+  height : 480px;
+  margin-top: 65px;
+  background-color: rgb(244, 244, 244);
+}

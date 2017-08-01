@@ -1,0 +1,224 @@
+#wrapper
+{
+  width : 1020px;
+  margin : 0 auto;
+}
+#first_area
+{
+  width : 1020px;
+  height : 170px;
+  background-color: white;
+  display: inline-flex;
+}
+#div_logo
+{
+  height : 150px;
+  background-color: white;
+  width : 300px;
+  padding : 10px;
+}
+#z{
+  width: 420px;
+  background-color: white;
+  height: 170px;
+}
+#logo
+{
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  cursor: pointer;
+  margin-top: 80px;
+}
+#div_login
+{
+  height : 170px;
+  background-color: white;
+  width : 300px;
+}
+
+#first_login
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+}
+#first_join
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  left: 42px;
+  top: 189px;
+  width: 1020px;
+  height: 4px;
+  z-index: 6;
+}
+#div_main
+{
+  width : 1020px;
+  height : 220px;
+  display: inline-flex;
+}
+#input_area
+{
+  width : 660px;
+  height : 290px;
+}
+#input_id
+{
+  width : 660px;
+  height : 145px;
+
+}
+#input_password
+{
+  width : 660px;
+  height : 145px;
+
+}
+.input_id
+{
+ border-width: 1px;
+ border-color: rgb(153, 153, 153);
+ border-style: solid;
+ border-radius: 4px;
+ background-color: rgb(255, 255, 255);
+ margin-left: 325px;
+ margin-top : 100px;
+ width: 288px;
+ height: 36px;
+ z-index: 11;
+}
+.input_password
+{
+  border-width: 1px;
+  border-color: rgb(153, 153, 153);
+  border-style: solid;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  margin-left : 325px;
+  margin-top: 10px;
+  width: 288px;
+  height: 36px;
+  z-index: 10;
+}
+#login_button_area
+{
+  width : 320px;
+  height : 290px;
+
+}
+.login_button
+{
+  border-radius: 7px;
+    background-color: rgb(58, 74, 88);
+    width: 145px;
+    height: 89px;
+    z-index: 12;
+    font-size: 20px;
+   font-family: "NanumBarunGothic";
+   color: rgb(255, 255, 255);
+   font-weight: bold;
+   line-height: 1.2;
+   margin-top: 100px;
+   z-index: 15;
+   text-align : center;
+}
+#div_main2
+{
+  width : 1020px;
+  height : 200px;
+  display : inline-flex;
+}
+#div_mention
+{
+  width : 600px;
+  height : 200px;
+}
+#div_mention_button
+{
+  width:320px;
+  height : 200px;
+}
+#div_find_id
+{
+  width : 600px;
+  height : 100px;
+
+}
+#div_mention_join
+{
+  width : 600px;
+  height : 100px;
+}
+#div_find_id_button
+{
+  width : 320px;
+  height : 100px;
+}
+#div_join_button
+{
+  width : 320px;
+  height : 100px;
+}
+.find_login
+{
+  margin-top: 40px;
+  border-radius: 7px;
+  background-color: rgb(128, 175, 181);
+  width: 210px;
+  height: 49px;
+  z-index: 17;
+  font-size: 18px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  z-index: 20;
+}
+.join_button
+{
+  border-radius: 7px;
+  background-color: rgb(58, 74, 88);
+  width: 210px;
+  height: 49px;
+  z-index: 16;
+  font-size: 18px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  z-index: 21;
+}
+#first_mention
+{
+  font-size: 15px;
+ font-family: "NanumBarunGothic";
+ color: rgb(102, 102, 102);
+ margin-top : 55px;
+ margin-right: 65px;
+ z-index: 19;
+ float : right;
+}
+#second_mention
+{
+
+ font-size: 15px;
+ font-family: "NanumBarunGothic";
+ color: rgb(102, 102, 102);
+float : right;
+ margin-top: 10px;
+ margin-right: 110px;
+ z-index: 18;
+}

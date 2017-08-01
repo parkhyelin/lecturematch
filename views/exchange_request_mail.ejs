@@ -1,0 +1,65 @@
+<div class = "modal-header">
+  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class = "modal-title" id = "ExchangeRequestLabel"> 교환신청 </h4>
+</div>
+<div class= "modal-body">
+  <form>
+    <div class = "form-group">
+       Recipient : <label id="recipientname" class="control-label"><%=rows[0].send_name%></label>
+    </div>
+    <div class = "form-group">
+      <label for="message-text" class="control-label"> Message : </label>
+      <textarea class= "form-control" id="message_text"></textarea>
+    </div>
+  </form>
+</div>
+<div class = "modal-footer">
+  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> Close </button>
+  <button type = "button" id = "SendReplybtn" class = "btn btn-primary"> Send Mail </button>
+</div>
+
+
+<script>
+  $('#SendReplybtn').click(function(){
+    var recv_email = '<%=rows[0].send_email%>';
+    var content = $('#message_text').val();
+    var now = new Date();
+    function leadingZeros(n, digits){
+      var zero='';
+      n = n.toString();
+      if(n.length < digits){
+        for(i = 0 ; i < digits - n.length; i++){
+          zero += '0';
+        }
+      }
+      return zero + n;
+    }
+    var date_sent = leadingZeros(now.getYear()-100,2)+ '-'+
+                    leadingZeros(now.getMonth()+1,2)+'-' +
+                    leadingZeros(now.getDate(),2)+' ['+
+                    leadingZeros(now.getHours(),2)+':'+
+                    leadingZeros(now.getMinutes(),2)+']';
+    var data= {
+      'recv_email' : recv_email,
+      'content' : content,
+      'date_sent' : date_sent
+        }
+    $.ajax({
+      type : "POST",
+      url : "/first_test/replymail/<%=rows[0].id%>",
+      datatype : "json",
+      data : data,
+      success : function(result){
+        console.log(result);
+        alert('답장보내기 성공');
+        $(window).attr('location','/first_test');
+      }
+      ,
+      error: function(error){
+        alert('답장보내기 실패');
+      }
+    })
+  });
+</script>

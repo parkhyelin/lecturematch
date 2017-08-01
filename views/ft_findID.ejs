@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    아이디찾기
+  </title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="/javascripts/ft_find.js"></script>
+  <link rel='stylesheet' href='/stylesheets/find.css' />
+</head>
+
+<body>
+
+  <div class="tab">
+    <button class="tablinks" onclick="find(event, 'find_id')">아이디 찾기</button>
+    <button class="tablinks" onclick="find(event, 'find_pwd')">비밀번호 찾기</button>
+  </div>
+
+  <div id="find_id" class="tabcontent">
+<form action="/first_test/findID_success" method="get">
+  <input type='text' name='f_name' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
+    <input type='submit' id='find_button' value="확인">
+</form>
+</div>
+
+  <div id="find_pwd" class="tabcontent">
+<form action="/first_test/findpwd_success" method="get">
+  <input type='text' name='f_email' placeholder="이메일을 입력하세요">
+  <input type='text' name='f_name' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
+    <input type='submit' id='find_button2' value="확인">
+</form>
+</div>
+
+<script>
+function find(evt, item) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(item).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+
+</body>
+</html>

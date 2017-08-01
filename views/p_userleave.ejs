@@ -3,16 +3,13 @@
   <head>
     <title><%= title %></title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="/javascripts/home.js"></script>
+    <script src="/javascripts/leave.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><a href='/practice'>Instagram</a></h1>
-    <h2>Hello <%=user %>!</h2>
-    <ul>
-      <li><a href='/practice/logout'>Logout</a></li>
-      <li><a href='/practice/userlists'>Users</a></li>
-      <li><a href='/practice/userleave'>회원탈퇴</a></li>
-    </ul>
+    <h2>비밀번호 입력</h2>
+    <p>password : <input type="password" name="pwd" id="leave_password"></p>
+    <input type="button" value="탈퇴" id="leaveButton">
   </body>
 </html>

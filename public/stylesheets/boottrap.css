@@ -1,0 +1,82 @@
+#first_area
+{
+  padding : 1px;
+  height : 170px;
+  background: yellow;
+}
+#first_login
+{
+  cursor : pointer;
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+}
+#first_join
+{
+  cursor : pointer;
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+}
+
+#logo
+{
+  cursor : pointer;
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  margin-left : 110px;
+  margin-top: 80px;
+
+}
+#first_email
+{
+  cursor : pointer;
+  font-size : 15px;
+  float : right;
+  padding:1px;
+  margin-right : 5PX;
+  margin-top:13px;"
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  margin-top: 5px;
+  width : 100%;
+  height: 4px;
+}
+#input_area
+{
+  background-color: red;
+  width : 800px;
+  height : 300px;
+}
+.input_id
+{
+  border-width: 1px;
+ border-color: rgb(153, 153, 153);
+ border-style: solid;
+ border-radius: 4px;
+ background-color: rgb(255, 255, 255);
+
+ width: 288px;
+ height: 36px;
+ z-index: 11;
+}
+.input_password
+{
+  border-width: 1px;
+  border-color: rgb(153, 153, 153);
+  border-style: solid;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+
+  width: 288px;
+  height: 36px;
+  z-index: 10;
+}

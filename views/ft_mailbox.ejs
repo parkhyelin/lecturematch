@@ -1,0 +1,163 @@
+<div class = "modal-header">
+  <<메일함>>
+  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="tab">
+    <button class="tablinks" onclick="mailbox(event, 'recv_mail')">받은쪽지함</button>
+    <button class="tablinks" onclick="mailbox(event, 'send_mail')">보낸쪽지함</button>
+  </div>
+
+</div>
+  <div class= "modal-body">
+  <div id="recv_mail" class="tabcontent">
+    <table id = "RecvMailBoxTable">
+      <tr>
+        <th> 발신자 </th>
+        <th> 쪽지내용 </th>
+        <th> 날짜 </th>
+        <th> 삭제 </th>
+      </tr>
+      <% var reverse=rows.reverse()%>
+    <%
+          for(var i = 0; i < rows.length; i++){
+            var oneItem = rows[i];
+            if( oneItem.recv_del == 'Y'){ continue;}
+            else {
+    %>
+        <tr>
+            <td><%=oneItem.send_name%></td>
+            <td><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+            <%
+            if(oneItem.recv_read == 'N'){
+            %>
+            <td>!안읽음!</td>
+            <%
+              }
+            %>
+            <td><%=oneItem.date_sent%></td>
+            <td><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+        </tr>
+    <%
+          }
+        }
+    %>
+    </table>
+    <%
+          for(var i = 0; i < rows.length; i++){
+            var oneItem = rows[i];
+            if( oneItem.recv_del == 'Y'){ continue;}
+            else {
+    %>
+    <div class = "modal" id= "contentViewModal<%=oneItem.id%>" aria-hidden="true" >
+    <div class = "modal-dialog">
+    <div class = "modal-content">
+
+    </div>
+    </div>
+    </div>
+
+
+    <script>
+    $('#contentView<%=oneItem.id%>').click('show.bs.modal',function(event){
+        $('#contentViewModal<%=oneItem.id%>').modal({
+          remote : '/first_test/contentViewModal/<%=oneItem.id%>'
+        });
+      });
+    $('#contentViewModal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+      $('#contentViewModal<%=oneItem.id%>').modal('show');
+    });
+    $('#contentViewModal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+        $(this).removeData('bs.modal');
+    });
+    </script>
+
+    <%
+          }
+        }
+    %>
+  </div>
+  <div id="send_mail" class="tabcontent">
+    <table id = "SendMailBoxTable">
+      <tr>
+        <th> 수신자 </th>
+        <th> 내용 </th>
+        <th> 날짜 </th>
+        <th> 삭제 </th>
+      </tr>
+
+
+    <%
+          for(var i = 0; i < rows2.length; i++){
+            var oneItem = rows2[i];
+            if( oneItem.send_del == 'Y'){ continue;}
+            else {
+    %>
+        <tr>
+            <td><%=oneItem.recv_name%></td>
+            <td><a href = "#SendcontentViewModal<%=oneItem.id%>" id = "SendcontentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+            <td><%=oneItem.date_sent%></td>
+            <td><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+          </tr>
+    <%
+          }
+        }
+    %>
+    </table>
+
+      <%
+            for(var i = 0; i < rows2.length; i++){
+              var oneItem = rows2[i];
+              if( oneItem.send_del == 'Y'){ continue;}
+              else {
+      %>
+              <div class = "modal" id= "SendcontentViewModal<%=oneItem.id%>" aria-hidden="true" style="display:none;"  data-backdrop="" >
+              <div class = "modal-dialog">
+              <div class = "modal-content">
+                  <!-- remote ajax call이 되는영역 -->
+              </div>
+              </div>
+              </div>
+
+
+              <script>
+              $('#SendcontentView<%=oneItem.id%>').click('show.bs.modal',function(event){
+                  $('#SendcontentViewModal<%=oneItem.id%>').modal({
+                    remote : '/first_test/SendcontentViewModal/<%=oneItem.id%>'
+                  });
+                });
+              $('#SendcontentViewModal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+                $('#SendcontentViewModal<%=oneItem.id%>').modal('show');
+              });
+              $('#SendcontentViewModal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+                  $(this).removeData('bs.modal');
+              });
+              </script>
+
+      <%
+            }
+          }
+      %>
+  </div>
+
+  <script>
+  function mailbox(evt, item) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(item).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+  </script>
+
+</div>
+<div class = "modal-footer">
+  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="RecvBoxClosebtn"> Close </button>
+</div>

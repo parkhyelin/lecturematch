@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+    <title>join2_page</title>
+    <script type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+       <link type="text/css" rel="stylesheet" href="/stylesheets/new_join2.css">
+       <script src="/javascripts/ft_join.js"></script>
+  </head>
+  <body ondragstart="return false">
+    <div id="wrapper">
+         <div id="d1"><p class="p_style2">이메일</p>
+         </div>
+         <div id="d2"><p class="p_style2">닉네임</p>
+         </div>
+         <div id="d7"><input type="text" class="a1" id="join_nickname">
+         </div>
+         <div id="d3"><p class="p_style2">비밀번호</p>
+         </div>
+         <div id="d8"><input type="password" class="a1" id="join_password" placeholder="8자리 이상 입력하세요.">
+         </div>
+         <div id="d4"><p class="p_style2">비밀번호 확인</p>
+         </div>
+         <div id="d9"><input type="password" class="a1" id="join_password_check">
+           <p id="password_correct">비밀번호가 일치합니다.</p><p id="password_incorrect">비밀번호가 불일치합니다.</p>
+         </div>
+         <div id="d6"><input type="text" class="a1" id="join_email">
+           <p id="useful_email">사용가능한 이메일 입니다.</p><p id="not_useful_email">사용 불가능한 이메일입니다.</p>
+         </div>
+         <div id="d5"><p class="p_style2">휴대전화 번호</p>
+         </div>
+         <div id="d10"><input type="text" class="a1" id="join_cellphone" placeholder="하이픈('-')없이 입력하세요.">
+           <form>
+           <input type="radio" name="phoneradio" value= "공개" id="ok"> 공개
+           <input type="radio" name="phoneradio" value= "비공개" id="not_ok"> 비공개
+         </form style="margin-left: 250px; margin-top: 550px;">
+           <p id="p">공개로 설정하시면 게시물을 보는<br>사람들에게 당신의 전화번호가 보여집니다.</p>
+         </div>
+
+         <input type="button" value="취소" id="cancelButton">
+         <input type = "button" value = "가입" id="joinButton">
+         <div id="first_area">
+           <div id="div_logo">
+             <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
+           </div>
+           <div id="z">
+           </div>
+           <div id="div_login">
+             <% if(!session) { %>
+             <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+             <% } else  {%>
+             <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+             <% } %>
+             <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+
+                     <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+                             메일함
+                     </button>
+
+                     <div class = "modal" id= "MailBoxModal" style="display:none;" >
+                     <div class = "modal-dialog">
+                       <div class = "modal-content">
+                         <!-- remote ajax call이 되는영역 -->
+                       </div>
+                       </div>
+                       </div>
+           </div>
+         </div>
+         <div id="line_1">
+         </div>
+         <div id="main_area">
+           <div id="main_area_first">
+             <div id="first_1">
+                 <p id="join_mention">회원가입</p>
+                 <div id="rectangle_2">
+                 </div>
+             </div>
+             <div id="first_2">
+               <p id="number_1">1</p> <p id="a">약관동의</p>
+               <div><img id = "arrow1"src="화살표.png"></div>
+               <p id="number_2">2</p><p id="b">정보입력</p>
+               <div><img id = "arrow2"src="화살표.png"></div>
+               <p id="number_3">3</p><p id="c">가입완료</p>
+             </div>
+           </div>
+           <div id="main_area_second">
+
+           </div>
+         </div>
+       </div>
+
+
+
+  </body>
+</html>

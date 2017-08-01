@@ -1,0 +1,19 @@
+
+  <div class = "modal-header">
+
+         <%=rows[0].recv_name%> 님께 보낸 쪽지<br>
+         보낸 시간 : <%=rows[0].date_sent%>
+         읽음 여부 : <%=rows[0].recv_read%>
+        <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <!-- modal-header -->
+
+      <div class= "modal-body">
+          <textarea row= "5" cols= "50" readonly>
+            <%=rows[0].content%>
+          </textarea>
+      </div> <!-- modal-body -->
+      <div class = "modal-footer">
+          <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Okbtn"> 확인</button>
+      </div>

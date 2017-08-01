@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <script type="text/javascript"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src = "/javascripts/ft_matching.js"></script>
+      <link rel = 'stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <p> 교환신청이 완료되었습니다. </p>
+    <p> 작성자 : <%= rows[0].writer %> </p>
+    <p> 작성자 전화번호 :
+    <%  if( results[0].phoneopen == '비공개'){ %>
+         비공개
+    <%    }
+        else {
+    %>
+      <%= results[0].phone %>
+    <% } %>
+     </p>
+    <p>
+     구하는 과목명 : <%= rows[0].class_name %>      버리는 과목명 : <%= rows[0].change_class_name %> <br>
+     교수 : <%= rows[0].prof_name %>               교수 : <%= rows[0].change_prof_name %> <br>
+     시간 : <%= rows[0].time %>                    시간 : <%= rows[0].change_time %>  <br>
+   </p>
+
+      <button type = "button" id = "OKbtn" class = "btn btn-primary" onclick="location.href='/first_test' "> 확인 </button>
+
+
+  </body>
+</html>

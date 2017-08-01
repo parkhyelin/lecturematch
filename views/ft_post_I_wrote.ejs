@@ -1,0 +1,40 @@
+<h2>내가 쓴 게시물</h2>
+<table border="1px solid black;">
+    <thead>
+      <tr>
+        <td>버림/구함</td>
+        <td>글제목</td>
+        <td>작성일자</td>
+        <td>작성자</td>
+
+     </tr>
+    </thead>
+    <% var reverse=result.reverse();%>
+      <% console.log("길이"+result.length)%>
+      <%
+        for(var i = 0 ; i < result.length; i++){
+          var oneItem = result[i];
+      %>
+      <tbody>
+        <tr>
+          <td>
+            <%=oneItem.choice%>
+          </td>
+          <td class='titleButton'>
+            <%=oneItem.title%>
+          </td>
+          <td>
+            <%=oneItem.date%>
+          </td>
+          <td>
+            <%=oneItem.writer_name%>
+          </td>
+          <td><input type='button' value='삭제' onclick="location.href='/first_test/boarddelete/<%=oneItem.id%>'"></td>
+
+       </tr>
+
+      <%
+        }
+      %>
+    </tbody>
+  </table>

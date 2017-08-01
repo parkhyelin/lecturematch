@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <script type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src = "/javascripts/ft_join.js"></script>
+  <link rel = 'stylesheet' href='/stylesheets/join.css'/>
+</head>
+<body>
+  <h1><a href = '/first_test'>강의교환 first_test </a></h1>
+  <h2> JOIN </h2>
+  <p> Email    : <input type = "text" name = "email" id = "join_email"></p>
+  <p> Name : <input type = "text" name = "nick" id = "join_nickname"></p>
+  <p> password : <input type = "password" name = "pwd" id = "join_password"></p>
+  <p> password check : <input type = "password" name = "pwd_check" id = "join_password_check"></p>
+  <p> phone number : <input type ="text" name="cellphone" id = "join_cellphone"></p>
+
+
+  <input type="radio" name="phoneradio" value= "공개"> 공개
+  <input type="radio" name="phoneradio" value= "비공개"> 비공개
+
+
+
+<div style="border:1px solid; padding: 10px;">
+  <h2>주의사항</h2>
+  <h3>매매불가</h3>
+  <input type="radio" name="okradio" value= "ok"> 동의
+  <input type="radio" name="okradio" value= "notok"> 미동의
+</div>
+
+
+  <input type = "button" value = "가입" id="joinButton">
+  <input type="button" value="취소" id="cancelButton">
+
+
+
+</body>
+
+</html>

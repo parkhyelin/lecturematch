@@ -1,0 +1,218 @@
+#wrapper
+{
+  width : 1020px;
+  margin : 0 auto;
+}
+#first_area
+{
+  width : 1020px;
+  height : 170px;
+
+  display: inline-flex;
+}
+#div_logo
+{
+  height : 150px;
+
+  width : 300px;
+  padding : 10px;
+}
+#z{
+  width: 420px;
+
+  height: 170px;
+}
+#logo
+{
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  cursor: pointer;
+  margin-top: 80px;
+}
+#div_login
+{
+  height : 170px;
+
+  width : 300px;
+}
+
+#first_login
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
+#first_join
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#first_mypage
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  left: 42px;
+  top: 189px;
+  width: 1020px;
+  height: 4px;
+  z-index: 6;
+}
+#main_area
+{
+  width : 1020px;
+  height : 600px;
+
+}
+#main_area_first
+{
+  width : 1020px;
+  height : 120px;
+  display: inline-flex;
+  background-color: white;
+}
+#main_area_second
+{
+  width : 1020px;
+  height : 460px;
+
+  background-color: rgb(244, 244, 244);
+}
+#first_1
+{
+  width : 200px;
+  height : 120px;
+}
+
+#first_2
+{
+  width : 820px;
+  height : 120px;
+  display: inline-flex;
+}
+#join_mention
+{
+  font-size: 25px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ font-weight: bold;
+ line-height: 5.2;
+ height : 65px;
+ z-index: 3;
+ margin-left: 10px;
+}
+#rectangle_2
+{
+  background-color: rgb(128, 175, 181);
+  width: 111px;
+  height: 7px;
+}
+#a
+{
+  font-size: 20px;
+ font-family: "NanumBarunGothic";
+ color: rgb(153, 153, 153);
+ line-height: 1.2;
+ position : relative;
+ margin-top: 80px;
+ z-index: 15;
+ margin-right: 20px;
+}
+#number_1
+{
+  margin-right: 30px;
+ font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(153, 153, 153);
+ font-weight: bold;
+ line-height: 1.2;
+ margin-left: 70px;
+ z-index: 14;
+}
+#number_2
+{
+ margin-right: 40px;
+ font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(153, 153, 153);
+ font-weight: bold;
+ line-height: 1.2;
+ margin-left: 50px;
+
+}
+#number_3
+{
+ margin-right: 30px;
+ font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ font-weight: bold;
+ line-height: 1.2;
+ margin-left: 50px;
+
+}
+#b
+{
+  font-size: 20px;
+   font-family: "NanumBarunGothic";
+   color: rgb(58, 74, 88);
+   line-height: 1.2;
+   margin-left: -10px;
+   margin-top: 80px;
+}
+#c
+{
+  font-size: 20px;
+   font-family: "NanumBarunGothic";
+   color: rgb(58, 74, 88);
+   line-height: 1.2;
+   margin-top: 80px;
+}
+#arrow1
+{
+  margin-top: 55px;
+  cursor : default;
+}
+#arrow2
+{
+  margin-left: 30px;
+  margin-top: 55px;
+  cursor : default;
+}
+#ok_mention
+{
+  position : absolute;
+  margin-left: 360px;
+  margin-top: 480px;
+  font-size: 30px;
+  font-weight: bold;
+}
+#ok_button
+{
+  font-size: 18px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  border-radius: 7px;
+  background-color: rgb(128, 175, 181);
+  position: absolute;
+  margin-left: 450px;
+  margin-top: 650px;
+  width: 149px;
+  height: 40px;
+}

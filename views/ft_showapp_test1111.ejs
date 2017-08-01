@@ -1,0 +1,73 @@
+<div class = "modal-header">
+  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div> <!-- modal-header -->
+  <div class= "modal-body">
+      <table border="1px solid black;">
+          <thead>
+            <tr>
+              <td>이름</td>
+              <td>내용</td>
+              <td>날짜</td>
+              <td>수락</td>
+           </tr>
+          </thead>
+          <tbody>
+            <%
+              for( var i = 0 ; i< results.length ; i++){
+                oneItem = results[i];
+                if(results[i].accept != '대기중'){
+            %>
+                교환이 완료된 게시물 입니다.
+            <%
+            break;
+          }else{
+            %>
+              <tr>
+                <td><%= oneItem.app_name %></td>
+                <td><%= oneItem.content %></td>
+                <td><%= oneItem.app_date %></td>
+                <td><a href = "#acceptModal<%=oneItem.id%>" id="acceptbtn<%=oneItem.id%>" data-toggle = "modal" data-target = "acceptModal<%=oneItem.id%>">수락</a></td>
+              </tr>
+            <%
+            }
+          }
+            %>
+          </tbody>
+        </table>
+  </div> <!-- modal-body -->
+  <div class = "modal-footer">
+    <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Okbtn"> 확인</button>
+</div>
+
+<%
+      for(var i = 0; i < results.length; i++){
+        var oneItem = results[i];
+%>
+<div class = "modal" id= "acceptModal<%=oneItem.id%>" tabindex="-1" data-focus-on="input:first">
+<div class = "modal-dialog">
+<div class = "modal-content">
+    <!-- remote ajax call이 되는영역 -->
+</div>
+</div>
+</div>
+
+
+<script>
+$('#acceptbtn<%=oneItem.id%>').click('show.bs.modal',function(event){
+    $('#acceptModal<%=oneItem.id%>').modal({
+      remote : '/first_test/acceptModal/<%=oneItem.id%>'
+    });
+  });
+$('#acceptModal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+  $('#acceptModal<%=oneItem.id%>').modal('show');
+})
+$('#acceptModal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+    $(this).removeData('bs.modal');
+});
+</script>
+
+<%
+    }
+%>

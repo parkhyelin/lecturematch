@@ -1,0 +1,87 @@
+<h2>교환 신청 작성 목록</h2>
+<table border="1px solid black;">
+    <thead>
+      <tr>
+        <td>구하는 과목</td>
+        <td>교수</td>
+        <td>시간</td>
+        <td>버리는 과목</td>
+        <td>교수</td>
+        <td>시간</td>
+        <td>게시날짜</td>
+        <td>교환완료여부</td>
+        <td>삭제</td>
+        <td>신청자보기</td>
+     </tr>
+    </thead>
+    <% var reverse=result2.reverse();%>
+      <%
+        for(var i = 0 ; i < result2.length; i++){
+          var oneItem = result2[i];
+      %>
+      <tbody>
+        <tr>
+          <td>
+            <%=oneItem.class_name%>
+          </td>
+          <td>
+            <%=oneItem.prof_name%>
+          </td>
+          <td>
+            <%=oneItem.time%>
+          </td>
+          <td>
+            <%=oneItem.change_class_name%>
+          </td>
+          <td>
+            <%=oneItem.change_prof_name%>
+          </td>
+          <td>
+            <%=oneItem.change_time%>
+          </td>
+          <td>
+            <%=oneItem.post_date%>
+          </td>
+          <td>
+            <%=oneItem.request%>
+          </td>
+          <td><input type='button' value='삭제' onclick="location.href='/first_test/exchangedelete/<%=oneItem.id%>'"></td>
+          <td>
+          <a href = "#Show_app_Modal<%=oneItem.id%>" id = "Show_app_btn<%=oneItem.id%>" data-toggle = "modal" >신청자 보기</a>
+        </td>
+       </tr>
+      <%
+        }
+      %>
+    </tbody>
+  </table>
+
+  <%
+    for(var i = 0 ; i < result2.length; i++){
+      var oneItem = result2[i];
+  %>
+                 <div class = "modal" id= "Show_app_Modal<%=oneItem.id%>" style="display:none;">
+                 <div class = "modal-dialog">
+                   <div class = "modal-content">
+                     <!-- remote ajax call이 되는영역 -->
+                   </div>
+                   </div>
+                   </div>
+
+               <script>
+               $('#Show_app_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
+                   $('#Show_app_Modal<%=oneItem.id%>').modal({
+                     remote : '/first_test/showapp_test1111/<%=oneItem.id%>'
+                   });
+                 });
+                 $('#Show_app_Modal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+                   $('#Show_app_Modal<%=oneItem.id%>').modal('show');
+                 });
+                 $('#Show_app_Modal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+                     $(this).removeData('bs.modal');
+                 });
+
+               </script>
+  <%
+    }
+  %>

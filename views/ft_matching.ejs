@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+   <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+
+      <script type="text/javascript"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src = "/javascripts/ft_matching.js"></script>
+      <link rel = 'stylesheet' href='/stylesheets/matching.css'/>
+      <style>
+      .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      </style>
+  </head>
+  <body style=" width: 1200px; height: 768px; position : relative;">
+    <div id="line_1">
+       </div>
+       <div id="first_area">
+         <p id="logo">LOGO</P>
+         <p id="first_FAQ">FAQ</p><p id="first_join">회원가입</p><p id="first_login">로그인</p><p id="mypage_mention">mypage</p>
+         <i class="glyphicon glyphicon-envelope" style="position : absolute; top : 15px; left : 900px; font-size : 16px;"></i>
+       </div>
+       <p id="mention1">버림/구함</p>
+       <div id="small_rectangle"></div>
+       <p id="mention2">교환</p>
+       <div>
+         <p id="mention3">교환</p>
+         <div id="rectangle_2"></div>
+       </div>
+
+    <table class ="buttons width-25" border="1px solid black;">
+      <thead>
+        <tr>
+          <td>작성자</td>
+          <td>구하는 과목명</td>
+          <td>교수</td>
+          <td>시간</td>
+          <td>버리는 과목명</td>
+          <td>교수</td>
+          <td>시간</td>
+          <td>교환신청</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% var reverse=result.reverse()%>
+
+        <% for(var i = 0 ; i < result.length ; i++){ %>
+          <% var oneItem = result[i]
+          if( oneItem.request == 'Y'){ continue;}
+          else {
+          %>
+
+          <tr>
+            <td><%= oneItem.writer %></td>
+            <td><%= oneItem.class_name%></td>
+            <td><%= oneItem.prof_name%></td>
+            <td><%= oneItem.time%></td>
+            <td><%= oneItem.change_class_name%></td>
+            <td><%= oneItem.change_prof_name%></td>
+            <td><%= oneItem.change_time%></td>
+            <td><input type="button" value="교환신청" class="select_matching" id="exchange_req_btn<%=oneItem.id%>" data-toggle= "modal" data-target = "exchange_req_modal<%=oneItem.id%>"></td>
+          </tr>
+          <% }
+            }
+            %>
+        </tbody>
+      </table>
+
+      <%
+            for(var i = 0; i < result.length; i++){
+              var oneItem = result[i];
+      %>
+      <div class = "modal" id= "exchange_req_modal<%=oneItem.id%>" tabindex="-1" data-focus-on="input:first">
+      <div class = "modal-dialog">
+      <div class = "modal-content">
+          <!-- remote ajax call이 되는영역 -->
+      </div>
+      </div>
+      </div>
+
+
+      <script>
+      $('#exchange_req_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
+          $('#exchange_req_modal<%=oneItem.id%>').modal({
+            remote : '/first_test/exchangerequest/<%=oneItem.id%>'
+          });
+        });
+        $('#exchange_req_modal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+          $('#exchange_req_modal<%=oneItem.id%>').modal('show');
+        });
+        $('#exchange_req_modal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+        });
+      </script>
+
+      <%
+          }
+      %>
+
+  </body>
+</html>

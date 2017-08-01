@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+  }
+
+  /* The Close Button */
+  .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  /* Style the tab */
+  div.tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+  }
+
+  /* Style the buttons inside the tab */
+  div.tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+  }
+
+  /* Change background color of buttons on hover */
+  div.tab button:hover {
+      background-color: #ddd;
+  }
+
+  /* Create an active/current tablink class */
+  div.tab button.active {
+      background-color: #ccc;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+  }
+  </style>
+  <script type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src = "/javascripts/ft_home.js"></script>
+  <link rel = 'stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+  <h1><a href ='/first_test'>강의교환 first_test</a></h1>
+  <h2>Hello <%=user %>!</h2>
+  <ul>
+    <li><a href = '/first_test/logout'> Logout </a></li>
+    <li><a href = '/first_test/leave1'> Leave </a></li>
+    <li><a href = '/first_test/mypage'> MyPage </a></li>
+    <li><a href = '/first_test/matching'> 강의교환페이지xx </a></li>
+    <li><a href = '/first_test/board/1'>버림/구함 게시판xx</a></li>
+    <li><a href = '/first_test/main'>Main</a></li>
+
+    <button type = "button" id="RecvMailBoxbtn" class = "mailbox-modal-btn" data-toggle"modal">
+      받은메일함
+    </button>
+    <div class = "modal" id= "RecvMailBoxModal" tabindex="-1" role="dialog" aria-labelledby="RecvMailBoxModalLabel" aria-hidden="true" style="display:none;">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <!-- remote ajax call이 되는영역 -->
+      </div>
+      </div>
+      </div>
+
+
+    <button type = "button" id="SendMailBoxbtn" class = "mailbox-modal-btn" data-toggle"modal">
+            보낸메일함
+    </button>
+    <div class = "modal" id= "SendMailBoxModal" tabindex="-1" role="dialog" aria-labelledby="SendMailBoxModalLabel" aria-hidden="true" style="display:none;">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <!-- remote ajax call이 되는영역 -->
+      </div>
+      </div>
+      </div>
+
+    <button type = "button" id="SendMailbtn" class = "sendmail-modal-btn" data-toggle ="modal" data-target="#SendMailModal">
+      SendMail
+    </button>
+
+    <div class = "modal" id= "SendMailModal" tabindex="-1" role="dialog" aria-labelledby="SendMailModalLabel" aria-hidden="true">
+      <div class = "modal-dialog">
+        <div class = "modal-content">
+          <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class = "modal-title" id = "SendMailModalLabel"> New message </h4>
+          </div>
+          <div class= "modal-body">
+            <form>
+              <div class = "form-group">
+                <label for="recipient-name" class="control-label"> Recipient : </label>
+                <input type = "text" class = "form-control" id = "recipient_email">
+              </div>
+              <div class = "form-group">
+                <label for="message-text" class="control-label"> Message : </label>
+                <textarea class= "form-control" id="message_text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class = "modal-footer">
+            <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> Close </button>
+            <button type = "button" id = "SendMailbtn_modal" class = "btn btn-primary"> Send Mail </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var SendMailmodal = document.getElementById("SendMailModal");
+    var SendMailbtn = document.getElementById("SendMailbtn");
+    var SendClosebtn = document.getElementById("SendClosebtn");
+    var span = document.getElementsByClassName("close")[0];
+    SendMailbtn.onclick = function(){
+      SendMailmodal.style.display = "block";
+    }
+    span.onclick = function(){
+      SendMailmodal.style.display = "none";
+    }
+
+    window.onclick = function(event){
+      if(event.target == SendMailmodal){
+        SendMailmodal.style.display = "none";
+      }
+    }
+    SendClosebtn.onclick = function(event){
+        SendMailmodal.style.display = "none";
+    }
+  </script>
+
+  <button type = "button" id="write_matching_modalbtn" class = "write_matching_modalbtn_cls" data-toggle"modal">
+    강의교환글쓰기
+  </button>
+  <div class = "modal" id= "write_matching_modal" tabindex="-1" role="dialog" aria-labelledby="WriteMatchingModalLabel" aria-hidden="true">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <div class = "modal-header">
+          <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class = "modal-title" id = "write_matching_title"> 강의교환글쓰기 </h4>
+        </div>
+        <div class= "modal-body">
+          <form>
+            <div class = "form-group">
+              <label for="class-name" class="control-label"> 구하는과목 : </label>
+              <input type = "text" class = "form-control" id = "class_name">
+            </div>
+            <div class = "form-group">
+              <label for="prof-name" class="control-label"> 교수 : </label>
+              <input type = "text" class = "form-control" id = "prof_name">
+            </div>
+            <div class = "form-group">
+              <label for="time" class="control-label"> 시간 : </label>
+              <input type = "text" class = "form-control" id = "time">
+            </div>
+            <div class = "form-group">
+              <label for="change-class-name" class="control-label"> 바꿀 과목 : </label>
+              <input type = "text" class = "form-control" id = "change_class_name">
+            </div>
+            <div class = "form-group">
+              <label for="change-prof-name" class="control-label"> 교수 : </label>
+              <input type = "text" class = "form-control" id = "change_prof_name">
+            </div>
+            <div class = "form-group">
+              <label for="change-time" class="control-label"> 시간 : </label>
+              <input type = "text" class = "form-control" id = "change_time">
+            </div>
+          </form>
+        </div>
+        <div class = "modal-footer">
+          <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Closebtn"> Close </button>
+          <button type = "button" class = "btn btn-primary" id = "OKbtn"> 올리기 </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var write_matching_modal = document.getElementById("write_matching_modal");
+  var write_matching_modalbtn = document.getElementById("write_matching_modalbtn");
+  var Closebtn = document.getElementById("Closebtn");
+  var span = document.getElementsByClassName("close")[0];
+  write_matching_modalbtn.onclick = function(){
+    write_matching_modal.style.display = "block";
+  }
+  span.onclick = function(){
+    write_matching_modal.style.display = "none";
+  }
+
+  window.onclick = function(event){
+    if(event.target == SendMailmodal){
+      write_matching_modal.style.display = "none";
+    }
+  }
+  Closebtn.onclick = function(event){
+      write_matching_modal.style.display = "none";
+  }
+</script>
+
+<button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle"modal">
+        메일함
+</button>
+
+<div class = "modal" id= "MailBoxModal"style="display:none;">
+<div class = "modal-dialog">
+  <div class = "modal-content">
+    <!-- remote ajax call이 되는영역 -->
+  </div>
+  </div>
+  </div>
+
+
+  </ul>
+</body>
+</html>

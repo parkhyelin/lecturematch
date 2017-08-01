@@ -1,0 +1,250 @@
+#first_area
+{
+  width : 1250px;
+  height : 170px;
+}
+#first_login
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+}
+#first_join
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+}
+#first_FAQ
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-right : 10px;
+  margin-top:10px;
+}
+#logo
+{
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  left: 90.047px;
+  top: 50.025px;
+  z-index: 5;
+}
+#second_area
+{
+  width : 100%;
+  height:150px;
+}
+#join_mention
+{
+  font-size: 25px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ font-weight: bold;
+ line-height: 1.2;
+ position: absolute;
+ left: 89.312px;
+ top: 225.588px;
+ z-index: 3;
+}
+#a
+{
+  font-size: 20px;
+ font-family: "NanumBarunGothic";
+ color: rgb(153, 153, 153);
+ line-height: 1.2;
+ position: absolute;
+ left: 376px;
+ top: 231.613px;
+ z-index: 15;
+}
+#number_1
+{
+  font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(153, 153, 153);
+ font-weight: bold;
+ line-height: 1.2;
+ position: absolute;
+ left: 330.344px;
+ top: 174.176px;
+ z-index: 14;
+}
+#number_2
+{
+  font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ color: rgb(153, 153, 153);
+ font-weight: bold;
+ line-height: 1.2;
+ position: absolute;
+ left: 586.344px;
+ top: 174.176px;
+ z-index: 16;
+}
+#number_3
+{
+  font-size: 50px;
+ font-family: "NanumBarunGothic";
+ color: rgb(58, 74, 88);
+ font-weight: bold;
+ line-height: 1.2;
+ position: absolute;
+ left: 836.344px;
+ top: 174.176px;
+ z-index: 16;
+}
+#b
+{
+  font-size: 20px;
+   font-family: "NanumBarunGothic";
+   color: rgb(153, 153, 153);
+   line-height: 1.2;
+   position: absolute;
+   left: 632px;
+   top: 231.613px;
+   z-index: 15;
+}
+#c
+{
+  font-size: 20px;
+   font-family: "NanumBarunGothic";
+   color: rgb(58, 74, 88);
+   line-height: 1.2;
+   position: absolute;
+   left: 882.578px;
+   top: 231.488px;
+   z-index: 17;
+}
+#css-arrow1 {
+    display: inline-block;
+    position: absolute;
+    margin: 0 0 0 8px;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border: 17px solid transparent;
+    border-left-color: #000;
+    left: 506.344px;
+    top: 248.176px;
+}
+#css-arrow1:before, #css-arrow1:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+#css-arrow1:before {
+    left: -30px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right-color: #000;
+}
+#css-arrow1:after {
+    left: -20px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-left-color: white;
+}
+#css-arrow2 {
+    display: inline-block;
+    position: absolute;
+    margin: 0 0 0 8px;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border: 17px solid transparent;
+    border-left-color: #000;
+    left: 756.344px;
+    top: 248.176px;
+}
+#css-arrow2:before, #css-arrow2:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+#css-arrow2:before {
+    left: -30px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right-color: #000;
+}
+#css-arrow2:after {
+    left: -20px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-left-color: white;
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  position: absolute;
+  left: 42px;
+  top: 189px;
+  width: 1180px;
+  height: 4px;
+  z-index: 6;
+}
+#rectangle_5{
+  background-color: rgb(244, 244, 244);
+  position: absolute;
+  left: 0px;
+  top: 7px;
+  width: 1000px;
+  height: 446px;
+  z-index: 4;
+}
+#rectangle_2
+{
+  background-color: rgb(128, 175, 181);
+  position: absolute;
+  left: 81px;
+  top: 280px;
+  width: 111px;
+  height: 7px;
+  z-index: 5;
+}
+#rectangle_5{
+  background-color: rgb(244, 244, 244);
+  position: absolute;
+  left: 0px;
+  top: 7px;
+  width: 1000px;
+  height: 446px;
+  z-index: 4;
+}
+#ok_mention
+{
+  margin-left: 350px;
+  margin-top: 200px;
+  font-size: 30px;
+  font-weight: bold;
+}
+#ok_button
+{
+  font-size: 18px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  border-radius: 7px;
+  background-color: rgb(128, 175, 181);
+  position: absolute;
+  left: 435px;
+  top: 360px;
+  width: 149px;
+  height: 40px;
+}
