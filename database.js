@@ -1,7 +1,7 @@
 module.exports = {
   host: 'localhost',
   user: 'root',
-  password: 'tbffl20327',
+  password: '1066223gks',
   database: 'instagram',
     multipleStatements : true
 }

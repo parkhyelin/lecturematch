@@ -17,7 +17,7 @@ var options = {
   host: 'localhost',
   port: 3306,
   user:'root',
-  password:'tbffl20327',
+  password:'1066223gks',
   database: 'instagram'
 };
 
