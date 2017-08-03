@@ -1021,7 +1021,7 @@ router.get('/requestdelete/:id',function(req,res){
           conn.query(sql2,'%'+search+'%', function(error, result2){
             console.log(result);
             console.log('success');
-            res.render('ft_main',{result2 : result2 ,result : result, qq : search, page : page,flag : flag, leng : Object.keys(result).length-1, page_num : 10, session : req.session.authId});
+            res.render('ft_main',{result2 : result2 ,result : result, qq : search, page : page,flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
           });
         }
       })
@@ -1034,6 +1034,10 @@ router.get('/requestdelete/:id',function(req,res){
     router.get('/findID_success',function(req,res){
       name = req.query.f_name;
       number = req.query.f_number;
+/*
+      var name = decodeURIComponent(uri_name);
+      var number = decodeURIComponent(uri_number);
+*/
       var sql = "select * from ft_user where name =? and phone =?";
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
@@ -1059,5 +1063,57 @@ router.get('/requestdelete/:id',function(req,res){
       });
     });
 
+/*
+    router.post('/findID_success', function(req, res, next) {
+      name = req.body.f_name;
+      number = req.body.f_number;
+      var sql = "SELECT * FROM ft_user WHERE name=? and phone=?";
+
+      conn.query(sql, [name, number], function(error,results,fields){
+        if(error){
+          console.log(error);
+        }else{
+            var result = results[0];
+            if(!result){
+              console.log('잘못된 유저정보');
+              res.end('error');
+            }else{
+              console.log('success');
+              res.end('success');
+            }
+        }
+      });//query
+    });
+
+    router.post('/findpwd_success', function(req, res, next) {
+      name = req.body.f_name;
+      number = req.body.f_number;
+      email = req.body.f_email;
+      var sql = "SELECT * FROM ft_user WHERE name=? and phone=? and email=?";
+
+      conn.query(sql, [name, number, email], function(error,results,fields){
+        if(error){
+          console.log(error);
+        }else{
+            var result = results[0];
+            if(!result){
+              console.log('잘못된 유저정보');
+              res.end('error');
+            }else{
+              console.log('success');
+              res.end('success');
+            }
+        }
+      });//query
+    });
+
+    router.get('/findID_success',function(req,res){
+      res.render('ft_findID_success');
+    });
+
+    router.get('/findpwd_success', function(req,res){
+      res.render('ft_findpwd_success');
+    });
+*/
   return router;
 }
