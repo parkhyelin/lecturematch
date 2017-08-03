@@ -109,9 +109,7 @@
                                     <%=oneItem.writer_name%>
                                   </td>
                                   <td><input type='button' value='삭제' onclick="location.href='/first_test/boarddelete/<%=oneItem.id%>'"></td>
-
                                </tr>
-
                               <%
                                 }
                               %>
@@ -185,11 +183,9 @@
                                          <div class = "modal" id= "Show_app_Modal<%=oneItem.id%>" style="display:none;">
                                          <div class = "modal-dialog">
                                            <div class = "modal-content">
-
                                            </div>
                                            </div>
                                            </div>
-
                                        <script>
                                        $('#Show_app_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
                                            $('#Show_app_Modal<%=oneItem.id%>').modal({
@@ -202,7 +198,6 @@
                                          $('#Show_app_Modal<%=oneItem.id%>').on('hidden', function () {
                                              $(this).data('modal', null);
                                          });
-
                                        </script>
                           <%
                             }
@@ -268,7 +263,6 @@
                                                            </div>
                                                            </div>
                                                            </div>
-
                                                        <script>
                                                        $('#Show_post_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
                                                            $('#Show_post_Modal<%=oneItem.id%>').modal({
@@ -281,7 +275,6 @@
                                                          $('#Show_post_Modal<%=oneItem.id%>').on('hidden.bs.modal', function () {
                                                              $(this).removeData('bs.modal');
                                                          });
-
                                                        </script>
                                           <%
                                             }

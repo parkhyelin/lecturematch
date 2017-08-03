@@ -6,10 +6,8 @@
     <title>join2_page</title>
     <script type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-       <link type="text/css" rel="stylesheet" href="/stylesheets/new_join2.css">
-       <script src="/javascripts/ft_join.js"></script>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/new_join2.css">
+    <script src="/javascripts/ft_join.js"></script>
   </head>
   <body ondragstart="return false">
     <div id="wrapper">
@@ -51,16 +49,11 @@
            </div>
            <div id="div_login">
              <% if(!session) { %>
-             <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+             <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
              <% } else  {%>
-             <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+             <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
              <% } %>
-             <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
-
-                     <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
-                             메일함
-                     </button>
-
+             <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
                      <div class = "modal" id= "MailBoxModal" style="display:none;" >
                      <div class = "modal-dialog">
                        <div class = "modal-content">
@@ -81,9 +74,9 @@
              </div>
              <div id="first_2">
                <p id="number_1">1</p> <p id="a">약관동의</p>
-               <div><img id = "arrow1"src="화살표.png"></div>
+               <div><img id = "arrow1"src="/images/화살표.PNG"></div>
                <p id="number_2">2</p><p id="b">정보입력</p>
-               <div><img id = "arrow2"src="화살표.png"></div>
+               <div><img id = "arrow2"src="/images/화살표.PNG"></div>
                <p id="number_3">3</p><p id="c">가입완료</p>
              </div>
            </div>
