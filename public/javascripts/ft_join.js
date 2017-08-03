@@ -37,13 +37,9 @@ $(document).ready(function() {
 
   //////////////////  join 2 ////////////////////
 
-    $('#join_email').bind('input propertychange',function() {
+  $('#join_email').bind('input propertychange',function() {
       var user_email = $('#join_email').val();
-      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (user_email == '' || !re.test(user_email)) {
-        //("올바른 이메일 주소를 입력하세요");
-      }else{
-        var data = {
+      var data = {
         'email': user_email
       }
       $.ajax({
@@ -55,12 +51,14 @@ $(document).ready(function() {
         data: data,
         success: function(result) {
           if(result == 'success'){
-            $('#join_email').css("background-color","#4CAF50");
+            $('#not_useful_email').css({"color":"red","visibility" : "hidden"});
+            $('#useful_email').css({"color":"#4CAF50","visibility" : "visible"});
             flag = true;
             //가능한 이메일
           }else if(result == 'error'){
             //불가능한 이메일
-            $('#join_email').css("background-color","#FFCECE");
+            $('#useful_email').css({"color":"#4CAF50","visibility" : "hidden"})
+            $('#not_useful_email').css({"color":"red","visibility" : "visible"});
             flag = false;
           }
         },
@@ -68,9 +66,7 @@ $(document).ready(function() {
           alert('error : emailcheck');
         }
       })
-    }//else
     });
-
 
     $('#join_cellphone').keyup(function(){
       var textinput = $("#join_cellphone").val();

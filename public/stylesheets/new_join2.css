@@ -46,6 +46,17 @@
   margin-top:10px;
   cursor: pointer;
 }
+#mypage_mention
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+
+  cursor: pointer;
+}
 #first_join
 {
   font-size : 15px;
@@ -176,13 +187,13 @@
 }
 #arrow1
 {
-  margin-top: 55px;
+  margin-top: 65px;
   cursor : default;
 }
 #arrow2
 {
-  margin-left: 30px;
-  margin-top: 55px;
+  margin-left: 40px;
+  margin-top: 65px;
   cursor : default;
 }
 #second_area1
