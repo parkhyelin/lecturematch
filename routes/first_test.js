@@ -64,9 +64,12 @@ module.exports = function(app){
   router.get('/exchangerequest/:id',function(req,res,next){
     recv_email = req.session.authId;
     var sql = "select * from class_info where id=?";
-
+    var sql2 = "select * from ft_user where email = ?";
     conn.query(sql,[req.params.id],function(err,rows){
-      res.render('ft_exchange_request_mail',{title :'교환신청',rows : rows});
+      var user = rows[0].writer_email;
+      conn.query(sql2, [user], function(err,rows2){
+        res.render('ft_exchange_request_mail',{title :'교환신청',rows2 : rows2, rows : rows});
+      });
     });
   });
 
@@ -656,18 +659,20 @@ module.exports = function(app){
       }
     });//query
   });
-
+  
 //상세 쪽지 모달 - 받은메일함
 router.get('/contentViewModal/:id',function(req,res,next){
   var sql = "select * from ft_mail where id = ?";
-  var sql2 = "UPDATE ft_mail SET recv_read = 'Y' where id = ?";
+  var sql2 = "select * from ft_user where email = ?";
+  var sql3 = "update ft_mail set recv_read ='Y' where id = ?";
+
   conn.query(sql,[req.params.id],function(error,rows){
     if(error){
       console.log(error);
     }else{
       var selectedrow = rows[0];
-      if(selectedrow.recv_read =='N'){
-        conn.query(sql2, [req.params.id], function(error,rows){
+      if(selectedrow.recv_read = 'N'){
+        conn.query(sql3, [req.params.id], function(error, rows2){
           if(error){
             console.log(error);
           }else{
@@ -675,8 +680,12 @@ router.get('/contentViewModal/:id',function(req,res,next){
           }
         });
       }
+
+      var email = rows[0].recv_email;
+      conn.query(sql2, [email], function(error, rows3){
+        res.render('ft_contentViewModal',{title :'받은쪽지상세함',rows3 : rows3, rows : rows});
+      });
     }
-    res.render('ft_contentViewModal',{title :'받은쪽지상세함',rows : rows});
   });
 });
 
@@ -817,9 +826,12 @@ router.get('/requestdelete/:id',function(req,res){
   router.get('/recvmailbox',function(req,res,next){
     recv_email = req.session.authId;
     var sql = "select * from ft_mail where recv_email=?";
+    var sql2 = "select * from ft_user where email = ?";
 
     conn.query(sql,[recv_email],function(err,rows){
-      res.render('ft_recvmailbox',{title :'받은메일함',rows : rows});
+      conn.query(sql, [recv_email], function(err, rows2){
+        res.render('ft_recvmailbox',{title :'받은메일함',rows2 : rows2,rows : rows});
+      })
     });
   });
   //보낸 메일함
