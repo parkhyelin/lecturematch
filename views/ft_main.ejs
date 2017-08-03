@@ -4,30 +4,25 @@
     <meta charset="utf-8">
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>board</title>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
        <script src="/javascripts/ft_main.js"></script>
   </head>
   <body ondragstart="return false">
-     <div id="wrapper">
-
-
-    <div id="first_area">
-      <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
-      <div id="z">
-      </div>
-      <div id="div_login">
-      <% if(!session) { %>
-      <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
-      <% } else  {%>
-      <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
-      <% } %>
-      <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
-
-              <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
-                      메일함
-              </button>
+    <div id="wrapper">
+      <div id="first_area">
+        <div id="div_logo">
+          <p id="logo"><a href = "/first_test/main/1" style="text-decoration:none;">LOGO</a></P>
+        </div>
+        <div id="z">
+        </div>
+        <div id="div_login">
+          <% if(!session) { %>
+          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <% } else  {%>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
+          <% } %>
+          <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
 
               <div class = "modal" id= "MailBoxModal" style="display:none;" >
               <div class = "modal-dialog">

@@ -18,51 +18,20 @@
 
   <div id="find_id" class="tabcontent">
 <form action="/first_test/findID_success" method="get">
-  <input type='text' name='f_name' id='f_name' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number' id='f_number' placeholder='핸드폰번호를 입력하세요'>
+  <input type='text' name='f_name' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button' value="확인">
 </form>
 </div>
 
   <div id="find_pwd" class="tabcontent">
 <form action="/first_test/findpwd_success" method="get">
-  <input type='text' name='f_email' id='f_email' placeholder="이메일을 입력하세요">
-  <input type='text' name='f_name' id='f_name' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number' id='f_number' placeholder='핸드폰번호를 입력하세요'>
+  <input type='text' name='f_email' placeholder="이메일을 입력하세요">
+  <input type='text' name='f_name' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button2' value="확인">
 </form>
 </div>
-
-<script>
- var link = document.location.href ;
- var uri_link = encodeURIComponent(link);
-/*
-function encodeFunction() {
-  var uri_name = document.getElementById("f_name");
-  var uri_number = document.getElementById("f_number");
-
-  var uri_enc = encodeURIComponent(uri_name);
-  var uri_enc2 = encodeURIComponent(uri_number);
-
-//  var res = "Encoded URI: " + uri_enc + "<br>" + "Decoded URI: " + uri_dec;
-//  document.getElementById("demo").innerHTML = res;
-}
-
-function encodeFunction() {
-  var uri_name = document.getElementById("f_name");
-  var uri_number = document.getElementById("f_number");
-  var uri_email = document.getElementById("f_email");
-
-  var uri_enc = encodeURIComponent(uri_name);
-  var uri_enc2 = encodeURIComponent(uri_number);
-  var uri_enc3 = encodeURIComponent(uri_email);
-//  var res = "Encoded URI: " + uri_enc + "<br>" + "Decoded URI: " + uri_dec;
-//  document.getElementById("demo").innerHTML = res;
-}
-*/
-</script>
-
-
 
 <script>
 function find(evt, item) {
