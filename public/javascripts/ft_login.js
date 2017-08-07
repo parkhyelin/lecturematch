@@ -36,7 +36,7 @@ $(document).ready(function(){
   }
   });
 
-  $('#login_joinButton').click(function(){
+  $('#login_JoinButton').click(function(){
     $(window).attr('location','/first_test/join1');
   });
 
