@@ -11,34 +11,6 @@
   <link rel='stylesheet' href='/stylesheets/new_board.css' />
 </head>
 
-<style>
-  #myModal {
-    background-color: gray;
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    display: none;
-    left: 0;
-    top: 0;
-    padding-top: 100px;
-    overflow: auto;
-  }
-
- .modalcontent {
-    width: 350px;
-    height: 400px;
-    background-color: white;
-    margin: 15px 456px 0px 456px;
-  }
-
- td.titleButton:hover {
-    color: red;
-    cursor: pointer;
-  }
-</style>
-
 <body ondragstart="return false">
   <div id="wrapper">
     <div id="first_area">
@@ -51,9 +23,8 @@
         <% if(!session) { %>
         <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
         <% } else  {%>
-        <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
+        <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button><p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
         <% } %>
-        <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
 
              <div class = "modal" id= "MailBoxModal" style="display:none;" >
              <div class = "modal-dialog">
