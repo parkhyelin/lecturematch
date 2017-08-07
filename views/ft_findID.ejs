@@ -3,8 +3,9 @@
 <head>
   <title>
     아이디찾기
-  </title>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  </title><script type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="/javascripts/ft_find.js"></script>
   <link rel='stylesheet' href='/stylesheets/find.css' />
 </head>
@@ -18,17 +19,17 @@
 
   <div id="find_id" class="tabcontent">
 <form action="/first_test/findID_success" method="get">
-  <input type='text' name='f_name' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
+  <input type='text' name='f_name' id='f_name' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number' id='f_number' placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button' value="확인">
 </form>
 </div>
 
   <div id="find_pwd" class="tabcontent">
 <form action="/first_test/findpwd_success" method="get">
-  <input type='text' name='f_email' placeholder="이메일을 입력하세요">
-  <input type='text' name='f_name' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number'  placeholder='핸드폰번호를 입력하세요'>
+  <input type='text' name='f_email' id='f_email' placeholder="이메일을 입력하세요">
+  <input type='text' name='f_name' id='f_name2' placeholder="이름을 입력하세요">
+  <input type='text' name='f_number' id='f_number2' placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button2' value="확인">
 </form>
 </div>
