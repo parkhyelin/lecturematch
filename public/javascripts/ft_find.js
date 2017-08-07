@@ -1,5 +1,45 @@
 
 $(document).ready(function() {
+  $('#f_number').keyup(function(){
+    var textinput = $("#f_number").val();
+    textinput = textinput.replace(/[^0-9]/g, '');
+    var tmp = ""
+
+    if (textinput.length > 3 && textinput.length <= 7) {
+      tmp += textinput.substr(0, 3);
+      tmp += '-';
+      tmp += textinput.substr(3);
+      $("#f_number").val(tmp);
+    } else if (textinput.length > 7) {
+      tmp += textinput.substr(0, 3);
+      tmp += '-';
+      tmp += textinput.substr(3, 4);
+      tmp += '-';
+      tmp += textinput.substr(7);
+      $("#f_number").val(tmp);
+    }
+  });
+
+  $('#f_number2').keyup(function(){
+    var textinput = $("#f_number2").val();
+    textinput = textinput.replace(/[^0-9]/g, '');
+    var tmp = ""
+
+    if (textinput.length > 3 && textinput.length <= 7) {
+      tmp += textinput.substr(0, 3);
+      tmp += '-';
+      tmp += textinput.substr(3);
+      $("#f_number2").val(tmp);
+    } else if (textinput.length > 7) {
+      tmp += textinput.substr(0, 3);
+      tmp += '-';
+      tmp += textinput.substr(3, 4);
+      tmp += '-';
+      tmp += textinput.substr(7);
+      $("#f_number2").val(tmp);
+    }
+  });
+
   /*
   $('#find_button').click(function(){
       var f_name = $('#f_name').val();
