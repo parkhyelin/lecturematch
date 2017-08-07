@@ -1046,18 +1046,11 @@ router.get('/requestdelete/:id',function(req,res){
     res.render('ft_findID');
     });
 
-<<<<<<< HEAD
-
     router.post('/findID_success',function(req,res){
       name = req.body.name;
       number = req.body.number;
       console.log(name);
-=======
-    router.get('/findID_success',function(req,res){
-      name = req.query.f_name;
-      number = req.query.f_number;
 
->>>>>>> cff038954c9d0917e8c8811e440657541ddbf628
       var sql = "select * from ft_user where name =? and phone =?";
 
 
