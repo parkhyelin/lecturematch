@@ -7,6 +7,12 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script src="/javascripts/ft_find.js"></script>
   <link rel='stylesheet' href='/stylesheets/board.css' />
+  <script type="text/javascript">
+  var cleanUri = location.protocol + '//' + location.host + location.pathname + location.hash;
+  cleanUri = encodeURIComponent(cleanUri);
+
+ window.history.replaceState({}, document.title, cleanUri);
+</script>
 </head>
 <body>
   <%     var user_password_after = result[0].password.substr(0,4);

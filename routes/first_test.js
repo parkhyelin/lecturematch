@@ -1,8 +1,8 @@
 module.exports = function(app){
   var express = require('express');
   var router = express.Router();
-
   var mysql = require('mysql');
+  var qs = require('querystring');
   var dbconfig = require('../database.js');
   var conn = mysql.createConnection(dbconfig);
 
@@ -1021,27 +1021,40 @@ router.get('/requestdelete/:id',function(req,res){
           conn.query(sql2,'%'+search+'%', function(error, result2){
             console.log(result);
             console.log('success');
-            res.render('ft_main',{result2 : result2 ,result : result, qq : search, page : page,flag : flag, leng : Object.keys(result).length-1, page_num : 10, session : req.session.authId});
+            res.render('ft_main',{result2 : result2 ,result : result, qq : search, page : page,flag : flag, leng : Object.keys(result).length-1,leng2:Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
           });
         }
       })
     });
 
     router.get('/findID',function(req,res){
-      res.render('ft_findID');
+    res.render('ft_findID');
     });
 
-    router.get('/findID_success',function(req,res){
-      name = req.query.f_name;
-      number = req.query.f_number;
+
+    router.post('/findID_success',function(req,res){
+      name = req.body.name;
+      number = req.body.number;
+      console.log(name);
       var sql = "select * from ft_user where name =? and phone =?";
+
+
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
         else{
           console.log(result);
-          res.render('ft_findID_success',{result:result});
+          if(result==''){
+              res.end('fail');
+          }
+          else
+              res.end('success');
         }
       });
+      res.render('ft_findID_success',{result:result});
+
+    });
+    router.get('/findID_success',function(req,res){
+      res.render('ft_findID_success');
     });
 
     router.get('/findpwd_success', function(req,res){
