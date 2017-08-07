@@ -1,4 +1,35 @@
 $(document).ready(function() {
+  $('#rectangle_8_1').click(function(){
+    $(window).attr('location','/first_test/mypage');
+  });
+
+  $('#rectangle_8_2').click(function(){
+    var password = $("#update_password_before").val();
+    var data = {
+      'password': password
+    }
+    $.ajax({
+      type: "POST",
+      url: "/first_test/updatebefore",
+
+      contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      cache: false,
+      datatype: "json", // expecting JSON to be returned
+      data: data,
+      success: function(result) {
+        if(result == 'success'){
+        $(window).attr('location','/first_test/updateinfo');
+      }else if(result == 'error'){
+          alert('비밀번호가 다릅니다.');
+      }
+      },
+      error: function(error) {
+        alert('실패!');
+      }
+    })
+  });
+
+
   $('#update_cellphone').keyup(function(){
     var textinput = $("#update_cellphone").val();
     textinput = textinput.replace(/[^0-9]/g, '');
@@ -36,6 +67,9 @@ $(document).ready(function() {
       return false;
     }else if(user_password != user_password_check){
       alert('비밀번호가 다릅니다!');
+      return false;
+    }else if(user_password.length < 8){
+      alert('비밀번호는 8자리 이상 입력하세요');
       return false;
     }else{
     var data = {
