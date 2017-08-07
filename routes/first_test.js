@@ -64,9 +64,12 @@ module.exports = function(app){
   router.get('/exchangerequest/:id',function(req,res,next){
     recv_email = req.session.authId;
     var sql = "select * from class_info where id=?";
-
+    var sql2 = "select * from ft_user where email = ?";
     conn.query(sql,[req.params.id],function(err,rows){
-      res.render('ft_exchange_request_mail',{title :'교환신청',rows : rows});
+      var user = rows[0].writer_email;
+      conn.query(sql2, [user], function(err,rows2){
+        res.render('ft_exchange_request_mail',{title :'교환신청',rows2 : rows2, rows : rows});
+      });
     });
   });
 
@@ -377,16 +380,15 @@ module.exports = function(app){
 
   //회원정보 GET
   router.get('/updateinfo',function(req,res,next){
-    if(req.session.authId){
+    if(req.session.authId && req.session.update){
     user_email = req.session.authId;
+    delete req.session.update;
     var sql = "select * from ft_user where email = ?"
     conn.query(sql,[user_email],function(err,rows){
             res.render('ft_updateinfo',{ title : '정보수정', rows : rows});
         });
       }else{
-        res.render('ft_home',{
-          title: 'Home'
-        });
+        res.redirect('/first_test/mypage');
       }
   });
 
@@ -660,14 +662,16 @@ module.exports = function(app){
 //상세 쪽지 모달 - 받은메일함
 router.get('/contentViewModal/:id',function(req,res,next){
   var sql = "select * from ft_mail where id = ?";
-  var sql2 = "UPDATE ft_mail SET recv_read = 'Y' where id = ?";
+  var sql2 = "select * from ft_user where email = ?";
+  var sql3 = "update ft_mail set recv_read ='Y' where id = ?";
+
   conn.query(sql,[req.params.id],function(error,rows){
     if(error){
       console.log(error);
     }else{
       var selectedrow = rows[0];
-      if(selectedrow.recv_read =='N'){
-        conn.query(sql2, [req.params.id], function(error,rows){
+      if(selectedrow.recv_read = 'N'){
+        conn.query(sql3, [req.params.id], function(error, rows2){
           if(error){
             console.log(error);
           }else{
@@ -675,8 +679,12 @@ router.get('/contentViewModal/:id',function(req,res,next){
           }
         });
       }
+
+      var email = rows[0].recv_email;
+      conn.query(sql2, [email], function(error, rows3){
+        res.render('ft_contentViewModal',{title :'받은쪽지상세함',rows3 : rows3, rows : rows});
+      });
     }
-    res.render('ft_contentViewModal',{title :'받은쪽지상세함',rows : rows});
   });
 });
 
@@ -689,16 +697,7 @@ router.get('/SendcontentViewModal/:id',function(req,res,next){
   });
 });
 
-/*
-  //마이페이지에서 신청자보기버튼 클릭시 모달
-  router.get('/showapp/:fk_class_info_id', function(req,res,next){
-    var sql = "select * from request_ex where fk_class_info_id = ?";
-    conn.query(sql,[req.params.fk_class_info_id], function(err, results){
-      console.log(results);
-      res.render('ft_showapp',{title : "신청자보기", results : results});
-    });
-  });
-*/
+
 ////////////////////////////test///////////////////////////////
 router.get('/showapp_test1111/:fk_class_info_id', function(req,res,next){
   var sql = "select * from request_ex where fk_class_info_id = ?";
@@ -817,9 +816,12 @@ router.get('/requestdelete/:id',function(req,res){
   router.get('/recvmailbox',function(req,res,next){
     recv_email = req.session.authId;
     var sql = "select * from ft_mail where recv_email=?";
+    var sql2 = "select * from ft_user where email = ?";
 
     conn.query(sql,[recv_email],function(err,rows){
-      res.render('ft_recvmailbox',{title :'받은메일함',rows : rows});
+      conn.query(sql, [recv_email], function(err, rows2){
+        res.render('ft_recvmailbox',{title :'받은메일함',rows2 : rows2,rows : rows});
+      })
     });
   });
   //보낸 메일함
@@ -908,6 +910,8 @@ router.get('/requestdelete/:id',function(req,res){
     var sql2 = 'select * from class_info';
     var page = req.params.page;
     var flag = false;
+    var dropflag = false;
+    var checkdrop = false;
     if(!req.params.page){
       page = 1;
     }
@@ -917,44 +921,13 @@ router.get('/requestdelete/:id',function(req,res){
         conn.query(sql2, function(err, result2){
           if(err){console.log(err);}
           else{
-              res.render('ft_main',{title : 'main',result2 : result2, result : result, flag : flag, page : page, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId });
+              res.render('ft_main',{title : 'main',result2 : result2, dropflag :dropflag, checkdrop : checkdrop,result : result, flag : flag, page : page, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId });
           }
         });
       }
     });
   });
-/*
-    //게시판페이지
-      router.get('/main/:page', function(req, res, next){
-        var page = req.params.page;
-        var sql2 = 'select * from class_info';
-        conn.query('SELECT * FROM postboard',function(err,result){
-          if(err)
-          throw err;
-          else{
-            conn.query(sql2, function(err,result2){
-                if(err) throw err;
-                else {
-                  res.render('ft_main',{title : 'main',result2 : result2, result : result, page : page, leng : Object.keys(result).length-1, page_num : 10 ,session : req.session.authId});
-                }
-            })
-          }
-        });
-        });
-*/
-        /*
-  //게시판페이지
-    router.get('/board/:page', function(req, res, next){
-      var page = req.params.page;
-      conn.query('SELECT * FROM postboard',function(err,result){
-        if(err)
-        throw err;
-        else{
-          res.render('ft_board',{title : 'main', result : result, page : page, leng : Object.keys(result).length-1, page_num : 10 });
-        }
-      });
-      });
-*/
+
   //삭제버튼을 눌렀을때 해당 게시글의 작성자가 맞는경우에만 게시글을 삭제
   router.get('/boarddelete/:id',function(req,res){
     var sql = "DELETE FROM postboard WHERE id = ? and writer =?";
@@ -1010,7 +983,10 @@ router.get('/requestdelete/:id',function(req,res){
     router.get('/search/:page',function(req,res){
       search=req.query.searchText;
       var page = req.params.page;
-      var flag = true;
+      var flag = true; //검색 여부
+      var checkdrop = false;
+      var dropflag = false;
+
       console.log(search);
       var sql="SELECT * FROM postboard WHERE title LIKE ?";
       var sql2="select * from class_info where class_name LIKE ?";
@@ -1019,23 +995,69 @@ router.get('/requestdelete/:id',function(req,res){
         console.log(error);
         else{
           conn.query(sql2,'%'+search+'%', function(error, result2){
-            console.log(result);
             console.log('success');
-            res.render('ft_main',{result2 : result2 ,result : result, qq : search, page : page,flag : flag, leng : Object.keys(result).length-1,leng2:Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
           });
         }
       })
+    });
+
+    router.get('/main/:page/guham', function(req,res){
+      var sql = "select * from postboard where choice ='구함'";
+      var sql2 ="select * from class_info";
+      var page = req.params.page;
+      var flag = false;
+      var dropflag = true; //드랍다운 플래그
+      var checkdrop = true; // 구함이면 값이 true, 버림이면 false
+      conn.query(sql, function(error, result){
+        if(error){console.log(error);}
+        else{
+          conn.query(sql2, function(error, result2){
+            if(error){console.log(error);}
+            else{
+              res.render('ft_main', {result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            }
+          })
+        }
+      });
+    });
+
+    router.get('/main/:page/beorim',function(req,res){
+      var sql = "select * from postboard where choice ='버림'";
+      var sql2 ="select * from class_info";
+      var page = req.params.page;
+      var flag = false;
+      var dropflag = true; //드랍다운 플래그
+      var checkdrop = false;
+      conn.query(sql, function(error, result){
+        if(error){console.log(error);}
+        else{
+          conn.query(sql2, function(error, result2){
+            if(error){console.log(error);}
+            else{
+              res.render('ft_main', {result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            }
+          })
+        }
+      });
     });
 
     router.get('/findID',function(req,res){
     res.render('ft_findID');
     });
 
+<<<<<<< HEAD
 
     router.post('/findID_success',function(req,res){
       name = req.body.name;
       number = req.body.number;
       console.log(name);
+=======
+    router.get('/findID_success',function(req,res){
+      name = req.query.f_name;
+      number = req.query.f_number;
+
+>>>>>>> cff038954c9d0917e8c8811e440657541ddbf628
       var sql = "select * from ft_user where name =? and phone =?";
 
 
@@ -1071,6 +1093,31 @@ router.get('/requestdelete/:id',function(req,res){
         }
       });
     });
+
+
+
+      //게시판 post
+      router.post('/updatebefore',function(req,res,next){
+        user_email=req.session.authId;
+        var password = req.body.password;
+        var sql = 'select * from ft_user where email = ?'
+        conn.query(sql, [user_email], function(error,results){
+          if(error){console.log(error)}
+          else{
+            if(results[0].password == password){
+              req.session.update = 'update';
+              res.end('success');
+            }else{
+              res.end('error');
+            }
+          }
+        });
+      });
+
+      router.get('/updatebefore', function(req,res){
+        session = req.session.authId;
+          res.render('ft_update1', {session :session});
+      });
 
   return router;
 }

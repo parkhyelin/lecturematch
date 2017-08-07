@@ -36,11 +36,21 @@ $(document).ready(function(){
   }
   });
 
-  $('#login_joinButton').click(function(){
+  $('#login_JoinButton').click(function(){
     $(window).attr('location','/first_test/join1');
   });
 
   $('#find_id_and_password').click(function(){
     $(window).attr('location','/first_test/findID');
+  });
+
+  $('#logo').click(function(){
+    $(window).attr('location','/first_test/main/1');
+  });
+  $('#first_join').click(function(){
+    $(window).attr('location','/first_test/join1');
+  });
+  $('#first_login').click(function(){
+    $(window).attr('location','/first_test/login');
   });
 });

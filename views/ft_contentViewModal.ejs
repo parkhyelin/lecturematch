@@ -2,7 +2,19 @@
   <div class = "modal-header">
 
          <%=rows[0].send_name%> 님이 보낸 쪽지<br>
-         보낸 시간 : <%=rows[0].date_sent%>
+         보낸 시간 : <%=rows[0].date_sent%><br>
+         번호 : <%
+          if(rows3[0].phoneopen == '비공개')
+          {
+          %>
+         비공개
+         <%
+       }else if(rows3[0].phoneopen == '공개'){
+         %>
+         <%= rows3[0].phone %>
+         <%
+       }
+         %>
         <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">x</button>
       </div>
 

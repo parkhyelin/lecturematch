@@ -7,16 +7,31 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script src="/javascripts/ft_find.js"></script>
   <link rel='stylesheet' href='/stylesheets/board.css' />
-  <script type="text/javascript">
-  var cleanUri = location.protocol + '//' + location.host + location.pathname + location.hash;
-  cleanUri = encodeURIComponent(cleanUri).replace(/[!'()]/g, escape).replace(/\*/g, "%2A");
 
- window.history.replaceState({}, document.title, cleanUri);
-</script>
+      <script type="text/javascript">
+      var uri = window.location.toString();
+      /*
+        if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+        }
+      */
+      var clean_uri = encodeURIComponent(uri);
+      window.history.replaceState({}, document.title, clean_uri);
+      </script>
 </head>
 <body>
+  <%
+    if(!result[0]){
+      %>
+      <h2> 일치하는 고객님의 정보가 없습니다. </h2>
+      <%
+    }else{
+  %>
 
  <h2>고객님의 아이디는 <%=result[0].email%>입니다.</h2>
 
+
+<% } %>
 </body>
 </html>

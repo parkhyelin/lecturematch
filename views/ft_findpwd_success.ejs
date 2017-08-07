@@ -15,15 +15,22 @@
 </script>
 </head>
 <body>
-  <%     var user_password_after = result[0].password.substr(0,4);
-         var something = '';
-         for( var i = 4 ; i < result[0].password.length; i++){
-           something += '*';
-         }
+  <%
+    if(!result[0]){
+      %>
+      <h2> 일치하는 고객님의 정보가 없습니다. </h2>
+      <%
+    }else{
 
-         var user_password = user_password_after + something;
+      var user_password_after = result[0].password.substr(0,4);
+          var something = '';
+          for( var i = 4 ; i < result[0].password.length; i++){
+            something += '*';
+          }
+
+          var user_password = user_password_after + something;
   %>
-
  <h2>고객님의 비밀번호는 <%=user_password%> 입니다.</h2>
+<% } %>
 </body>
 </html>
