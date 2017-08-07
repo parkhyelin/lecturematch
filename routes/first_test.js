@@ -380,16 +380,15 @@ module.exports = function(app){
 
   //회원정보 GET
   router.get('/updateinfo',function(req,res,next){
-    if(req.session.authId){
+    if(req.session.authId && req.session.update){
     user_email = req.session.authId;
+    delete req.session.update;
     var sql = "select * from ft_user where email = ?"
     conn.query(sql,[user_email],function(err,rows){
             res.render('ft_updateinfo',{ title : '정보수정', rows : rows});
         });
       }else{
-        res.render('ft_home',{
-          title: 'Home'
-        });
+        res.redirect('/first_test/mypage');
       }
   });
 
@@ -659,7 +658,7 @@ module.exports = function(app){
       }
     });//query
   });
-  
+
 //상세 쪽지 모달 - 받은메일함
 router.get('/contentViewModal/:id',function(req,res,next){
   var sql = "select * from ft_mail where id = ?";
@@ -698,16 +697,7 @@ router.get('/SendcontentViewModal/:id',function(req,res,next){
   });
 });
 
-/*
-  //마이페이지에서 신청자보기버튼 클릭시 모달
-  router.get('/showapp/:fk_class_info_id', function(req,res,next){
-    var sql = "select * from request_ex where fk_class_info_id = ?";
-    conn.query(sql,[req.params.fk_class_info_id], function(err, results){
-      console.log(results);
-      res.render('ft_showapp',{title : "신청자보기", results : results});
-    });
-  });
-*/
+
 ////////////////////////////test///////////////////////////////
 router.get('/showapp_test1111/:fk_class_info_id', function(req,res,next){
   var sql = "select * from request_ex where fk_class_info_id = ?";
@@ -935,38 +925,7 @@ router.get('/requestdelete/:id',function(req,res){
       }
     });
   });
-/*
-    //게시판페이지
-      router.get('/main/:page', function(req, res, next){
-        var page = req.params.page;
-        var sql2 = 'select * from class_info';
-        conn.query('SELECT * FROM postboard',function(err,result){
-          if(err)
-          throw err;
-          else{
-            conn.query(sql2, function(err,result2){
-                if(err) throw err;
-                else {
-                  res.render('ft_main',{title : 'main',result2 : result2, result : result, page : page, leng : Object.keys(result).length-1, page_num : 10 ,session : req.session.authId});
-                }
-            })
-          }
-        });
-        });
-*/
-        /*
-  //게시판페이지
-    router.get('/board/:page', function(req, res, next){
-      var page = req.params.page;
-      conn.query('SELECT * FROM postboard',function(err,result){
-        if(err)
-        throw err;
-        else{
-          res.render('ft_board',{title : 'main', result : result, page : page, leng : Object.keys(result).length-1, page_num : 10 });
-        }
-      });
-      });
-*/
+
   //삭제버튼을 눌렀을때 해당 게시글의 작성자가 맞는경우에만 게시글을 삭제
   router.get('/boarddelete/:id',function(req,res){
     var sql = "DELETE FROM postboard WHERE id = ? and writer =?";
@@ -1046,10 +1005,7 @@ router.get('/requestdelete/:id',function(req,res){
     router.get('/findID_success',function(req,res){
       name = req.query.f_name;
       number = req.query.f_number;
-/*
-      var name = decodeURIComponent(uri_name);
-      var number = decodeURIComponent(uri_number);
-*/
+
       var sql = "select * from ft_user where name =? and phone =?";
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
@@ -1075,57 +1031,30 @@ router.get('/requestdelete/:id',function(req,res){
       });
     });
 
-/*
-    router.post('/findID_success', function(req, res, next) {
-      name = req.body.f_name;
-      number = req.body.f_number;
-      var sql = "SELECT * FROM ft_user WHERE name=? and phone=?";
 
-      conn.query(sql, [name, number], function(error,results,fields){
-        if(error){
-          console.log(error);
-        }else{
-            var result = results[0];
-            if(!result){
-              console.log('잘못된 유저정보');
-              res.end('error');
-            }else{
-              console.log('success');
+
+      //게시판 post
+      router.post('/updatebefore',function(req,res,next){
+        user_email=req.session.authId;
+        var password = req.body.password;
+        var sql = 'select * from ft_user where email = ?'
+        conn.query(sql, [user_email], function(error,results){
+          if(error){console.log(error)}
+          else{
+            if(results[0].password == password){
+              req.session.update = 'update';
               res.end('success');
-            }
-        }
-      });//query
-    });
-
-    router.post('/findpwd_success', function(req, res, next) {
-      name = req.body.f_name;
-      number = req.body.f_number;
-      email = req.body.f_email;
-      var sql = "SELECT * FROM ft_user WHERE name=? and phone=? and email=?";
-
-      conn.query(sql, [name, number, email], function(error,results,fields){
-        if(error){
-          console.log(error);
-        }else{
-            var result = results[0];
-            if(!result){
-              console.log('잘못된 유저정보');
-              res.end('error');
             }else{
-              console.log('success');
-              res.end('success');
+              res.end('error');
             }
-        }
-      });//query
-    });
+          }
+        });
+      });
 
-    router.get('/findID_success',function(req,res){
-      res.render('ft_findID_success');
-    });
+      router.get('/updatebefore', function(req,res){
+        session = req.session.authId;
+          res.render('ft_update1', {session :session});
+      });
 
-    router.get('/findpwd_success', function(req,res){
-      res.render('ft_findpwd_success');
-    });
-*/
   return router;
 }
