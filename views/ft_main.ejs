@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>board</title>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
        <script src="/javascripts/ft_main.js"></script>
@@ -42,6 +43,45 @@
     </div>
     <div id="main_area">
 
+                <div class = "dropdown">
+                  <button class="dropdown-toggle" type ="button" data-toggle="dropdown" onclick="clickfunction()">
+                    버림/구함
+                  </button>
+                  <div id="dropdown_content" class = "dropdown-content">
+                    <a href = "/first_test/main/1/guham">구함</a>
+                    <a href = "/first_test/main/1/beorim">버림</a>
+                  <!--
+                  <%
+                  if(!flag){
+                  %>
+                    <a href = "/first_test/main/1/guham">구함</a>
+                    <a href = "/first_test/main/1/beorim">버림</a>
+                  <%
+                }else{
+                  %>
+                  <a href = "/first_test/main/1/guham/search/1/?searchText=<%=qq%>">구함</a>
+                  <a href = "/first_test/main/1/beorim/search/1/?searchText=<%=qq%>">버림</a>
+                  <%
+                }
+                  %>
+                -->
+                  </div>
+                </div>
+
+                <script>
+                function clickfunction() {
+                    var dropdown_content = document.getElementById("dropdown_content");
+                    if (dropdown_content.className.indexOf("show") == -1) {
+                        dropdown_content.className += " show";
+                    } else {
+                        dropdown_content.className = dropdown_content.className.replace(" show", "");
+                    }
+                }
+                </script>
+
+
+
+
                 <form action="/first_test/search/1" method="get">
                     <input type="text" name="searchText">
                     <input type="submit" class="btn" value='검색'>
@@ -52,7 +92,7 @@
           <p id="mention3">버림/구함</p>
           <div id="rectangle_2"></div>
 
-          <table border="1px solid black;">
+          <table class="type08">
               <thead>
                 <tr>
                   <td>게시글번호</td>
@@ -70,6 +110,7 @@
                         }else{
                           var item = result[i];
                     %>
+
                        <tr>
                          <td>
                            <%= i+1 %>
@@ -116,18 +157,40 @@
                       <td colspan = "5">
                         <%
                           for(var j = 0 ; j < result.length/10 ; j++){
-                        %>
-                        <%
                           if(!flag){
+                            if(!dropflag){
                         %>
-                            [ <a href="/first_test/main/<%= j+1 %>"><%=j+1%> </a>]
+                          [ <a href="/first_test/main/<%= j+1 %>"><%=j+1%> </a>]
+                        <%
+                          }else{
+                            if(!checkdrop){
+                        %>
+                            [ <a href="/first_test/main/<%= j+1 %>/beorim"><%=j+1%> </a>]
+                        <%
+                            }else{
+                        %>
+                              [ <a href="/first_test/main/<%= j+1 %>/guham"><%=j+1%> </a>]
+                        <%
+                            }
+                          }
+                      }else{
+                        if(!dropflag){
+                        %>
+                          [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>"><%=j+1%> </a>]
+                        <%
+                        }else{
+                          if(!checkdrop){
+                        %>
+                          [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>/beorim"><%=j+1%> </a>]
                         <%
                           }else{
                         %>
-                            [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>"><%=j+1%> </a>]
+                          [ <a href="/first_test/search/<%= j+1 %>/?searchText=<%=qq%>/guham"><%=j+1%> </a>]
                         <%
                           }
                         }
+                      }
+                    }
                         %>
                       </td>
                     </tr>
@@ -136,7 +199,6 @@
             </table>
 
             <input type='button' name='write' value='글쓰기' id='writeButton'>
-            <p><a href='/first_test/mypage'>마이페이지</a></p>
 
             <div id="myModal" class="modal">
               <div class= "modal-dialog">
@@ -185,7 +247,7 @@
         <div id="exchange" class="tab-pane active">
           <p id="mention3">강의교환</p>
           <div id="rectangle_2"></div>
-          <table class ="buttons width-25" border="1px solid black;">
+          <table class="type08">
             <thead>
               <tr>
                 <td>게시글번호</td>
