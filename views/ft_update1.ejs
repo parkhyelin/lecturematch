@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+    <title>updatebefore</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel = 'stylesheet' href='/stylesheets/new_leave1.css'/>
+        <script src = "/javascripts/ft_updateinfo.js"></script>
+        <script type="text/javascript"></script>
+  </head>
+  <body ondragstart="return false">
+    <div id="wrapper">
+      <div id="d3"><p id="p_style2">비밀번호</p>
+      </div>
+      <div id="d4">
+      <input type="password" id="update_password_before">
+    </div>
+    <input type="button" value="취소" id="rectangle_8_1">
+    <input type="button" value="다음" id="rectangle_8_2">
+      <div id="first_area">
+        <div id="div_logo">
+         <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
+        </div>
+        <div id="z">
+        </div>
+        <div id="div_login">
+          <% if(!session) { %>
+       <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+       <% } else  {%>
+       <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+       <% } %>
+       <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+
+               <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+                       메일함
+               </button>
+
+               <div class = "modal" id= "MailBoxModal" style="display:none;" >
+               <div class = "modal-dialog">
+                 <div class = "modal-content">
+                   <!-- remote ajax call이 되는영역 -->
+                 </div>
+                 </div>
+                 </div>
+        </div>
+      </div>
+      <div id="line_1">
+      </div>
+      <div id="main_area">
+        <div id="main_area_first">
+          <div id="first_1">
+              <p id="join_mention">회원수정</p>
+              <div id="rectangle_2">
+              </div>
+          </div>
+          <div id="first_2">
+          </div>
+        </div>
+        <div id="main_area_second">
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
