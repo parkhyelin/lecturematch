@@ -1,8 +1,8 @@
 module.exports = function(app){
   var express = require('express');
   var router = express.Router();
+
   var mysql = require('mysql');
-  var qs = require('querystring');
   var dbconfig = require('../database.js');
   var conn = mysql.createConnection(dbconfig);
 
@@ -70,7 +70,6 @@ module.exports = function(app){
     recv_email = req.body.recv_email;
     content = req.body.content;
     app_date = req.body.app_date;
-    //var sql = "INSERT INTO `ft_mail` (`recv_email`, `send_email`,`content`,`date_sent`,`recv_name`,`send_name`) VALUES (?,?,?,?,?,?);";
     var sql = "insert into `request_ex` (`fk_class_info_id`,`app_name`,`app_email`,`content`, `app_date`,`recv_email`) values (?,?,?,?,?,?);"
     var sql2 = "select * from `ft_user` where email = ?";
     if(send_email == recv_email){
@@ -87,27 +86,6 @@ module.exports = function(app){
         }
       }); //conn.query_sql2
 
-    /*
-     conn.query(sql2, [send_email], function(error, results, fields){
-      if(error){ console.log(error); }
-      else{
-        var myname = results[0].name;
-        conn.query(sql2, [recv_email],function(error,results2, fields){
-          if(error){ console.log(error); }
-          else{
-            var recvname = results2[0].name;
-            conn.query(sql, [recv_email, send_email, content, date_sent,recvname,myname], function(error, results3, fields){
-              if(error){
-                console.log(error);
-              }else{
-                console.log('교환신청성공');
-              }
-            });//sql_query
-          }
-        });
-      }
-    });
-    */
     res.end('success');
   }
   });
@@ -980,7 +958,53 @@ router.get('/requestdelete/:id',function(req,res){
 
       console.log(search);
       var sql="SELECT * FROM postboard WHERE title LIKE ?";
+      var sql2="select * from class_info where (change_class_name like ?) or (class_name like ?)";
+      conn.query(sql,'%'+search+'%',function(error,result){
+        if(error)
+        console.log(error);
+        else{
+          conn.query(sql2,['%'+search+'%','%'+search+'%'], function(error, result2){
+            if(error)console.log(error);
+            console.log(result2);
+            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+          });
+        }
+      })
+    });
+
+
+    //검색기능 - 구함
+    router.get('/main/:page/guham/search/',function(req,res){
+      search=req.query.searchText;
+      var page = req.params.page;
+      var flag = true; //검색 여부
+      var checkdrop = true;
+      var dropflag = false;
+
+      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='구함'";
       var sql2="select * from class_info where class_name LIKE ?";
+      conn.query(sql,'%'+search+'%',function(error,result){
+        if(error)
+        console.log(error);
+        else{
+          conn.query(sql2,'%'+search+'%', function(error, result2){
+            console.log('success');
+            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+          });
+        }
+      })
+    });
+    //검색기능 - 버림
+    router.get('/main/:page/beorim/search/',function(req,res){
+      search=req.query.searchText;
+      var page = req.params.page;
+      var flag = true; //검색 여부
+      var checkdrop = false;
+      var dropflag = false;
+
+      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='버림'";
+      var sql2="select * from class_info where change_class_name LIKE ?";
       conn.query(sql,'%'+search+'%',function(error,result){
         if(error)
         console.log(error);
@@ -1034,33 +1058,21 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
     router.get('/findID',function(req,res){
-    res.render('ft_findID');
+      res.render('ft_findID');
     });
 
-    router.post('/findID_success',function(req,res){
-      name = req.body.name;
-      number = req.body.number;
-      console.log(name);
+    router.get('/findID_success',function(req,res){
+      name = req.query.f_name;
+      number = req.query.f_number;
 
       var sql = "select * from ft_user where name =? and phone =?";
-
-
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
         else{
           console.log(result);
-          if(result==''){
-              res.end('fail');
-          }
-          else
-              res.end('success');
+          res.render('ft_findID_success',{result:result});
         }
       });
-      res.render('ft_findID_success',{result:result});
-
-    });
-    router.get('/findID_success',function(req,res){
-      res.render('ft_findID_success');
     });
 
     router.get('/findpwd_success', function(req,res){

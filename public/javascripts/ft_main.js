@@ -1,10 +1,5 @@
+  $(document).ready(function() {
 
-    //게시판 자바스크립트
-    //writeButton(글쓰기버튼)클릭시 글을 쓰기위한 모달창 생성
-    $(document).ready(function() {
-      $('#writeButton').click(function() {
-        $('#myModal').show('2000');
-    });
 
           $('#MailBoxbtn').click('show.bs.modal',function(event){
               $('#MailBoxModal').modal({
