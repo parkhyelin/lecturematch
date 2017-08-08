@@ -7,16 +7,7 @@ module.exports = function(app){
   var conn = mysql.createConnection(dbconfig);
 
   router.get('/', function(req,res,next){
-    if(req.session.authId){
-      res.render('ft_userHome',{
-        user : req.session.authId,
-        title : 'Home'
-      });
-    }else{
-      res.render('ft_home',{
-        title : 'Home'
-      });
-    }
+    res.redirect('/first_test/main/1');
   });
 
   //강의교환 GET - 페이지
