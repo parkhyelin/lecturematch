@@ -146,7 +146,7 @@ $(document).ready(function() {
     $('#ok_button').click(function(){
       $(window).attr('location','/first_test/main/1');
     });
-
-
-
+    $('#logo').click(function(){
+      $(window).attr('location','/first_test/main/1');
+    });
 });
