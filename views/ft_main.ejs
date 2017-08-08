@@ -51,10 +51,33 @@
     <div id="line_1">
     </div>
     <div id="search_area">
-      <form id="form" action="/first_test/search/1" method="get">
-          <input type="text" name="searchText">
-          <input type="submit" class="btn" value='검색'>
-      </form>
+      <%
+        if(!dropflag){
+      %>
+          <form id="form" action="/first_test/search/1" method="get">
+              <input type="text" name="searchText">
+              <input type="submit" class="btn" value='검색'>
+          </form>
+      <%
+        }else{
+          if(!checkdrop){
+      %>
+            <form id="form" action="/first_test/main/1/beorim/search/" method="get">
+                <input type="text" name="searchText">
+                <input type="submit" class="btn" value='검색'>
+            </form>
+      <%
+          }else{
+      %>
+            <form id="form" action="/first_test/main/1/guham/search/" method="get">
+                <input type="text" name="searchText">
+                <input type="submit" class="btn" value='검색'>
+            </form>
+      <%
+          }
+        }
+      %>
+
     </div>
     <div id="main_area">
                 <div class = "dropdown">
@@ -64,21 +87,7 @@
                   <div id="dropdown_content" class = "dropdown-content">
                     <a href = "/first_test/main/1/guham">구함</a>
                     <a href = "/first_test/main/1/beorim">버림</a>
-                  <!--
-                  <%
-                  if(!flag){
-                  %>
-                    <a href = "/first_test/main/1/guham">구함</a>
-                    <a href = "/first_test/main/1/beorim">버림</a>
-                  <%
-                }else{
-                  %>
-                  <a href = "/first_test/main/1/guham/search/1/?searchText=<%=qq%>">구함</a>
-                  <a href = "/first_test/main/1/beorim/search/1/?searchText=<%=qq%>">버림</a>
-                  <%
-                }
-                  %>
-                -->
+
                   </div>
                 </div>
 
