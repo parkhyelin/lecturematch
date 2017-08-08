@@ -31,6 +31,12 @@
   cursor: pointer;
   margin-top: 80px;
 }
+#MailBoxbtn
+{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 130px;
+}
 #div_login
 {
   height : 170px;
