@@ -56,6 +56,13 @@
   margin-right: 10px;
   cursor: pointer;
 }
+#change
+{
+  margin-top: -15px;
+  position: absolute;
+  margin-left: -40px;
+  width : 800px;
+}
 .mypage_mention
 {
   font-size:15px;

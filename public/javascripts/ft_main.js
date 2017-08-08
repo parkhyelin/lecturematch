@@ -136,7 +136,9 @@
         $('a[data-toggle=\'tab\']').first().attr('href');
       $('a[href=\'' + anchor + '\']').tab('show');
     });
-
+    $('#logo').click(function(){
+      $(window).attr('location','/first_test/main/1');
+    });
 
 
     });
