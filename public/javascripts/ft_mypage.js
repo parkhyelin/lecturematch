@@ -4,4 +4,7 @@ $(document).ready(function() {
         remote : '/first_test/mailbox'
       });
     });
+    $('#logo').click(function(){
+      $(window).attr('location','/first_test/main/1');
+    });
 });
