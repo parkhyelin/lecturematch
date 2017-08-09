@@ -168,10 +168,11 @@
   margin-top: 65px;
   background-color: rgb(244, 244, 244);
 }
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 10; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -248,6 +249,16 @@ div.tab button.active {
 }
 
 
+tr:nth-child(even){background-color: #f2f2f2}
+/*
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+*/
+tr:hover{
+  background: #666;
+}
 
 table.type08 {
     border-collapse: collapse;
@@ -255,31 +266,33 @@ table.type08 {
     line-height: 1.5;
     width: 100%;
 }
-table.type08 thead td {
+table.type08 thead th {
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
     color: #369;
-    background-color: #BEEFFF;
     border-bottom: 3px solid #036;
     text-align: center;
     padding: 8px;
 }
-
-table.type08 tbody td {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  padding: 8px;
+table.type08 tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+    text-align: center;
+    padding: 8px;
 }
-tr:hover,tr:hover td {
-   background: #FDF5E6!important;
+table.type08 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 8px;
 }
-tr:nth-child(even){background-color: #FFF0F0;}
-
 .dropdown {
     position: absolute;
     display: inline-block;
@@ -293,7 +306,7 @@ tr:nth-child(even){background-color: #FFF0F0;}
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 11;
+    z-index: 31;
 }
 
 .dropdown-content a {

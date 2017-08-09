@@ -14,27 +14,21 @@
       <div id="d3"><p id="p_style2">비밀번호</p>
       </div>
       <div id="d4">
-      <input type="password" id="leave_password">
+      <input type="password" class="a1">
     </div>
     <input type="button" value="취소" id="rectangle_8_1">
     <input type="button" value="다음" id="rectangle_8_2">
       <div id="first_area">
         <div id="div_logo">
-         <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
+         <p id="logo">LOGO</a></P>
         </div>
         <div id="z">
         </div>
         <div id="div_login">
-          <% if(!session) { %>
-       <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
-       <% } else  {%>
-       <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
-       <% } %>
-       <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
-
-               <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
-                       메일함
-               </button>
+       <p id="first_join" ><a href = "/first_test/logout"style="text-decoration:none;">로그아웃</a></p>
+       <p id="mypage_mention"><a href = "/first_test/mypage"style="text-decoration:none;">mypage</a></p>
+       <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+        메일함</button>
 
                <div class = "modal" id= "MailBoxModal" style="display:none;" >
                <div class = "modal-dialog">
@@ -56,9 +50,9 @@
           </div>
           <div id="first_2">
             <p id="number_1">1</p> <p id="a">탈퇴안내</p>
-            <div><img id = "arrow1"src="화살표.png"></div>
+            <div><img id = "arrow1" src="/images/화살표.PNG"></div>
             <p id="number_2">2</p><p id="b">탈퇴</p>
-            <div><img id = "arrow2"src="화살표.png"></div>
+            <div><img id = "arrow2" src="/images/화살표.PNG"></div>
             <p id="number_3">3</p><p id="c">탈퇴완료</p>
           </div>
         </div>
