@@ -12,13 +12,15 @@
 </div>
   <div class= "modal-body">
   <div id="recv_mail" class="tabcontent">
-    <table id = "RecvMailBoxTable">
+    <table id = "RecvMailBoxTable" class="type08">
+      <thead>
       <tr>
-        <th> 발신자 </th>
-        <th> 쪽지내용 </th>
-        <th> 날짜 </th>
-        <th> 삭제 </th>
+        <td> 발신자 </td>
+        <td> 쪽지내용 </td>
+        <td> 날짜 </td>
+        <td> 삭제 </td>
       </tr>
+    </thead>
       <% var reverse=rows.reverse()%>
     <%
           for(var i = 0; i < rows.length; i++){
@@ -79,14 +81,15 @@
     %>
   </div>
   <div id="send_mail" class="tabcontent">
-    <table id = "SendMailBoxTable">
+    <table id = "SendMailBoxTable" class="type08">
+      <thead>
       <tr>
-        <th> 수신자 </th>
-        <th> 내용 </th>
-        <th> 날짜 </th>
-        <th> 삭제 </th>
+        <td> 수신자 </td>
+        <td> 내용 </td>
+        <td> 날짜 </td>
+        <td> 삭제 </td>
       </tr>
-
+    </thead>
 
     <%
           for(var i = 0; i < rows2.length; i++){
