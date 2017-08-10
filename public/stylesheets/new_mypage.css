@@ -359,3 +359,40 @@ padding: 6px 12px;
 border: 1px solid #ccc;
 border-top: none;
 }
+
+
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    /*width: 100%;*/
+    width : 100%;
+}
+table thead td {
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    background-color: #BEEFFF;
+    border-bottom: 3px solid #036;
+    text-align: center;
+    padding: 7px;
+}
+
+table tbody td {
+  /*width: 150px;*/
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+/*
+td {
+    white-space: nowrap;
+}
+*/
+tr:hover,tr:hover td {
+   background: #FDF5E6!important;
+}
+tr:nth-child(even){background-color: #CBCBCB;}

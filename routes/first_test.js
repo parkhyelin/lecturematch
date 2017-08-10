@@ -609,8 +609,12 @@ module.exports = function(app){
   //이메일 중복체크
   router.post('/emailcheck', function(req, res, next) {
     user_email = req.body.email;
+    var re=/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     var sql = "SELECT * FROM ft_user WHERE email=?";
-
+    if(user_email.length < 6 || !re.test(user_email)){
+      console.log('사용할 수 없는 이메일');
+      res.end('error');
+    }else{
     conn.query(sql, [user_email], function(error,results,fields){
       if(error){
         console.log(error);
@@ -626,6 +630,7 @@ module.exports = function(app){
           }
       }
     });//query
+  }
   });
 
 //상세 쪽지 모달 - 받은메일함

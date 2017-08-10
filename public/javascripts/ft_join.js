@@ -37,8 +37,14 @@ $(document).ready(function() {
 
   //////////////////  join 2 ////////////////////
 
+  if(flag == false){
+    $('#useful_email').css({"color":"#4CAF50","visibility" : "hidden"})
+    $('#not_useful_email').css({"color":"red","visibility" : "visible"});
+  }
+
   $('#join_email').bind('input propertychange',function() {
       var user_email = $('#join_email').val();
+
       var data = {
         'email': user_email
       }
@@ -94,8 +100,8 @@ $(document).ready(function() {
       var user_name = $('#join_nickname').val();
       var user_password = $('#join_password').val();
       var user_phone = $('#join_cellphone').val();
-      var user_password_check = $('#join_password_check').val();
       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var user_password_check = $('#join_password_check').val();
       var email = $('#join_email').val();
       if(user_name == ''){
         alert("닉네임을 입력하세요");
@@ -133,7 +139,7 @@ $(document).ready(function() {
           alert('가입 실패!');
         }
       }) //ajax
-    }else if(flag === false){
+    }else if(flag == false){
         alert("이메일이 중복됩니다.");
       }
 

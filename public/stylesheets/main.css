@@ -171,7 +171,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -242,7 +242,7 @@ div.tab button.active {
 /* Style the tab content */
 .tab-pane {
     display: none;
-    padding: 6px 12px;
+    /*padding: 1px 2px;*/
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -256,29 +256,32 @@ table.type08 {
     width: 100%;
 }
 table.type08 thead td {
-    padding: 10px;
     font-weight: bold;
     vertical-align: top;
     color: #369;
     background-color: #BEEFFF;
     border-bottom: 3px solid #036;
     text-align: center;
-    padding: 8px;
+    padding: 7px;
 }
 
 table.type08 tbody td {
-  width: 150px;
-  padding: 10px;
+  /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   text-align: center;
-  padding: 8px;
+  padding: 7px;
 }
+/*
+td {
+    white-space: nowrap;
+}
+*/
 tr:hover,tr:hover td {
    background: #FDF5E6!important;
 }
-tr:nth-child(even){background-color: #FFF0F0;}
+tr:nth-child(even){background-color: #CBCBCB;}
 
 .dropdown {
     position: absolute;
