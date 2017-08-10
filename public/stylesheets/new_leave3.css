@@ -186,13 +186,14 @@
 }
 #arrow1
 {
-  margin-top: 55px;
+  margin-left: 20px;
+  margin-top: 70px;
   cursor : default;
 }
 #arrow2
 {
-  margin-left: 30px;
-  margin-top: 55px;
+  margin-left: 40px;
+  margin-top: 70px;
   cursor : default;
 }
 #ok_mention

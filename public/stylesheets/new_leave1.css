@@ -56,13 +56,13 @@
   margin-right: 10px;
   cursor: pointer;
 }
-#first_mypage
+#mypage_mention
 {
   font-size:15px;
   float:right;
   margin-left: 30px;
   padding:1px;
-  margin-top:10px;
+  margin-top:7px;
   cursor: pointer;
 }
 #line_1
@@ -73,6 +73,12 @@
   width: 1020px;
   height: 4px;
   z-index: 6;
+}
+#MailBoxbtn
+{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 80px;
 }
 #main_area
 {
@@ -186,13 +192,14 @@
 }
 #arrow1
 {
-  margin-top: 55px;
+  margin-left: 20px;
+  margin-top: 70px;
   cursor : default;
 }
 #arrow2
 {
-  margin-left: 30px;
-  margin-top: 55px;
+  margin-left: 40px;
+  margin-top: 70px;
   cursor : default;
 }
 #d3
@@ -257,4 +264,22 @@ position: absolute;
 width: 149px;
 height: 40px;
  z-index: 26;
+}
+.a1
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
+}
+#update_password_before
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
 }

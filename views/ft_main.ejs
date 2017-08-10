@@ -34,7 +34,7 @@
           <% if(!session) { %>
           <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><button type="button" id="MailBoxbtn" data-toggle="modal">메일함</button>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
           <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
           <% } %>
 
@@ -51,33 +51,10 @@
     <div id="line_1">
     </div>
     <div id="search_area">
-      <%
-        if(!dropflag){
-      %>
-          <form id="form" action="/first_test/search/1" method="get">
-              <input type="text" name="searchText">
-              <input type="submit" class="btn" value='검색'>
-          </form>
-      <%
-        }else{
-          if(!checkdrop){
-      %>
-            <form id="form" action="/first_test/main/1/beorim/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
-      <%
-          }else{
-      %>
-            <form id="form" action="/first_test/main/1/guham/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
-      <%
-          }
-        }
-      %>
-
+      <form id="form" action="/first_test/search/1" method="get">
+          <input type="text" name="searchText">
+          <input type="submit" class="btn" value='검색'>
+      </form>
     </div>
     <div id="main_area">
                 <div class = "dropdown">
@@ -87,7 +64,21 @@
                   <div id="dropdown_content" class = "dropdown-content">
                     <a href = "/first_test/main/1/guham">구함</a>
                     <a href = "/first_test/main/1/beorim">버림</a>
-
+                  <!--
+                  <%
+                  if(!flag){
+                  %>
+                    <a href = "/first_test/main/1/guham">구함</a>
+                    <a href = "/first_test/main/1/beorim">버림</a>
+                  <%
+                }else{
+                  %>
+                  <a href = "/first_test/main/1/guham/search/1/?searchText=<%=qq%>">구함</a>
+                  <a href = "/first_test/main/1/beorim/search/1/?searchText=<%=qq%>">버림</a>
+                  <%
+                }
+                  %>
+                -->
                   </div>
                 </div>
 

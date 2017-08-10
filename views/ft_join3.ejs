@@ -22,11 +22,9 @@
           <% if(!session) { %>
           <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
-          <% } %>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
           <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
-
-
+          <% } %>
                   <div class = "modal" id= "MailBoxModal" style="display:none;" >
                   <div class = "modal-dialog">
                     <div class = "modal-content">

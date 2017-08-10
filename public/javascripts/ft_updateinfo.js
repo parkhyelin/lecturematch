@@ -101,4 +101,7 @@ $(document).ready(function() {
   $('#cancelButton').click(function(){
     window.history.back();
   });
+  $('#logo').click(function(){
+    $(window).attr('location','/first_test/main/1');
+  });
 });

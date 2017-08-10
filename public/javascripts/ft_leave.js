@@ -9,7 +9,7 @@ $(document).ready(function() {
   });
 
     $('#rectangle_8_2').click(function() {
-      var user_password= $('#leave_password').val();
+      var user_password= $('.a1').val();
       if(user_password ==''){
         alert("비밀번호를 입력하세요.");
       }else{
@@ -39,5 +39,7 @@ $(document).ready(function() {
     $('#rectangle_8_3').click(function() {
       $(window).attr('location','/first_test/leave3');
     });
-
+    $('#logo').click(function(){
+      $(window).attr('location','/first_test/main/1');
+    });
 });
