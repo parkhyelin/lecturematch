@@ -384,14 +384,30 @@ table thead td {
     text-align: center;
     padding: 7px;
 }
-
-table tbody td {
+table tbody td{
   /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   text-align: center;
   padding: 7px;
+}
+ .normal_td{
+  /*width: 150px;*/
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+
+.note_read_notyet{
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+  background-color: red;
 }
 /*
 td {
