@@ -63,6 +63,25 @@
   margin-left: -40px;
   width : 800px;
 }
+.searchText
+{
+  width:200px;
+  background-color:#fafafa;
+  text-align:center;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+}
+.searchText:focus
+{
+  width:350px;
+border:1px solid skyblue;
+background-color:white;
+text-align:left;
+background-position: 10px 10px;
+background-repeat: no-repeat;
+padding:4px;
+transition: width 1s;
+}
 .mypage_mention
 {
   font-size:15px;
@@ -77,6 +96,7 @@
   position : absolute;
   margin-top: 10px;
   margin-left: 80px;
+  cursor: pointer;
 }
 #line_1
 {

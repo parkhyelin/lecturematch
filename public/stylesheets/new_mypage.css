@@ -36,6 +36,7 @@
   position : absolute;
   margin-top: 10px;
   margin-left: 130px;
+  cursor:pointer;
 }
 #div_login
 {
