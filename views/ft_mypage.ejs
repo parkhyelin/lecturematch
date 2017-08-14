@@ -44,7 +44,7 @@
                       <p id="e_mail">이메일 :
                          <%     var oneItem = rows[0];  %>
                               <%=oneItem.email%></p>
-                      <p id="nickname">닉네임 :
+                      <p id="nickname">이름 :
                         <%    var oneItem = rows[0];
                           %>
                             <%=oneItem.name%></p>
@@ -82,7 +82,7 @@
                                 <td>글제목</td>
                                 <td>작성일자</td>
                                 <td>작성자</td>
-                                <td>삭제</td>
+
                              </tr>
                             </thead>
                             <% var reverse=result.reverse();%>
@@ -260,7 +260,7 @@
                                           %>
                                                          <div class = "modal" id= "Show_post_Modal<%=oneItem.id%>" style="display:none;">
                                                          <div class = "modal-dialog">
-                                                           <div class = "modal-content">
+                                                           <div class = "modal-content" style="z-index : 33;">
                                                              <!-- remote ajax call이 되는영역 -->
                                                            </div>
                                                            </div>
