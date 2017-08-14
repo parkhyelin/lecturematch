@@ -230,7 +230,6 @@ div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-    width : 197.3px;
 }
 
 .tab-pane.active{
@@ -287,6 +286,7 @@ table.type08 thead td {
 }
 
 table.type08 tbody td {
+  /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
@@ -335,21 +335,4 @@ tr:nth-child(even){background-color: #CBCBCB;}
 
 .divider{
   background: #f1f1f1;
-}
-.normal_td{
-  /*width: 150px;*/
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  padding: 7px;
-}
-
-.note_read_notyet{
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  padding: 7px;
-  background-color: red;
 }

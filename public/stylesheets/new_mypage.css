@@ -166,7 +166,7 @@ margin-top: 210px;
 margin-left:150px;
 width: 7px;
 height: 89px;
-z-index: 19;
+z-index: 1;
 }
 
 #rectangle_5
@@ -385,30 +385,14 @@ table thead td {
     text-align: center;
     padding: 7px;
 }
-table tbody td{
-  /*width: 150px;*/
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  padding: 7px;
-}
- .normal_td{
-  /*width: 150px;*/
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  padding: 7px;
-}
 
-.note_read_notyet{
+table tbody td {
+  /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   text-align: center;
   padding: 7px;
-  background-color: red;
 }
 /*
 td {
