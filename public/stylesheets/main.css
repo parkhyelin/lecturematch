@@ -311,12 +311,8 @@ table.type08 td:last-child {
 border-right: none;
 }
 table.type08 tbody td {
-<<<<<<< HEAD
-/*  font-weight: bold;*/
-=======
   /*width: 150px;*/
   font-weight: bold;
->>>>>>> 46976900585a428425da2a4c9e0128bd66b6fd99
   vertical-align: top;
   /*border-bottom: 1px solid #ccc;*/
   text-align: center;
@@ -327,9 +323,17 @@ td {
     white-space: nowrap;
 }
 */
-tr:hover,tr:hover td {
+table.type08 tbody tr:hover,table.type08 tbody tr:hover td {
    background: white!important;
 }
+table.type07 tbody tr:hover,table.type07 tbody tr:hover td {
+   background: white!important;
+}
+
+table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
+  background: #E7E7E7!important;
+}
+
 .type08 tr:nth-child(even){background-color: #E3E2E2;}
 .type07 tr:nth-child(even){background-color: #E3E2E2;}
 
