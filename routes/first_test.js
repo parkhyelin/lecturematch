@@ -886,6 +886,8 @@ router.get('/requestdelete/:id',function(req,res){
   router.get('/main/:page',function(req,res,next){
     var sql1 = 'select * from postboard';
     var sql2 = 'select * from class_info';
+
+    var sql4 = "select * from ft_mail where recv_email = ?";
     var page = req.params.page;
     var flag = false;
     var dropflag = false;
@@ -899,7 +901,10 @@ router.get('/requestdelete/:id',function(req,res){
         conn.query(sql2, function(err, result2){
           if(err){console.log(err);}
           else{
-              res.render('ft_main',{title : 'main',result2 : result2, dropflag :dropflag, checkdrop : checkdrop,result : result, flag : flag, page : page, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId });
+            conn.query(sql4,[req.session.authId], function(err, mailflag){
+              res.render('ft_main',{title : 'main',mailflag : mailflag,result2 : result2, dropflag :dropflag, checkdrop : checkdrop,result : result, flag : flag, page : page, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId });
+
+            })
           }
         });
       }
@@ -964,8 +969,7 @@ router.get('/requestdelete/:id',function(req,res){
       var flag = true; //검색 여부
       var checkdrop = false;
       var dropflag = false;
-
-      console.log(search);
+      var sql4 = "select * from ft_mail where recv_email = ?";
       var sql="SELECT * FROM postboard WHERE title LIKE ?";
       var sql2="select * from class_info where (change_class_name like ?) or (class_name like ?)";
       conn.query(sql,'%'+search+'%',function(error,result){
@@ -974,8 +978,10 @@ router.get('/requestdelete/:id',function(req,res){
         else{
           conn.query(sql2,['%'+search+'%','%'+search+'%'], function(error, result2){
             if(error)console.log(error);
-            console.log(result2);
-            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('ft_main',{mailflag : mailflag,result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            });
 
           });
         }
@@ -993,13 +999,17 @@ router.get('/requestdelete/:id',function(req,res){
 
       var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='구함'";
       var sql2="select * from class_info where class_name LIKE ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
       conn.query(sql,'%'+search+'%',function(error,result){
         if(error)
         console.log(error);
         else{
           conn.query(sql2,'%'+search+'%', function(error, result2){
             console.log('success');
-            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('ft_main',{mailflag : mailflag, result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            })
           });
         }
       })
@@ -1014,13 +1024,18 @@ router.get('/requestdelete/:id',function(req,res){
 
       var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='버림'";
       var sql2="select * from class_info where change_class_name LIKE ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+
       conn.query(sql,'%'+search+'%',function(error,result){
         if(error)
         console.log(error);
         else{
           conn.query(sql2,'%'+search+'%', function(error, result2){
             console.log('success');
-            res.render('ft_main',{result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('ft_main',{mailflag : mailflag, result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            })
           });
         }
       })
@@ -1029,6 +1044,7 @@ router.get('/requestdelete/:id',function(req,res){
     router.get('/main/:page/guham', function(req,res){
       var sql = "select * from postboard where choice ='구함'";
       var sql2 ="select * from class_info";
+      var sql4 = "select * from ft_mail where recv_email = ?";
       var page = req.params.page;
       var flag = false;
       var dropflag = true; //드랍다운 플래그
@@ -1039,7 +1055,10 @@ router.get('/requestdelete/:id',function(req,res){
           conn.query(sql2, function(error, result2){
             if(error){console.log(error);}
             else{
-              res.render('ft_main', {result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+              conn.query(sql4, [req.session.authId], function(error, mailflag){
+                res.render('ft_main', {mailflag : mailflag, result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+              })
             }
           })
         }
@@ -1049,6 +1068,8 @@ router.get('/requestdelete/:id',function(req,res){
     router.get('/main/:page/beorim',function(req,res){
       var sql = "select * from postboard where choice ='버림'";
       var sql2 ="select * from class_info";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+
       var page = req.params.page;
       var flag = false;
       var dropflag = true; //드랍다운 플래그
@@ -1059,7 +1080,10 @@ router.get('/requestdelete/:id',function(req,res){
           conn.query(sql2, function(error, result2){
             if(error){console.log(error);}
             else{
-              res.render('ft_main', {result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+              conn.query(sql4, [req.session.authId], function(error, mailflag){
+                res.render('ft_main', {mailflag : mailflag, result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+              })
             }
           })
         }

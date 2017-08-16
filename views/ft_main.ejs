@@ -12,8 +12,12 @@
   </head>
   <body ondragstart="return false">
     <div id="wrapper">
+
+
       <p id="mention3">강의교환</p>
       <div id="rectangle_2"></div>
+
+
       <div id="first_area">
         <div id="div_logo">
           <p id="logo">LOGO</a></P>
@@ -34,8 +38,33 @@
           <% if(!session) { %>
           <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
-          <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <%
+            if(mailflag.length == 0){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+              <%
+            }else{
+              for( var i = 0 ; i < mailflag.length; i ++){
+              var Item = mailflag[i];
+              if(Item.recv_read == 'Y'){
+                if(i == mailflag.length -1){
+                  %>
+                  <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+                  <%
+                }
+                continue;
+              }
+              else if(Item.recv_read == 'N'){
+                %>
+                <img id="MailBoxbtn" src="/images/자산 4.png"></img>
+                <%
+                break;
+              }
+            }
+          }
+          %>
+           <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
           <% } %>
 
               <div class = "modal" id= "MailBoxModal" style="display:none;" >

@@ -393,7 +393,8 @@ table.type08 tbody td{
   text-align: center;
   padding: 7px;
 }
- .normal_td{
+
+.normal_td{
   /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
@@ -402,15 +403,26 @@ table.type08 tbody td{
   padding: 7px;
 }
 
+.note_read_notyet{
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+  background-color: grey;
+}
+
 /*
 td {
     white-space: nowrap;
 }
 */
-tr:hover,tr:hover td {
+table.type08 tbody tr:hover, table.type08 tbody tr:hover td {
    background: white!important;
 }
-
+table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
+  background: #E7E7E7!important;
+}
 table.mailtable {
     border-collapse: collapse;
     text-align: left;
