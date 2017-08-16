@@ -159,7 +159,7 @@ transition: width 1s;
 {
   background-color: rgb(128, 175, 181);
   position: absolute;
-  margin-top: 235px;
+  margin-top: 232px;
   width: 130px;
   height: 7px;
   z-index: 10;
@@ -263,11 +263,33 @@ div.tab button.active {
 .tab-pane {
     display: none;
     /*padding: 1px 2px;*/
-    border: 1px solid #ccc;
+  /*  border: 1px solid #ccc;*/
     border-top: none;
 }
 
+table.type07 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    width: 100%;
+}
+table.type07 thead td {
+  /*  font-weight: bold;*/
+    vertical-align: top;
+    color: white;
+    background-color: #153238;
+    /*border-bottom: 3px solid #036;*/
+    text-align: center;
+    padding: 7px;
+}
 
+table.type07 tbody td {
+  font-weight: bold;
+  vertical-align: top;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
 
 table.type08 {
     border-collapse: collapse;
@@ -276,20 +298,23 @@ table.type08 {
     width: 100%;
 }
 table.type08 thead td {
-    font-weight: bold;
+    /*font-weight: bold;*/
     vertical-align: top;
-    color: #369;
-    background-color: #BEEFFF;
-    border-bottom: 3px solid #036;
+    color: white;
+    background-color: #153238;
+    border-right : 1px solid white;
+    /*border-bottom: 3px solid #036;*/
     text-align: center;
     padding: 7px;
 }
-
+table.type08 td:last-child {
+border-right: none;
+}
 table.type08 tbody td {
   /*width: 150px;*/
   font-weight: bold;
   vertical-align: top;
-  border-bottom: 1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
   text-align: center;
   padding: 7px;
 }
@@ -298,12 +323,6 @@ td {
     white-space: nowrap;
 }
 */
-<<<<<<< HEAD
-tr:hover,tr:hover td {
-   background: #FDF5E6!important;
-}
-tr:nth-child(even){background-color: #CBCBCB;}
-=======
 table.type08 tbody tr:hover,table.type08 tbody tr:hover td {
    background: white!important;
 }
@@ -317,16 +336,15 @@ table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
 
 .type08 tr:nth-child(even){background-color: #E3E2E2;}
 .type07 tr:nth-child(even){background-color: #E3E2E2;}
->>>>>>> 853145eb5a958ecacb0b7f37206cd66c7e899180
 
-.dropdown {
+.combobox {
     position: absolute;
     display: inline-block;
     margin-left: 300px;
     margin-top: -44px;
 }
 
-.dropdown-content {
+.combobox-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -335,20 +353,81 @@ table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
     z-index: 31;
 }
 
-.dropdown-content a {
+.combobox-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.combobox-content a:hover {background-color: #f1f1f1}
 
 
 .show{
   display : block;
 }
 
-.divider{
-  background: #f1f1f1;
+#divider{
+  border-right : 4px solid white;
+}
+.normal_td{
+  /*width: 150px;*/
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+
+.note_read_notyet{
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+  background-color: grey;
+}
+
+table.mailtable {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    width: 100%;
+}
+table.mailtable thead td {
+    font-weight: bold;
+    vertical-align: top;
+    color: white;
+    background-color: #153238;
+    border-bottom: 3px solid #036;
+    text-align: center;
+    padding: 7px;
+}
+
+table.mailtable tbody td {
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+
+#exchange_req_td{
+  width : 103.6px;
+  background-color : #52A7BA;
+}
+table.type08 td .ex_num{
+  width : 47.2px;
+}
+table.type08 td .ex_writer{
+  width : 85.8px;
+}
+table.type08 td .ex_subject{
+  width : 196.8px;
+}
+table.type08 td .ex_professor{
+  width : 95.8px;
+}
+table.type08 td .ex_time{
+  width : 97.6px;
 }
