@@ -298,10 +298,26 @@ td {
     white-space: nowrap;
 }
 */
+<<<<<<< HEAD
 tr:hover,tr:hover td {
    background: #FDF5E6!important;
 }
 tr:nth-child(even){background-color: #CBCBCB;}
+=======
+table.type08 tbody tr:hover,table.type08 tbody tr:hover td {
+   background: white!important;
+}
+table.type07 tbody tr:hover,table.type07 tbody tr:hover td {
+   background: white!important;
+}
+
+table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
+  background: #E7E7E7!important;
+}
+
+.type08 tr:nth-child(even){background-color: #E3E2E2;}
+.type07 tr:nth-child(even){background-color: #E3E2E2;}
+>>>>>>> 853145eb5a958ecacb0b7f37206cd66c7e899180
 
 .dropdown {
     position: absolute;

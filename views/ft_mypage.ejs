@@ -17,12 +17,33 @@
         </div>
         <div id="z">
         </div>
-        <!--
-        <p id="mention1">강의교환</p><div id="small_rectangle"></div>
-        <p id="mention2">버림/구함</p><div id="small_rectangle"></div>
-      -->
         <div id="div_login">
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+        <%
+          if(mailflag.length == 0){
+            %>
+            <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+<%
+          }else{
+            for( var i = 0 ; i < mailflag.length; i ++){
+            var Item = mailflag[i];
+            if(Item.recv_read == 'N'){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 4.png"></img>
+
+              <%
+              break;
+            }else if (Item.recv_read == 'Y'){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+
+              <%
+              break;
+            }
+          }
+        }
+        %>
+
               <div class = "modal" id= "MailBoxModal" style="display:none;" >
               <div class = "modal-dialog">
                 <div class = "modal-content">
