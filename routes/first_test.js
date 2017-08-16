@@ -321,6 +321,7 @@ module.exports = function(app){
       var sql = "select * from ft_user where email = ?"
       var sql2 = "select * from class_info where writer_email = ?";
       var sql3 = "select * from request_ex where app_email = ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
       conn.query(sql,[user_email],function(err,rows){
         if(err){
           throw err;
@@ -331,7 +332,10 @@ module.exports = function(app){
             else{
               conn.query(sql2,[req.session.authId],function(err,result2){
                 conn.query(sql3, [req.session.authId],function(err, result3){
-                  res.render('ft_mypage',{ title : '마이페이지', result3 : result3, result2 : result2, result : result,  rows : rows, session : req.session.authId});
+                  conn.query(sql4, [req.session.authId], function(err, mailflag){
+                    res.render('ft_mypage',{ title : '마이페이지',mailflag : mailflag, result3 : result3, result2 : result2, result : result,  rows : rows, session : req.session.authId});
+
+                  });
                 })
               });
             }//else
