@@ -648,7 +648,7 @@ router.get('/contentViewModal/:id',function(req,res,next){
       console.log(error);
     }else{
       var selectedrow = rows[0];
-      if(selectedrow.recv_read = 'N'){
+      if(selectedrow.recv_read == 'N'){
         conn.query(sql3, [req.params.id], function(error, rows2){
           if(error){
             console.log(error);
