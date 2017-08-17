@@ -17,7 +17,8 @@
         }
       */
       var clean_uri = encodeURIComponent(uri);
-      window.history.replaceState({}, document.title, clean_uri);
+      var clean= encodeURIComponent(uri);
+      window.history.replaceState({}, document.title, clean_uri,clean);
       </script>
 </head>
 <body>
