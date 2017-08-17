@@ -79,6 +79,7 @@
   position : absolute;
   margin-top: 10px;
   margin-left: 80px;
+  cursor:pointer;
 }
 #main_area
 {

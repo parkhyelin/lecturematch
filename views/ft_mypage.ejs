@@ -17,12 +17,34 @@
         </div>
         <div id="z">
         </div>
-        <!--
-        <p id="mention1">강의교환</p><div id="small_rectangle"></div>
-        <p id="mention2">버림/구함</p><div id="small_rectangle"></div>
-      -->
         <div id="div_login">
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <%
+          if(mailflag.length == 0){
+            %>
+            <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+            <%
+          }else{
+            for( var i = 0 ; i < mailflag.length; i ++){
+            var Item = mailflag[i];
+            if(Item.recv_read == 'Y'){
+              if(i == mailflag.length -1){
+                %>
+                <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+                <%
+              }
+              continue;
+            }
+            else if(Item.recv_read == 'N'){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 4.png"></img>
+              <%
+              break;
+            }
+          }
+        }
+        %>
+
               <div class = "modal" id= "MailBoxModal" style="display:none;" >
               <div class = "modal-dialog">
                 <div class = "modal-content">
@@ -44,7 +66,7 @@
                       <p id="e_mail">이메일 :
                          <%     var oneItem = rows[0];  %>
                               <%=oneItem.email%></p>
-                      <p id="nickname">닉네임 :
+                      <p id="nickname">이름 :
                         <%    var oneItem = rows[0];
                           %>
                             <%=oneItem.name%></p>
@@ -75,13 +97,14 @@
 
                       <div id="post_i_wrote" class="tabcontent">
                         <h2>내가 쓴 게시물</h2>
-                        <table border="1px solid black;">
+                        <table class="type08">
                             <thead>
                               <tr>
                                 <td>버림/구함</td>
                                 <td>글제목</td>
                                 <td>작성일자</td>
                                 <td>작성자</td>
+                                <td>삭제</td>
 
                              </tr>
                             </thead>
@@ -118,7 +141,7 @@
 
                       <div id="exchange_i_wrote" class="tabcontent">
                         <h2>교환 신청 작성 목록</h2>
-                        <table border="1px solid black;">
+                        <table class="type08">
                             <thead>
                               <tr>
                                 <td>구하는 과목</td>
@@ -209,7 +232,7 @@
                       <div id="request_list" class="tabcontent">
                               <h2>내가 신청한 목록</h2>
 
-                                <table border="1px solid black;">
+                                <table class="type08">
                                     <thead>
                                       <tr>
                                         <td>신청일자</td>
@@ -260,7 +283,7 @@
                                           %>
                                                          <div class = "modal" id= "Show_post_Modal<%=oneItem.id%>" style="display:none;">
                                                          <div class = "modal-dialog">
-                                                           <div class = "modal-content">
+                                                           <div class = "modal-content" style="z-index : 33;">
                                                              <!-- remote ajax call이 되는영역 -->
                                                            </div>
                                                            </div>

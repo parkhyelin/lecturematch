@@ -1,5 +1,4 @@
 <div class = "modal-header">
-  <<메일함>>
   <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -12,37 +11,47 @@
 </div>
   <div class= "modal-body">
   <div id="recv_mail" class="tabcontent">
-    <table id = "RecvMailBoxTable">
+    <table id = "RecvMailBoxTable" class="mailtable">
+      <thead>
       <tr>
-        <th> 발신자 </th>
-        <th> 쪽지내용 </th>
-        <th> 날짜 </th>
-        <th> 삭제 </th>
+        <td> 발신자 </td>
+        <td> 내용 </td>
+        <td> 날짜 </td>
+        <td> 삭제 </td>
       </tr>
+    </thead>
+    <tbody>
       <% var reverse=rows.reverse()%>
     <%
           for(var i = 0; i < rows.length; i++){
             var oneItem = rows[i];
             if( oneItem.recv_del == 'Y'){ continue;}
             else {
+              if(oneItem.recv_read == 'N'){
     %>
         <tr>
-            <td><%=oneItem.send_name%></td>
-            <td><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
-            <%
-            if(oneItem.recv_read == 'N'){
-            %>
-            <td>!안읽음!</td>
-            <%
-              }
-            %>
-            <td><%=oneItem.date_sent%></td>
-            <td><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+            <td class="note_read_notyet"><%=oneItem.send_name%></td>
+            <td class="note_read_notyet"><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+
+            <td class="note_read_notyet"><%=oneItem.date_sent%></td>
+            <td class="note_read_notyet"><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
         </tr>
     <%
+              }else{
+    %>
+        <tr>
+            <td class="normal_td"><%=oneItem.send_name%></td>
+            <td class="normal_td"><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+
+            <td class="normal_td"><%=oneItem.date_sent%></td>
+            <td class="normal_td"><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+        </tr>
+    <%
+            }
           }
         }
     %>
+  </tbody>
     </table>
     <%
           for(var i = 0; i < rows.length; i++){
@@ -79,14 +88,15 @@
     %>
   </div>
   <div id="send_mail" class="tabcontent">
-    <table id = "SendMailBoxTable">
+    <table id = "SendMailBoxTable" class="mailtable">
+      <thead>
       <tr>
-        <th> 수신자 </th>
-        <th> 내용 </th>
-        <th> 날짜 </th>
-        <th> 삭제 </th>
+        <td> 수신자 </td>
+        <td> 내용 </td>
+        <td> 날짜 </td>
+        <td> 삭제 </td>
       </tr>
-
+    </thead>
 
     <%
           for(var i = 0; i < rows2.length; i++){

@@ -12,8 +12,12 @@
   </head>
   <body ondragstart="return false">
     <div id="wrapper">
+
+
       <p id="mention3">강의교환</p>
       <div id="rectangle_2"></div>
+
+
       <div id="first_area">
         <div id="div_logo">
           <p id="logo">LOGO</a></P>
@@ -34,8 +38,33 @@
           <% if(!session) { %>
           <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p><img id="MailBoxbtn" src="/images/자산 3.png"></img>
-          <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <%
+            if(mailflag.length == 0){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+              <%
+            }else{
+              for( var i = 0 ; i < mailflag.length; i ++){
+              var Item = mailflag[i];
+              if(Item.recv_read == 'Y'){
+                if(i == mailflag.length -1){
+                  %>
+                  <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+                  <%
+                }
+                continue;
+              }
+              else if(Item.recv_read == 'N'){
+                %>
+                <img id="MailBoxbtn" src="/images/자산 4.png"></img>
+                <%
+                break;
+              }
+            }
+          }
+          %>
+           <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
           <% } %>
 
               <div class = "modal" id= "MailBoxModal" style="display:none;" >
@@ -51,60 +80,88 @@
     <div id="line_1">
     </div>
     <div id="search_area">
-      <form id="form" action="/first_test/search/1" method="get">
-          <input type="text" name="searchText">
-          <input type="submit" class="btn" value='검색'>
-      </form>
+      <%
+        if(!dropflag){
+      %>
+          <form id="form" action="/first_test/search/1" method="get">
+              <input type="text" name="searchText">
+              <input type="submit" class="btn" value='검색'>
+          </form>
+      <%
+        }else{
+          if(!checkdrop){
+      %>
+            <form id="form" action="/first_test/main/1/beorim/search/" method="get">
+                <input type="text" name="searchText">
+                <input type="submit" class="btn" value='검색'>
+            </form>
+      <%
+          }else{
+      %>
+            <form id="form" action="/first_test/main/1/guham/search/" method="get">
+                <input type="text" name="searchText">
+                <input type="submit" class="btn" value='검색'>
+            </form>
+      <%
+          }
+        }
+      %>
     </div>
     <div id="main_area">
-                <div class = "dropdown">
+                <div class = "combobox">
+
                   <button class="dropdown-toggle" type ="button" data-toggle="dropdown" onclick="clickfunction()">
                     버림/구함
                   </button>
-                  <div id="dropdown_content" class = "dropdown-content">
+
+                <!--
+                <select id = "selectBox" onchange= "getSelectValue(this);">
+                  <option value = "guham">구하는 과목</option>
+                  <option value = "beorim">버리는 과목</option>
+                </select>
+              -->
+                <!--
+                <div id="combobox_content" class ="combobox-content">
+                  <a href = "/first_test/main/1/guham">구함</a>
+                  <a href = "/first_test/main/1/beorim">버림</a>
+                </div>
+              -->
+                  <div id="combobox_content" class = "combobox-content">
                     <a href = "/first_test/main/1/guham">구함</a>
                     <a href = "/first_test/main/1/beorim">버림</a>
-                  <!--
-                  <%
-                  if(!flag){
-                  %>
-                    <a href = "/first_test/main/1/guham">구함</a>
-                    <a href = "/first_test/main/1/beorim">버림</a>
-                  <%
-                }else{
-                  %>
-                  <a href = "/first_test/main/1/guham/search/1/?searchText=<%=qq%>">구함</a>
-                  <a href = "/first_test/main/1/beorim/search/1/?searchText=<%=qq%>">버림</a>
-                  <%
-                }
-                  %>
-                -->
                   </div>
+
                 </div>
 
                 <script>
                 function clickfunction() {
-                    var dropdown_content = document.getElementById("dropdown_content");
-                    if (dropdown_content.className.indexOf("show") == -1) {
-                        dropdown_content.className += " show";
+                    var combobox_content = document.getElementById("combobox_content");
+                    if (combobox_content.className.indexOf("show") == -1) {
+                        combobox_content.className += " show";
                     } else {
-                        dropdown_content.className = dropdown_content.className.replace(" show", "");
+                        combobox_content.className = combobox_content.className.replace(" show", "");
                     }
                 }
+                /*
+                function getSelectValue(frm){
+                  var combovalue = document.getElementById("selectbox");
+                }
+                */
+
                 </script>
 
     <div id="main_area_second">
     <div class = "tab-content">
         <div id="board" class="tab-pane">
 
-          <table class="type08">
+          <table class="type07">
               <thead>
                 <tr>
                   <td>게시글번호</td>
+                  <td>작성자</td>
                   <td>버림/구함</td>
                   <td>글제목</td>
                   <td>작성일자</td>
-                  <td>작성자</td>
                </tr>
               </thead>
                 <tbody>
@@ -119,6 +176,9 @@
                        <tr>
                          <td>
                            <%= i+1 %>
+                         </td>
+                         <td>
+                           <%=item.writer_name%>
                          </td>
                           <td>
                             <%=item.choice%>
@@ -136,9 +196,7 @@
                           <td>
                             <%=item.date%>
                           </td>
-                          <td>
-                            <%=item.writer_name%>
-                          </td>
+
                         </tr>
                         <script>
                         $('#board_content_view_title<%=item.id%>').click('show.bs.modal',function(event){
@@ -217,16 +275,16 @@
                 <div class = "modal-body">
                 <form>
                   <div class = "form-group">
-                <input type="radio" name="choice" value="버림" >버림
+                <input type="radio" name="choice" value="버림">버림
                 <input type="radio" name="choice" value="구함">구함
               </div>
               <div class = "form-group">
-                 <label for="title" class="control-label"> 글제목 : </label>
+                 <label for="title" class="control-label"> 글제목: </label>
                 <input type='text' class = "form-control" id='title'>
               </div>
               <div class ="form-group">
-                 <label for="content" class="control-label"> 내용 : </label>
-                <textarea rows='5' cols='20' name='comments' class = "form-control" id='content'></textarea>
+                 <label for="content" class="control-label"> 내용:  &nbsp;&nbsp;</label>
+                  <textarea rows='5' cols='20' name='comments' class = "form-control" id='content'></textarea>
               </div>
               </form>
               <div class = "modal-footer">
@@ -237,16 +295,36 @@
               </div>
             </div>
             </div>
-            <script>
-                  $('#writeButton').click(function() {
-                    if(!'<%=session%>'){
-                      alert('로그인이 필요합니다.');
-                      $(window).attr('location','/first_test/login');
-                    }else{
-                    $('#myModal').show('2000');
-                  }
-                });
-            </script>
+
+                        <script>
+                          var myModal = document.getElementById("myModal");
+                          var writeButton = document.getElementById("writeButton");
+                          var Closebtn = document.getElementById("Closebtn");
+                          var span = document.getElementsByClassName("close")[0];
+                          writeButton.onclick = function(){
+                            if(!'<%=session%>'){
+                              alert('로그인이 필요합니다.');
+                              $(window).attr('location','/first_test/login');
+                            }else{
+                            myModal.style.display = "block";
+                          }
+                          }
+                          span.onclick = function(){
+                            myModal.style.display = "none";
+                          }
+
+                          window.onclick = function(event){
+                            if(event.target == myModal){
+                              myModal.style.display = "none";
+                            }
+                          }
+                          /*
+                          Closebtn.onclick = function(event){
+                              myModal.style.display = "none";
+                          }
+                        */
+                        </script>
+
         </div>
 
         <div id="exchange" class="tab-pane active">
@@ -254,15 +332,15 @@
           <table class="type08">
             <thead>
               <tr>
-                <td>게시글번호</td>
-                <td>작성자</td>
-                <td>구하는 과목명</td>
-                <td>교수</td>
-                <td>시간</td>
-                <td>버리는 과목명</td>
-                <td>교수</td>
-                <td>시간</td>
-                <td>교환신청</td>
+                <td class="ex_num">번호</td>
+                <td class="ex_writer">작성자</td>
+                <td class= "ex_subject">구하는 과목명</td>
+                <td class= "ex_professor">교수</td>
+                <td class = "ex_time">시간</td>
+                <td class = "ex_subject">버리는 과목명</td>
+                <td class = "ex_proffessor">교수</td>
+                <td class = "ex_time">시간</td>
+                <td id = "exchange_req_td">교환신청</td>
               </tr>
             </thead>
             <tbody>
@@ -280,7 +358,7 @@
                   <td><%= oneItem.writer %></td>
                   <td><%= oneItem.class_name%></td>
                   <td><%= oneItem.prof_name%></td>
-                  <td><%= oneItem.time%></td>
+                  <td id = "divider"><%= oneItem.time%></td>
                   <td><%= oneItem.change_class_name%></td>
                   <td><%= oneItem.change_prof_name%></td>
                   <td><%= oneItem.change_time%></td>
@@ -290,7 +368,7 @@
                   }
                   %>
                   <tr>
-                    <td colspan = "9">
+                    <td colspan ="11">
                       <%
                         for(var j = 0 ; j < result2.length/10 ; j++){
                       %>
@@ -369,23 +447,23 @@
                           <input type = "text" class = "form-control" id = "class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="prof-name" class="control-label"> 교수 : </label>
+                          <label for="prof-name" class="control-label"> 교수 : &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="time" class="control-label"> 시간 : </label>
+                          <label for="time" class="control-label"> 시간 : &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "time">
                         </div>
                         <div class = "form-group">
-                          <label for="change-class-name" class="control-label"> 바꿀 과목 : </label>
+                          <label for="change-class-name" class="control-label"> 바꿀 과목 : &nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-prof-name" class="control-label"> 교수 : </label>
+                          <label for="change-prof-name" class="control-label"> 교수 : &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-time" class="control-label"> 시간 : </label>
+                          <label for="change-time" class="control-label"> 시간 : &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_time">
                         </div>
                       </form>

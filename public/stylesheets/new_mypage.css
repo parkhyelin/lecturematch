@@ -36,6 +36,7 @@
   position : absolute;
   margin-top: 10px;
   margin-left: 130px;
+  cursor:pointer;
 }
 #div_login
 {
@@ -165,7 +166,7 @@ margin-top: 210px;
 margin-left:150px;
 width: 7px;
 height: 89px;
-z-index: 19;
+z-index: 1;
 }
 
 #rectangle_5
@@ -293,8 +294,8 @@ z-index: 30;
 
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9999; /* Sit on top */
+    position: absolute; /* Stay in place */
+    z-index: 100; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -364,4 +365,84 @@ display: none;
 padding: 6px 12px;
 border: 1px solid #ccc;
 border-top: none;
+}
+
+
+
+table.type08{
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    /*width: 100%;*/
+    width : 100%;
+}
+table.type08 thead td {
+    font-weight: bold;
+    vertical-align: top;
+    color: white;
+    background-color: #153238;
+    border-right: 1px solid white;
+    text-align: center;
+    padding: 7px;
+}
+table.type08 tbody td{
+  /*width: 150px;*/
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+
+.normal_td{
+  /*width: 150px;*/
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+}
+
+.note_read_notyet{
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
+  background-color: grey;
+}
+
+/*
+td {
+    white-space: nowrap;
+}
+*/
+table.type08 tbody tr:hover, table.type08 tbody tr:hover td {
+   background: white!important;
+}
+table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
+  background: #E7E7E7!important;
+}
+table.mailtable {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    width: 100%;
+}
+table.mailtable thead td {
+    font-weight: bold;
+    vertical-align: top;
+    color: white;
+    background-color: #153238;
+    border-bottom: 3px solid #036;
+    text-align: center;
+    padding: 7px;
+}
+
+table.mailtable tbody td {
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 7px;
 }
