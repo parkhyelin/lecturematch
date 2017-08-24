@@ -150,7 +150,7 @@ transition: width 1s;
  -webkit-transform: matrix( 0.9998704848244,0,0,1,0,0);
  -ms-transform: matrix( 0.9998704848244,0,0,1,0,0);
  position: absolute;
- margin-top : 200px;
+ margin-top : -40px;
  margin-left: 10px;
  z-index: 8;
 }
@@ -158,7 +158,7 @@ transition: width 1s;
 {
   background-color: rgb(128, 175, 181);
   position: absolute;
-  margin-top: 232px;
+  margin-top: -7px;
   width: 130px;
   height: 7px;
   z-index: 10;
