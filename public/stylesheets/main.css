@@ -353,6 +353,9 @@ table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
     z-index: 31;
 }
 
+.combobox:hover .combobox-content{
+  display: block;
+}
 
 .combobox-content a {
     color: black;
@@ -777,7 +780,7 @@ table.type08 td .ex_time{
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   width: 90px;
+  position  :absolute;
   height:30px;
-  margin-top : 20px;
   z-index: 11;
 }
