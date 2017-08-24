@@ -95,4 +95,7 @@ $(document).ready(function() {
       })//ajax
   });
 */
+$('#logo').click(function(){
+  $(window).attr('location','/first_test/main/1');
+});
 });
