@@ -65,7 +65,15 @@
   height: 4px;
   z-index: 6;
 }
-
+.a1
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
+}
 /* Style the tab */
 div.tab {
     overflow: hidden;
@@ -112,9 +120,11 @@ div.tab button.active {
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   position: absolute;
-  width: 70px;
-  height:25px;
+  width: 100px;
+  height:50px;
   z-index: 11;
+  margin-left: 200px;
+  margin-top: 150px;
 }
 #find_button2
 {
@@ -125,7 +135,9 @@ div.tab button.active {
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   position: absolute;
-  width: 70px;
-  height:25px;
+  width: 100px;
+  height:50px;
   z-index: 11;
+  margin-left: 200px;
+  margin-top: 86px;
 }
