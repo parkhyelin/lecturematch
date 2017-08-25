@@ -1,8 +1,13 @@
 
-  <div class = "modal-header">
+  <div class = "modal-mail-header">
 
-         <%=rows[0].send_name%> 님이 보낸 쪽지<br>
+        <p id ="who_send">
+          <%=rows[0].send_name%> 님이 보낸 쪽지<br>
+        </p>
+        <p id ="send_time">
          보낸 시간 : <%=rows[0].date_sent%><br>
+       </p>
+       <p id = "who_number">
          번호 : <%
           if(rows3[0].phoneopen == '비공개')
           {
@@ -15,23 +20,24 @@
          <%
        }
          %>
+       </p>
         <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">x</button>
       </div>
 
-      <div class= "modal-body">
-          <textarea row= "5" cols= "50" readonly class="form-control">
+      <div class= "modal-mail-body">
+          <textarea row= "20" cols= "44" readonly class="recv_mail_textarea">
             <%=rows[0].content%>
           </textarea>
       </div>
-      <div class = "modal-footer">
+      <div class = "modal-mail-footer" >
+          <button type = "button" class = "mail_cancle_btn" data-dismiss="modal" id="Okbtn"> 취소</button>
           <button type = "button" href = "/first_test/replymodal/<%=rows[0].id%>" id="Replybtn" data-toggle="modal" data-target="#ReplyModal<%=rows[0].id%>" class= "btn btn-primary"> 답장 </button>
-          <button type = "button" class = "btn btn-default" data-dismiss="modal" id="Okbtn"> 취소</button>
       </div>
 
 
-        <div class = "modal" id= "ReplyModal<%=rows[0].id%>" tabindex="-1" data-focus-on="input:first">
+        <div class = "reply_modal" id= "ReplyModal<%=rows[0].id%>" tabindex="-1" data-focus-on="input:first">
           <div class = "modal-dialog">
-            <div class = "modal-content">
+            <div class = "modal-content" id="modal-reply-content">
 
             </div>
           </div>

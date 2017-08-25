@@ -33,7 +33,6 @@
 #div_login
 {
   height : 170px;
-
   width : 300px;
 }
 
@@ -151,7 +150,7 @@ transition: width 1s;
  -webkit-transform: matrix( 0.9998704848244,0,0,1,0,0);
  -ms-transform: matrix( 0.9998704848244,0,0,1,0,0);
  position: absolute;
- margin-top : 200px;
+ margin-top : -40px;
  margin-left: 10px;
  z-index: 8;
 }
@@ -159,7 +158,7 @@ transition: width 1s;
 {
   background-color: rgb(128, 175, 181);
   position: absolute;
-  margin-top: 232px;
+  margin-top: -7px;
   width: 130px;
   height: 7px;
   z-index: 10;
@@ -191,7 +190,7 @@ transition: width 1s;
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    z-index: 800; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -215,8 +214,10 @@ transition: width 1s;
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 15px;
     font-weight: bold;
+    border : 0;
+    outline : 0;
 }
 
 .close:hover,
@@ -338,10 +339,9 @@ table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
 .type07 tr:nth-child(even){background-color: #E3E2E2;}
 
 .combobox {
-    position: absolute;
+    position: relative;
     display: inline-block;
     margin-left: 300px;
-    margin-top: -44px;
 }
 
 .combobox-content {
@@ -351,6 +351,10 @@ table.mailtable tbody tr:hover, table.mailtable tbody tr:hover td{
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 31;
+}
+
+.combobox:hover .combobox-content{
+  display: block;
 }
 
 .combobox-content a {
@@ -411,7 +415,48 @@ table.mailtable tbody td {
   text-align: center;
   padding: 7px;
 }
-
+.select_matching
+{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: -40px;
+  margin-top: -4px;
+  width: 80px;
+  height:30px;
+  z-index: 11;
+}
+#write_matching_modalbtn
+{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  margin-top: 10px;
+  width: 140px;
+  height:30px;
+  z-index: 11;
+}
+#writeButton
+{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  width: 90px;
+  height:30px;
+  z-index: 11;
+}
 #exchange_req_td{
   width : 103.6px;
   background-color : #52A7BA;
@@ -430,4 +475,312 @@ table.type08 td .ex_professor{
 }
 table.type08 td .ex_time{
   width : 97.6px;
+}
+
+
+
+/* 쪽지 창 css*/
+
+.modal-recv{
+
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 800; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-send{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 800; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.reply_modal{
+
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 800; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#modal-reply-content{
+  left : 50%;
+  top : 0px;
+  width:360px;
+  height:450px;
+  z-index:1000;
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+}
+#modal-recv-content{
+  left : 50%;
+  top : 0px;
+  width:360px;
+  height:450px;
+  z-index:1000;
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+}
+
+ #modal-send-content{
+   left : 50%;
+   top : 0px;
+   width:360px;
+   height:450px;
+   z-index:1000;
+   background-color: #fefefe;
+   margin: auto;
+   border: 1px solid #888;
+ }
+#btn_search{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  width: 70px;
+  height : 30px;
+  z-index: 11;
+  margin-left: 190px;
+  margin-top: -22px;
+}
+
+#Replybtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 200px;
+  width: 70px;
+  height:29px;
+  z-index: 11;
+}
+
+#Okbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 90px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
+#Okbtn2{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 145px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
+.recv_mail_textarea{
+  border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ position: absolute;
+ margin-left: 15px;
+ width: 331px;
+ height: 258px;
+ z-index: 5;
+}
+
+#message_text{
+  border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ position: absolute;
+ margin-left: 15px;
+ width: 331px;
+ height: 280px;
+ z-index: 5;
+}
+
+#who_send{
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  font-weight: bold;
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  z-index: 3;
+}
+#send_time{
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
+  color: rgb(0, 0, 0);
+  line-height: 1.2;
+  position: absolute;
+  margin-top: 63px;
+  margin-left: 13px;
+  z-index: 3;
+}
+#who_number{
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
+  color: rgb(0, 0, 0);
+  line-height: 1.2;
+  position: absolute;
+  margin-top: 38px;
+  margin-left: 13px;
+  z-index: 3;
+}
+.modal-mail-header{
+  width :100%;
+  height : 110px;
+}
+.modal-mail-body{
+  width :100%;
+  height : 300px;
+}
+.modal-mail-footer{
+  width :100%;
+  height : 40px;
+}
+.modal-reply-header{
+  width :100%;
+  height : 80px;
+}
+.modal-reply-body{
+  width :100%;
+  height : 330px;
+}
+.modal-reply-footer{
+  width :100%;
+  height : 40px;
+}
+
+.modal-send-header{
+  width :100%;
+  height : 100px;
+}
+.modal-send-body{
+  width :100%;
+  height : 310px;
+}
+.modal-send-footer{
+  width :100%;
+  height : 40px;
+}
+
+#recipientname{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  font-weight: bold;
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  margin-top : 13px;
+  z-index: 13;
+}
+#recipientname_2{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 78px;
+  margin-top : 13px;
+  z-index: 13;
+}
+#when_send{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  margin-top : 36px;
+  z-index: 13;
+}
+#read_flag{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  margin-top : 56px;
+  z-index: 13;
+}
+#SendReplybtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 200px;
+  width: 70px;
+  height:29px;
+  z-index: 11;
+}
+
+#SendClosebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 90px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
+#dropdown_btn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  width: 90px;
+  position  :absolute;
+  height:30px;
+  z-index: 11;
 }

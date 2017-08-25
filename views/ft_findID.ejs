@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
   <title>
     아이디찾기
   </title><script type="text/javascript"></script>
@@ -16,25 +18,46 @@
 </script>-->
 </head>
 
-<body>
+<body ondragstart="return false">
+  <div id="wrapper">
+    <div id="first_area">
+      <div id="div_logo">
+        <img src="/images/로고.png" id="logo"></img>
+      </div>
+      <div id="z">
+      </div>
+      <div id="div_login">
+        <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+        <div class = "modal" id= "MailBoxModal" style="display:none;" >
+        <div class = "modal-dialog">
+        <div class = "modal-content">
+        <!-- remote ajax call이 되는영역 -->
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="line_1">
+    </div>
   <div class="tab">
     <button class="tablinks" onclick="find(event, 'find_id')">아이디 찾기</button>
     <button class="tablinks" onclick="find(event, 'find_pwd')">비밀번호 찾기</button>
   </div>
 
   <div id="find_id" class="tabcontent">
-<form action="/first_test/findID_success" method="get">
-  <input type='text' name='f_name' id='f_name' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number' id='f_number' placeholder='핸드폰번호를 입력하세요'>
+    <form action="/first_test/findID_success" method="get">
+    <br><input type='text' name='f_name' id='f_name'  class = "a1"placeholder="이름을 입력하세요"><br><br>
+    <input type='text' name='f_number' id='f_number' class = "a1" placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button' value="확인">
 </form>
+
 </div>
 
   <div id="find_pwd" class="tabcontent">
 <form action="/first_test/findpwd_success" method="get">
-  <input type='text' name='f_email' id='f_email' placeholder="이메일을 입력하세요">
-  <input type='text' name='f_name' id='f_name2' placeholder="이름을 입력하세요">
-  <input type='text' name='f_number' id='f_number2' placeholder='핸드폰번호를 입력하세요'>
+  <br><input type='text' name='f_email' id='f_email' class = "a1" placeholder="이메일을 입력하세요"><br><br>
+  <input type='text' name='f_name' id='f_name2'  class = "a1" placeholder="이름을 입력하세요"><br><br>
+  <input type='text' name='f_number' id='f_number2' class = "a1" placeholder='핸드폰번호를 입력하세요'>
     <input type='submit' id='find_button2' value="확인">
 </form>
 </div>
@@ -55,6 +78,6 @@ function find(evt, item) {
 }
 </script>
 
-
+</div>
 </body>
 </html>

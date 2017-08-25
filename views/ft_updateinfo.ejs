@@ -11,7 +11,7 @@
       <div id="wrapper">
         <div id="first_area">
              <div id="div_logo">
-               <p id="logo">LOGO</a></P>
+                <img src="/images/로고.png" id="logo"></img>
              </div>
              <div id="z">
              </div>
@@ -24,11 +24,12 @@
     </div>
     <div id="d2"><p class="p_style2">이름</p>
     </div>
-    <div id="d7">
-
+    <div id="d7" style="display : inline-block;">
+      <div id="d7_1" style="margin-left : 50px; margin-top : 10px;">
         <%    var oneItem = rows[0];
           %>
             <%=oneItem.name%>
+        </div>
     </div>
     <div id="d3"><p class="p_style2">비밀번호</p>
     </div>
@@ -39,9 +40,11 @@
     <div id="d9"><input type="password" class="a1" id = "update_password_check">
       <p id="password_correct">비밀번호가 일치합니다.</p><p id="password_incorrect">비밀번호가 불일치합니다.</p>
     </div>
-    <div id="d6">
+    <div id="d6" style="display : inline-block;">
+      <div id="d6_1" style="margin-left : 50px; margin-top : 10px;">
         <%     var oneItem = rows[0];  %>
               <%=oneItem.email%>
+            </div>
     </div>
     <div id="d5"><p class="p_style2">휴대전화 번호</p>
     </div>

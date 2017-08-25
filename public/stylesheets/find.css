@@ -1,3 +1,79 @@
+#wrapper
+{
+  width : 1020px;
+  margin : 0 auto;
+}
+#first_area
+{
+  width : 1020px;
+  height : 170px;
+
+  display: inline-flex;
+}
+#div_logo
+{
+  height : 150px;
+
+  width : 300px;
+  padding : 10px;
+}
+#logo
+{
+  font-size: 50px;
+  font-family: "NanumBarunGothic";
+  color: rgb(58, 74, 88);
+  cursor: pointer;
+  margin-top: 80px;
+}
+#z{
+  width: 420px;
+
+  height: 170px;
+}
+#div_login
+{
+  height : 170px;
+
+  width : 300px;
+}
+
+#first_login
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
+#first_join
+{
+  font-size : 15px;
+  float : right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#line_1
+{
+  background-color: rgb(75, 108, 138);
+  left: 42px;
+  top: 189px;
+  width: 1020px;
+  height: 4px;
+  z-index: 6;
+}
+.a1
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
+}
 /* Style the tab */
 div.tab {
     overflow: hidden;
@@ -32,4 +108,36 @@ div.tab button.active {
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    height : 300px;
+    background-color: rgb(244, 244, 244);
+}
+#find_button
+{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  width: 100px;
+  height:50px;
+  z-index: 11;
+  margin-left: 200px;
+  margin-top: 150px;
+}
+#find_button2
+{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  width: 100px;
+  height:50px;
+  z-index: 11;
+  margin-left: 200px;
+  margin-top: 86px;
 }

@@ -59,9 +59,9 @@
             if( oneItem.recv_del == 'Y'){ continue;}
             else {
     %>
-    <div class = "modal" id= "contentViewModal<%=oneItem.id%>" aria-hidden="true" >
+    <div class = "modal-recv" id= "contentViewModal<%=oneItem.id%>" aria-hidden="true"  data-backdrop="">
     <div class = "modal-dialog">
-    <div class = "modal-content">
+    <div class = "modal-content" id= "modal-recv-content">
 
     </div>
     </div>
@@ -122,9 +122,9 @@
               if( oneItem.send_del == 'Y'){ continue;}
               else {
       %>
-              <div class = "modal" id= "SendcontentViewModal<%=oneItem.id%>" aria-hidden="true" style="display:none;"  data-backdrop="" >
+              <div class = "modal-send" id= "SendcontentViewModal<%=oneItem.id%>" aria-hidden="true" style="display:none;"  data-backdrop="" >
               <div class = "modal-dialog">
-              <div class = "modal-content">
+              <div class = "modal-content" id="modal-send-content">
                   <!-- remote ajax call이 되는영역 -->
               </div>
               </div>
