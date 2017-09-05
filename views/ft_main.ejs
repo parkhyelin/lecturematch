@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
         <script type="text/javascript" ></script>
-        <script language='javascript'>
-          window.setTimeout('window.location.reload()',60000); //60초마다 새로고침
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>board</title>
@@ -256,27 +253,27 @@
             <input type='button' name='write' value='글쓰기' id='writeButton'>
 
             <div id="myModal" class="modal">
-              <div class= "modal-dialog">
+              <div class= "modal-dialog" id='dialog'>
               <div class="modal-content">
                 <div class = "modal-header">
                   <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                    <h2 class = "modal-title" id = "write_matching_title" style="font-family: NanumBarunGothic;"> 버림/구함 글쓰기 </h4>
+                <!--    <h2 class = "modal-title" id = "write_matching_title" style="font-family: NanumBarunGothic;"> 버림/구함 글쓰기 </h4>-->
                 </div>
                 <div class = "modal-body">
                 <form>
                   <div class = "form-group">
-                <input type="radio" name="choice" value="버림">버림
+                <input type="radio" name="choice" value="버림">버림 &nbsp; &nbsp; &nbsp; &nbsp;
                 <input type="radio" name="choice" value="구함">구함
               </div>
               <div class = "form-group">
-                 <label for="title" class="control-label"> 글제목: </label>
-                <input type='text' class = "form-control" id='title'>
+              <div class='area'>   <label for="title" class="control-labels"> 글제목 </label></div>
+                <input type='text' class = "form-controls" id='title'>
               </div>
               <div class ="form-group">
-                 <label for="content" class="control-label"> 내용:  &nbsp;&nbsp;</label>
-                  <textarea rows='5' cols='20' name='comments' class = "form-control" id='content'></textarea>
+              <div class='area'>   <label for="content" class="control-labels"> 내용  &nbsp;&nbsp;</label></div>
+                  <textarea rows='5'  name='comments' class = "form-controls" id='content'></textarea>
               </div>
               </form>
               <div class = "modal-footer">
@@ -431,32 +428,33 @@
                       <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
-                      <h4 class = "modal-title" id = "write_matching_title"> 강의교환글쓰기 </h4>
+                    <!--  <h4 class = "modal-title" id = "write_matching_title"> 강의교환글쓰기 </h4>-->
                     </div>
                     <div class= "modal-body">
                       <form>
                         <div class = "form-group">
-                          <label for="class-name" class="control-label"> 구하는과목 : </label>
+                          <label for="class-name" class="control-label" id='subject'> 구하는과목  </label>
                           <input type = "text" class = "form-control" id = "class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="prof-name" class="control-label"> 교수 : &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="prof-name" class="control-label"> 교수  &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="time" class="control-label"> 시간 : &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="time" class="control-label"> 시간  &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "time">
                         </div>
+                        <div id='line'></div>
                         <div class = "form-group">
-                          <label for="change-class-name" class="control-label"> 바꿀 과목 : &nbsp;</label>
+                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 과목  &nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-prof-name" class="control-label"> 교수 : &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="change-prof-name" class="control-label"> 교수  &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-time" class="control-label"> 시간 : &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="change-time" class="control-label"> 시간  &emsp;&emsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_time">
                         </div>
                       </form>
