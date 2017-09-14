@@ -385,7 +385,7 @@
             %>
             <div class = "modal" id= "exchange_req_modal<%=oneItem.id%>" data-backdrop="" >
             <div class = "modal-dialog">
-            <div class = "modal-content">
+            <div class = "modal-content" id="modal-request-content">
                 <!-- remote ajax call이 되는영역 -->
             </div>
             </div>
@@ -433,28 +433,28 @@
                     <div class= "modal-body">
                       <form>
                         <div class = "form-group">
-                          <label for="class-name" class="control-label" id='subject'> 구하는과목  </label>
+                          <label for="class-name" class="control-label" id='subject'> 구하는 과목  </label>
                           <input type = "text" class = "form-control" id = "class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="prof-name" class="control-label"> 교수  &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="prof-name" class="control-label" id='prof'> 교수 </label>
                           <input type = "text" class = "form-control" id = "prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="time" class="control-label"> 시간  &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="time" class="control-label" id='timelabel'> 시간 </label>
                           <input type = "text" class = "form-control" id = "time">
                         </div>
                         <div id='line'></div>
                         <div class = "form-group">
-                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 과목  &nbsp;</label>
+                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 과목 </label>
                           <input type = "text" class = "form-control" id = "change_class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-prof-name" class="control-label"> 교수  &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="change-prof-name" class="control-label" id='prof2'> 교수 </label>
                           <input type = "text" class = "form-control" id = "change_prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-time" class="control-label"> 시간  &emsp;&emsp;&nbsp;&nbsp;</label>
+                          <label for="change-time" class="control-label" id='time2'> 시간 </label>
                           <input type = "text" class = "form-control" id = "change_time">
                         </div>
                       </form>

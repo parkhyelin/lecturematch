@@ -73,6 +73,9 @@
         var change_prof_name = $('#change_prof_name').val();
         var change_time = $('#change_time').val();
 
+        if(class_name === '' || prof_name === '' || time === '' || change_class_name === '' || change_time ==='' || change_prof_name === '' ){
+            alert ('빈칸을 채워주세요!');
+        }else {
         var now = new Date();
         function leadingZeros(n, digits){
           var zero='';
@@ -112,6 +115,7 @@
             alert(error);
           }
         });
+      }
       });
 
       if (location.hash) {

@@ -1,34 +1,33 @@
-<div class = "modal-header">
+<div class = "modal-request-header">
   <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
     <span aria-hidden="true">&times;</span>
   </button>
-  <h4 class = "modal-title" id = "ExchangeRequestLabel"> 교환신청 </h4>
+  <!-- <h4 class = "modal-title" id = "ExchangeRequestLabel"> 교환신청 </h4> -->
+  <p id ="recipientname_request">
+      수신자 : <%=rows[0].writer%><br>
+    </p>
+    <p id ="phone_request">
+      번호공개여부 :
+    <%
+      if( rows2[0].phoneopen == '비공개')
+      {
+     %>
+     비공개
+     <%
+     }else{
+     %>
+     공개
+    <%
+     }
+     %>
+   </p>
 </div>
-<div class= "modal-body">
-  <form>
-    <div class = "form-group">
-       수신자 : <label id="recipientname" class="control-label"><%=rows[0].writer%></label>
-       번호공개여부 : <%
-        if( rows2[0].phoneopen == '비공개')
-        {
-       %>
-       비공개
-       <%
-       }else{
-       %>
-       공개
-      <%
-       }
-       %>
-    </div>
-    <div class = "form-group">
-      <label for="message-text" class="control-label"> 자신이 가지고 있는 과목의 이름과 교수, 시간을 적어주세요. </label>
-      <input class = "form-control" id = "message_text" type="text" name="name2" placeholder="과목명, 교수, 시간" autocomplete="off"></input>
-    </div>
-  </form>
+<div class= "modal-request-body">
+      <!-- <label for="message-text" class="control-label"> 자신이 가지고 있는 과목의 이름과 교수, 시간을 적어주세요. </label> -->
+      <input class = "form-control" id = "message_text2" type="text" name="name2" placeholder="자신이 가지고 있는 과목의 이름과 교수, 시간을 적어주세요. " autocomplete="off"></input>
 </div>
-<div class = "modal-footer">
-  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> Close </button>
+<div class = "modal-request-footer">
+  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="request_close_btn"> 취소 </button>
   <button type = "button" id = "SendReplybtn" class = "btn btn-primary"> 교환신청 </button>
 </div>
 
@@ -36,7 +35,7 @@
 <script>
   $('#SendReplybtn').click(function(){
     var recv_email = '<%=rows[0].writer_email%>';
-    var content = $('#message_text').val();
+    var content = $('#message_text2').val();
     var now = new Date();
     function leadingZeros(n, digits){
       var zero='';
