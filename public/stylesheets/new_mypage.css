@@ -102,6 +102,14 @@
 
   background-color: rgb(244, 244, 244);
 }
+#message_text3{
+ border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ width: 331px;
+ height: 280px;
+ z-index: 5;
+}
 #first_1
 {
   width : 200px;
@@ -466,6 +474,20 @@ table.mailtable tbody td {
       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modal-send{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 800; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 .reply_modal{
 
         display: none; /* Hidden by default */
@@ -501,7 +523,25 @@ table.mailtable tbody td {
   margin: auto;
   border: 1px solid #888;
 }
-
+#modal-app-content {
+  left : 50%;
+  top : 0px;
+  width:722px;
+  z-index:1000;
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+}
+ #modal-send-content{
+   left : 50%;
+   top : 0px;
+   width:360px;
+   height:450px;
+   z-index:1000;
+   background-color: #fefefe;
+   margin: auto;
+   border: 1px solid #888;
+ }
 #Replybtn{
   border-radius: 5px;
   font-size: 13px;
@@ -529,6 +569,33 @@ table.mailtable tbody td {
   height:29px;
   z-index: 12;
 }
+
+#OKbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+#Okbtn2{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 145px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
 .recv_mail_textarea{
   border-width: 1px;
  border-color: rgb(190, 190, 190);
@@ -551,6 +618,24 @@ table.mailtable tbody td {
  z-index: 5;
 }
 
+#message_text2{
+ border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ position: absolute;
+ width: 544px;
+ height: 24px;
+ margin-top : 8px;
+ z-index: 5;
+}
+#message_text3{
+ border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ width: 331px;
+ height: 280px;
+ z-index: 5;
+}
 #who_send{
   font-size: 15px;
   font-family: "NanumBarunGothic";
@@ -593,6 +678,7 @@ table.mailtable tbody td {
   width :100%;
   height : 40px;
 }
+
 .modal-reply-header{
   width :100%;
   height : 80px;
@@ -605,6 +691,20 @@ table.mailtable tbody td {
   width :100%;
   height : 40px;
 }
+
+.modal-send-header{
+  width :100%;
+  height : 100px;
+}
+.modal-send-body{
+  width :100%;
+  height : 310px;
+}
+.modal-send-footer{
+  width :100%;
+  height : 40px;
+}
+
 #recipientname{
   font-size: 17px;
   font-family: "NanumBarunGothic";
@@ -627,6 +727,53 @@ table.mailtable tbody td {
   z-index: 13;
 }
 
+#when_send{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  margin-top : 36px;
+  z-index: 13;
+}
+#read_flag{
+  font-size: 17px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-left : 13px;
+  margin-top : 56px;
+  z-index: 13;
+}
+
+#SendClosebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  position: absolute;
+  margin-left: 90px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
+#Closebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
 
 #SendReplybtn{
   border-radius: 5px;

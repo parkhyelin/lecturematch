@@ -734,7 +734,14 @@ table.type08 td .ex_time{
  margin-top : 8px;
  z-index: 5;
 }
-
+#message_text3{
+ border-width: 1px;
+ border-color: rgb(190, 190, 190);
+ border-style: solid;
+ width: 331px;
+ height: 280px;
+ z-index: 5;
+}
 #who_send{
   font-size: 15px;
   font-family: "NanumBarunGothic";
