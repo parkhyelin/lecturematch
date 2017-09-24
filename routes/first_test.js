@@ -557,6 +557,11 @@ module.exports = function(app){
     var sql7 = "delete from ft_mail where recv_email = ?";
     var sql8 = "delete from ft_mail where send_email = ?";
 
+    var sql9 = "delete from book_postboard where writer = ?";
+    var sql10 = "delete from book_exchange where writer_email = ?";
+    var sql11 = "delete from book_request_ex where app_email = ?";
+    var sql12 = "delete from book_request_ex where recv_email = ?";
+
     conn.query(sql2, [user_email], function(error,results,fields){
       if(error){
         console.log(error);
@@ -566,15 +571,27 @@ module.exports = function(app){
             conn.query(sql3, [user_email],function(error, results){
               if(error){console.log(error);}
               else{
+                  conn.query(sql9, [user_email], function(error, results){
+                    if(error){console.log(error);}
+                    else{
                 conn.query(sql4, [user_email], function(error, results){
                   if(error){console.log(error);}
                   else{
+                    conn.quety(sql10, [user_email], function(error, results){
+                      if(error){console.log(error);}
+                      else{
                     conn.query(sql5, [user_email], function(error, results){
                       if(error){console.log(error);}
                       else{
+                        conn.query(sql11, [user_email], function(error, results){
+                          if(error){console.log(error);}
+                          else{
                         conn.query(sql6, [user_email], function(error, results){
                           if(error){console.log(error);}
                           else{
+                            conn.query(sql12, [user_email], function(error, results){
+                              if(error){console.log(error);}
+                              else{
                             conn.query(sql7, [user_email], function(error, results){
                               if(error){console.log(error);}
                             else{
@@ -593,14 +610,22 @@ module.exports = function(app){
                              });// sql8_query
                            }//else
                          }); //sql7
+                       }
+                     });
                         }
                       });//sql6
                     }
+                  });
+                    }
                   });//sql5
+                }
+              });
                 }
               });//sql4
             }
-            });
+          });
+            }//sql3 else
+          }); //sql3_query
 
           }else{
             console.log('실패');
@@ -1148,6 +1173,636 @@ router.get('/requestdelete/:id',function(req,res){
         session = req.session.authId;
           res.render('ft_update1', {session :session});
       });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  router.get('/', function(req,res,next){
+    res.redirect('/first_test/bookmain/1');
+  });
+
+  //책교환 GET - 페이지
+  router.get('/bookmatching',function(req,res,next){
+ conn.query('SELECT * FROM book_exchange',function(err,result){
+   if(err)
+   throw err;
+   else{
+     res.render('b_matching',{ result : result });
+   }
+ });
+ });
+
+  //책교환 글쓰기 POST - 모달
+  router.post('/bookwritematching',function(req,res,next){
+    writeremail = req.session.authId;
+    book_name = req.body.book_name;
+    author = req.body.author;
+    publisher = req.body.publisher;
+    change_book_name = req.body.change_book_name;
+    change_author = req.body.change_author;
+    change_publisher = req.body.change_publisher;
+    post_date = req.body.post_date;
+
+    var sql = "select * from ft_user where email = ?";
+    var sql3 = "INSERT INTO `book_exchange` (`book_name`, `author`,`publisher`,`change_book_name`,`change_author`,`change_publisher`,`post_date`,`writer`,`writer_email`) VALUES (?,?,?,?,?,?,?,?,?);";
+    conn.query(sql, [writeremail], function(error,results,fields){
+      if(error){
+        console.log(error);
+      }else{
+        writer = results[0].name;
+        conn.query(sql3,[book_name, author, publisher, change_book_name, change_author, change_publisher, post_date, writer,writeremail], function(error, results, fields){
+          if(error){
+            console.log(error);
+          }else{
+            console.log('(책)글쓰기 성공');
+          }
+        });//sql3_query
+      }
+    });//sql_query
+    res.end('success');
+  });
+
+  //책교환신청  get
+  router.get('/bookexchangerequest/:id',function(req,res,next){
+    recv_email = req.session.authId;
+    var sql = "select * from book_exchange where id=?";
+    var sql2 = "select * from ft_user where email = ?";
+    conn.query(sql,[req.params.id],function(err,rows){
+      var user = rows[0].writer_email;
+      conn.query(sql2, [user], function(err,rows2){
+        res.render('b_exchange_request_mail',{title :'책교환신청',rows2 : rows2, rows : rows});
+      });
+    });
+  });
+
+  //책교환신청 post
+  router.post('/bookexchangerequestmail/:id',function(req,res,next){
+    send_email = req.session.authId;
+    recv_email = req.body.recv_email;
+    content = req.body.content;
+    app_date = req.body.app_date;
+    var sql = "insert into `book_request_ex` (`fk_book_exchange_id`,`app_name`,`app_email`,`content`, `app_date`,`recv_email`) values (?,?,?,?,?,?);"
+    var sql2 = "select * from `ft_user` where email = ?";
+    if(send_email == recv_email){
+      res.end('error');
+    }else{
+      conn.query(sql2, [send_email],function(error,results1){
+        if(error){console.log(error);}
+        else{
+          var myname = results1[0].name;
+          conn.query(sql, [req.params.id, myname, send_email, content, app_date, recv_email],function(error, result2){
+            if(error){console.log(error);}
+            else {console.log('교환신청 성공');}
+          }); //conn.query_sql
+        }
+      }); //conn.query_sql2
+
+    res.end('success');
+  }
+  });
+
+
+
+  // //책메일보내기 POST
+  // router.post('/sendmail',function(req,res,next){
+  //   send_email = req.session.authId;
+  //   recv_email = req.body.recv_email;
+  //   content = req.body.content;
+  //   date_sent = req.body.date_sent;
+  //
+  //   var sql = "INSERT INTO `ft_mail` (`recv_email`, `send_email`,`content`,`date_sent`) VALUES (?,?,?,?);";
+  //   var sql2 = "SELECT * FROM ft_user WHERE email=?";
+  //   var sql3 = "UPDATE ft_mail SET recv_name = ? where recv_email = ?";
+  //   var sql4 = "UPDATE ft_mail SET send_name = ? where send_email = ?";
+  //
+  //   if(recv_email == send_email){
+  //     res.end('error');
+  //   }else{
+  //   conn.query(sql, [recv_email, send_email, content, date_sent], function(error, results, fields) {
+  //     if (error) {
+  //       console.log(error);
+  //     } else {
+  //         conn.query(sql2, [recv_email], function (error, results, fields) {
+  //           if(error){
+  //             console.log(error);
+  //           } else {
+  //             var user = results[0];
+  //             recv_name = user.name;
+  //             conn.query(sql3, [recv_name, recv_email], function(error, results,fields){
+  //               if(error){
+  //                 console.log(error);
+  //               } else {
+  //                 conn.query(sql2, [send_email],function(error, results, fields){
+  //                   if(error){
+  //                     console.log(error);
+  //                   }else{
+  //                   var user = results[0];
+  //                   send_name = user.name;
+  //                   conn.query(sql4, [send_name, send_email], function(error,results,fields){
+  //                     if(error){
+  //                       console.log(error);
+  //                     }else{
+  //                       console.log('메일 보내기 성공');
+  //                     }
+  //                   });
+  //                 }
+  //                 });
+  //               }
+  //             });
+  //           }
+  //
+  //         });
+  //       }
+  //   });
+  //   res.end('success');
+  // }//else
+  // });
+
+
+    //책 게시글의 제목부분을 눌렀을때 게시글의 내용이 있는 새로운 페이지로 이동
+    router.get('/booktitle_content/:id',function(req,res){
+      conn.query('select * from book_postboard where id=?',[req.params.id],function(err,rows){
+        res.render('b_title_content',{rows : rows});
+      });
+    });
+
+    //책게시판 글 보고 쪽지 보내기 get
+    router.get('/bookboardsendmail/:id',function(req,res,next){
+      recv_email = req.session.authId;
+      var sql = "select * from book_postboard where id=?";
+
+      conn.query(sql,[req.params.id],function(err,rows){
+        res.render('b_board_send_mail_modal',{title :'책쪽지보내기',rows : rows});
+      });
+    });
+
+    //게시판 글 보고 쪽지 보내기 POST
+    router.post('/bookboardsendmail/:id',function(req,res,next){
+      send_email = req.session.authId;
+      recv_email = req.body.recv_email;
+      content = req.body.content;
+      date_sent = req.body.date_sent;
+
+      var sql = "INSERT INTO `ft_mail` (`recv_email`, `send_email`,`content`,`date_sent`) VALUES (?,?,?,?);";
+      var sql2 = "SELECT * FROM ft_user WHERE email=?";
+      var sql3 = "UPDATE ft_mail SET recv_name = ? where recv_email = ?";
+      var sql4 = "UPDATE ft_mail SET send_name = ? where send_email = ?";
+      var sql5 = "select * from ft_mail where id = ?"
+      if(send_email == recv_email){
+        res.end('error');
+      }else{
+      conn.query(sql, [recv_email, send_email, content, date_sent], function(error, results, fields) {
+        if (error) {
+          console.log(error);
+        } else {
+            conn.query(sql2, [recv_email], function (error, results, fields) {
+              if(error){
+                console.log(error);
+              } else {
+                var user = results[0];
+                recv_name = user.name;
+                conn.query(sql3, [recv_name, recv_email], function(error, results,fields){
+                  if(error){
+                    console.log(error);
+                  } else {
+                    conn.query(sql2, [send_email],function(error, results, fields){
+                      if(error){
+                        console.log(error);
+                      }else{
+                      var user = results[0];
+                      send_name = user.name;
+                      conn.query(sql4, [send_name, send_email], function(error,results,fields){
+                        if(error){
+                          console.log(error);
+                        }else{
+                          console.log('쪽지 보내기 성공');
+                        }
+                      });
+                    }
+                    });
+                  }
+                });
+              }
+
+            });
+          }
+      });
+      res.end('success');
+    }
+    });
+
+
+
+
+  //책마이페이지 GET
+  router.get('/bookmypage',function(req,res,next){
+    if(req.session.authId){
+      user_email = req.session.authId;
+      var sql = "select * from ft_user where email = ?"
+      var sql2 = "select * from book_exchange where writer_email = ?";
+      var sql3 = "select * from book_request_ex where app_email = ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+      conn.query(sql,[user_email],function(err,rows){
+        if(err){
+          throw err;
+        }else{
+          conn.query('select * from book_postboard where writer=?',[req.session.authId],function(err,result){
+            if(err)
+            throw err;
+            else{
+              conn.query(sql2,[req.session.authId],function(err,result2){
+                conn.query(sql3, [req.session.authId],function(err, result3){
+                  conn.query(sql4, [req.session.authId], function(err, mailflag){
+                    res.render('b_mypage',{ title : '마이페이지',mailflag : mailflag, result3 : result3, result2 : result2, result : result,  rows : rows, session : req.session.authId});
+
+                  });
+                })
+              });
+            }//else
+          });//query
+        }//else
+      });
+    }else{
+        res.render('ft_login',{
+          title : 'Login'
+        }); //render
+      }//else
+  });
+
+
+
+  //회원정보 GET
+  router.get('/book_updateinfo',function(req,res,next){
+    if(req.session.authId && req.session.update){
+    user_email = req.session.authId;
+    delete req.session.update;
+    var sql = "select * from ft_user where email = ?"
+    conn.query(sql,[user_email],function(err,rows){
+            res.render('b_updateinfo',{ title : '정보수정', rows : rows});
+        });
+      }else{
+        res.redirect('/first_test/bookmypage');
+      }
+  });
+
+  //회원정보 수정 POST
+  router.post('/bookupdateinfo',function(req,res,next){
+    user_email = req.session.authId;
+    user_password = req.body.password;
+    user_phone=req.body.phone;
+    phoneopen=req.body.phoneopen;
+
+    var sql = "UPDATE `ft_user` SET password = ?,phone =?, phoneopen = ? WHERE email = ?";
+
+    conn.query(sql, [user_password, user_phone, phoneopen, user_email], function(error, results, fields) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('수정성공');
+      }
+    });
+
+    res.end('success');
+  });
+
+  //로그아웃 GET
+  router.get('/logout',function(req,res,next){
+    if(req.session.authId){
+    delete req.session.authId;
+    req.session.save(function(){
+      res.redirect('/first_test/main/1');
+    });
+  }else{
+    res.render('ft_main',{
+      title: 'main',
+      session : req.session.authId
+    });
+  }
+  });
+
+//책 교환 신청자 목록
+router.get('/b_showapp_test1111/:fk_book_exchange_id', function(req,res,next){
+  var sql = "select * from request_ex where fk_book_exchange_id = ?";
+  conn.query(sql,[req.params.fk_book_exchange_id], function(err, results){
+    console.log(results);
+    res.render('b_showapp_test1111',{title : "신청자보기", results : results});
+  });
+});
+
+// bookmypage 내가 신청한 게시물보기
+router.get('/bookshowpost/:id', function(req,res,next){
+  var sql = "select * from book_request_ex where id = ?";
+  var sql2 = "select * from book_exchange where id = ?";
+  conn.query(sql, [req.params.id], function(err, results2){
+    if(err){console.log(err);}
+    else{
+      var book_exchange_id = results2[0].fk_book_exchange_id;
+      conn.query(sql2, [book_exchange_id], function(err, results){
+        res.render('b_showpost',{title : "책게시물보기", results : results});
+      });
+    }
+  });
+});
+
+// bookmypage 내가 신청한 거 신청취소하기
+router.get('/bookrequestdelete/:id',function(req,res){
+  var sql = "DELETE FROM book_request_ex WHERE id = ?";
+  conn.query(sql,[req.params.id],function(){
+    res.redirect('/first_test/bookmypage');
+    console.log('(책)삭제완료');
+  });
+});
+
+    //책수락버튼 get
+    router.get('/bookacceptModal/:id',function(req,res,next){
+      recv_email = req.session.authId;
+      var sql = "select * from book_request_ex where id=?";
+
+      conn.query(sql,[req.params.id],function(err,rows){
+        res.render('b_acceptModal',{title :'수락',rows : rows});
+      });
+    });
+
+    //책수락버튼 POST
+    router.post('/bookacceptModal/:id',function(req,res,next){
+      send_email = req.session.authId;
+      recv_email = req.body.recv_email;
+      content = req.body.content;
+      date_sent = req.body.date_sent;
+      request_id = req.body.request_id;
+      var sql = "INSERT INTO `ft_mail` (`recv_email`, `send_email`,`content`,`date_sent`) VALUES (?,?,?,?);";
+      var sql2 = "SELECT * FROM ft_user WHERE email=?";
+      var sql3 = "UPDATE ft_mail SET recv_name = ? where recv_email = ?";
+      var sql4 = "UPDATE ft_mail SET send_name = ? where send_email = ?";
+      var sql5 = "select * from ft_mail where id = ?"
+      var sql6 = "UPDATE book_exchange SET request = 'Y' where id = ?";
+      var sql8 = "update book_request_ex set accept = 'N' where fk_book_exchange_id = ?";
+      var sql7 = "UPDATE book_request_ex SET accept = 'Y' where id = ?";
+      conn.query(sql, [recv_email, send_email, content, date_sent], function(error, results, fields) {
+        if (error) {
+          console.log(error);
+        } else {
+            conn.query(sql2, [recv_email], function (error, results, fields) {
+              if(error){
+                console.log(error);
+              } else {
+                var user = results[0];
+                recv_name = user.name;
+                conn.query(sql3, [recv_name, recv_email], function(error, results,fields){
+                  if(error){
+                    console.log(error);
+                  } else {
+                    conn.query(sql2, [send_email],function(error, results, fields){
+                      if(error){
+                        console.log(error);
+                      }else{
+                      var user = results[0];
+                      send_name = user.name;
+                      conn.query(sql4, [send_name, send_email], function(error,results,fields){
+                        if(error){
+                          console.log(error);
+                        }else{
+                          conn.query(sql6, [request_id], function(error, results, fields){
+                            if(error){
+                              console.log(error);
+                            }else{
+                              conn.query(sql8, [request_id], function(error,results){
+                                if(error){
+                                  console.log(error);
+                                }else{
+                                    conn.query(sql7, [req.params.id], function(error, results){
+                                      if(error){console.log(error);}
+                                      else{console.log('수락 성공');}
+                                    });
+                                  }
+                              });
+
+                            }
+                          });
+                        }
+
+                      });
+                    }
+                    });
+                  }
+                });
+              }
+
+            });
+          }
+      });
+      res.end('success');
+    });
+
+  //책메인페이지
+  router.get('/bookmain/:page',function(req,res,next){
+    var sql1 = 'select * from book_postboard';
+    var sql2 = 'select * from book_exchange';
+
+    var sql4 = "select * from ft_mail where recv_email = ?";
+    var page = req.params.page;
+    var flag = false;
+    var dropflag = false;
+    var checkdrop = false;
+    if(!req.params.page){
+      page = 1;
+    }
+    conn.query(sql1, function(err, result){
+      if(err){console.log(err);}
+      else{
+        conn.query(sql2, function(err, result2){
+          if(err){console.log(err);}
+          else{
+            conn.query(sql4,[req.session.authId], function(err, mailflag){
+              res.render('b_main',{title : 'main',mailflag : mailflag,result2 : result2, dropflag :dropflag, checkdrop : checkdrop,result : result, flag : flag, page : page, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId });
+
+            })
+          }
+        });
+      }
+    });
+  });
+
+  //책삭제버튼을 눌렀을때 해당 게시글의 작성자가 맞는경우에만 게시글을 삭제
+  router.get('/bookboarddelete/:id',function(req,res){
+    var sql = "DELETE FROM book_postboard WHERE id = ? and writer =?";
+    email = req.session.authId;
+    conn.query(sql,[req.params.id, email],function(){
+      res.redirect('/first_test/bookmypage');
+      console.log('삭제완료');
+    });
+  });
+
+  //책마이페이지에서 교환완료 게시글삭제버튼 누를때
+  router.get('/bookexchangedelete/:id',function(req,res){
+    var sql = "DELETE FROM book_exchange WHERE id = ?";
+    var sql2 = "delete from book_request_ex where fk_book_exchange_id = ?";
+    conn.query(sql,[req.params.id],function(){
+      conn.query(sql2,[req.params.id],function(){
+        res.redirect('/first_test/bookmypage');
+        console.log('삭제완료');
+    });
+  });
+});
+
+
+
+  //책게시판 post
+    router.post('/bookboard',function(req,res,next){
+      user_choice=req.body.choice;
+      user_title=req.body.title;
+      user_text=req.body.text;
+      user_date=req.body.date;
+      user_email=req.session.authId;
+    var sql2 = 'select * from ft_user where email = ?'
+    var sql='INSERT INTO `book_postboard`(`choice`,`title`,`date`,`writer`,`text`,`writer_name`) VALUES(?,?,?,?,?,?);';
+    conn.query(sql2, [user_email], function(error,results){
+      if(error){console.log(error)}
+      else{
+        var user_name = results[0].name;
+        conn.query(sql,[user_choice,user_title,user_date,user_email,user_text,user_name],function(error, results, fields) {
+          if (error) {
+            console.log(error);
+            res.end('error');
+          } else {
+            console.log('results', results);
+            console.log('fields', fields);
+            res.end('success');
+          }
+        }); // conn.query
+      }
+    });
+  });
+
+    //책검색기능
+    router.get('/book/search/:page',function(req,res){
+      search=req.query.searchText;
+      var page = req.params.page;
+      var flag = true; //검색 여부
+      var checkdrop = false;
+      var dropflag = false;
+      var sql4 = "select * from ft_mail where recv_email = ?";
+      var sql="SELECT * FROM book_postboard WHERE title LIKE ?";
+      var sql2="select * from book_exchange where (change_book_name like ?) or (book_name like ?)";
+      conn.query(sql,'%'+search+'%',function(error,result){
+        if(error)
+        console.log(error);
+        else{
+          conn.query(sql2,['%'+search+'%','%'+search+'%'], function(error, result2){
+            if(error)console.log(error);
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('b_main',{mailflag : mailflag,result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            });
+
+          });
+        }
+      })
+    });
+
+
+    //검색기능 - 구입
+    router.get('/bookmain/:page/purchase/search/',function(req,res){
+      search=req.query.searchText;
+      var page = req.params.page;
+      var flag = true; //검색 여부
+      var checkdrop = true;
+      var dropflag = false;
+
+      var sql="SELECT * FROM book_postboard WHERE title LIKE ? and choice='구입'";
+      var sql2="select * from book_exchange where book_name LIKE ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+      conn.query(sql,'%'+search+'%',function(error,result){
+        if(error)
+        console.log(error);
+        else{
+          conn.query(sql2,'%'+search+'%', function(error, result2){
+            console.log('success');
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('b_main',{mailflag : mailflag, result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            })
+          });
+        }
+      })
+    });
+    //검색기능 - 판매
+    router.get('/bookmain/:page/sell/search/',function(req,res){
+      search=req.query.searchText;
+      var page = req.params.page;
+      var flag = true; //검색 여부
+      var checkdrop = false;
+      var dropflag = false;
+
+      var sql="SELECT * FROM book_postboard WHERE title LIKE ? and choice='판매'";
+      var sql2="select * from book_exchange where change_book_name LIKE ?";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+
+      conn.query(sql,'%'+search+'%',function(error,result){
+        if(error)
+        console.log(error);
+        else{
+          conn.query(sql2,'%'+search+'%', function(error, result2){
+            console.log('success');
+            conn.query(sql4, [req.session.authId], function(error, mailflag){
+              res.render('b_main',{mailflag : mailflag, result2 : result2 ,result : result, checkdrop : checkdrop, dropflag : dropflag, qq : search, page : page, flag : flag, leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+            })
+          });
+        }
+      })
+    });
+
+    // /bookmain/:page/purchase
+    router.get('/bookmain/:page/purchase', function(req,res){
+      var sql = "select * from book_postboard where choice ='구입'";
+      var sql2 ="select * from book_exchange";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+      var page = req.params.page;
+      var flag = false;
+      var dropflag = true; //드랍다운 플래그
+      var checkdrop = true; // 구함이면 값이 true, 버림이면 false
+      conn.query(sql, function(error, result){
+        if(error){console.log(error);}
+        else{
+          conn.query(sql2, function(error, result2){
+            if(error){console.log(error);}
+            else{
+              conn.query(sql4, [req.session.authId], function(error, mailflag){
+                res.render('b_main', {mailflag : mailflag, result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+              })
+            }
+          })
+        }
+      });
+    });
+
+    // /bookmain/:page/sell
+    router.get('/bookmain/:page/sell',function(req,res){
+      var sql = "select * from book_postboard where choice ='판매'";
+      var sql2 ="select * from book_exchange";
+      var sql4 = "select * from ft_mail where recv_email = ?";
+
+      var page = req.params.page;
+      var flag = false;
+      var dropflag = true; //드랍다운 플래그
+      var checkdrop = false;
+      conn.query(sql, function(error, result){
+        if(error){console.log(error);}
+        else{
+          conn.query(sql2, function(error, result2){
+            if(error){console.log(error);}
+            else{
+              conn.query(sql4, [req.session.authId], function(error, mailflag){
+                res.render('b_main', {mailflag : mailflag, result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
+
+              })
+            }
+          })
+        }
+      });
+    });
 
   return router;
 }
