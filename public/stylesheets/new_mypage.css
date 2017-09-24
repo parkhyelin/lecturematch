@@ -802,3 +802,16 @@ table.mailtable tbody td {
   height:29px;
   z-index: 12;
 }
+
+#RecvBoxClosebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  margin-left: 290px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}

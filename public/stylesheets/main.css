@@ -634,6 +634,16 @@ table.type08 td .ex_time{
    margin: auto;
    border: 1px solid #888;
  }
+ #modal-boardview-content{
+   left : 50%;
+   top : 0px;
+   width:360px;
+   height:190px;
+   z-index:1000;
+   background-color: #fefefe;
+   margin: auto;
+   border: 1px solid #888;
+ }
 #btn_search{
   border-radius: 5px;
   font-size: 13px;
@@ -822,6 +832,18 @@ table.type08 td .ex_time{
   height : 40px;
 }
 
+.modal-boardview-header{
+  width :100%;
+  height : 110px;
+}
+.modal-boardview-body{
+  width :100%;
+  height : 52px;
+}
+.modal-boardview-footer{
+  width :100%;
+  height : 60px;
+}
 #recipientname{
   font-size: 17px;
   font-family: "NanumBarunGothic";
@@ -891,6 +913,19 @@ table.type08 td .ex_time{
   z-index: 12;
 }
 
+#Closebtn2{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  margin-left: 95px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+
 #dropdown_btn{
   border-radius: 5px;
   font-size: 13px;
@@ -943,6 +978,20 @@ table.type08 td .ex_time{
   margin-left : 190px;
 }
 
+#sendmailbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  position: absolute;
+  width: 80px;
+  height:29px;
+  z-index: 11;
+  margin-left : 10px;
+}
+
 #recipientname_request{
   font-size: 15px;
   font-family: "NanumBarunGothic";
@@ -979,4 +1028,41 @@ table.type08 td .ex_time{
 }
 #exchange_req_td{
   font-family: "NanumBarunGothic";
+}
+
+#tc_1{
+  font-size: 14px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-top : 13px;
+  z-index: 13;
+}
+#tc_2{
+  font-size: 14px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-top : 13px;
+  z-index: 13;
+}
+#tc_3{
+  font-size: 14px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-top : 13px;
+  z-index: 13;
+}
+#tc_4{
+  font-size: 14px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  line-height: 1.2;
+  position: absolute;
+  margin-top : 13px;
+  z-index: 13;
 }
