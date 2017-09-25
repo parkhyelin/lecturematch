@@ -577,7 +577,7 @@ module.exports = function(app){
                 conn.query(sql4, [user_email], function(error, results){
                   if(error){console.log(error);}
                   else{
-                    conn.quety(sql10, [user_email], function(error, results){
+                    conn.query(sql10, [user_email], function(error, results){
                       if(error){console.log(error);}
                       else{
                     conn.query(sql5, [user_email], function(error, results){
