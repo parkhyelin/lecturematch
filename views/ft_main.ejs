@@ -36,9 +36,9 @@
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <div id="book_mark_no_session"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <div id="book_mark"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
           <%
             if(mailflag.length == 0){
               %>
