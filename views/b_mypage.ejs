@@ -13,7 +13,7 @@
     <div id="wrapper">
       <div id="first_area">
         <div id="div_logo">
-            <img src="/images/로고.png" id="logo"></img>
+            <img src="/images/b로고.png" id="logo"></img>
         </div>
         <div id="z">
         </div>
@@ -90,7 +90,7 @@
                     <div id="rectangle_5_1">
                     <!--  <p id="my_board">내가 쓴 게시물</p> -->
                       <div class="tab">
-                        <button class="tablinks" onclick="postexchange(event, 'post_i_wrote')">내가 쓴 구입/판매 게시물</button>
+                        <button class="tablinks" onclick="postexchange(event, 'post_i_wrote')">내가 쓴 버림/구함 게시물</button>
                         <button class="tablinks" onclick="postexchange(event, 'exchange_i_wrote')">내가 쓴 교환 게시물</button>
                         <button class="tablinks" onclick="postexchange(event, 'request_list')">내가 신청한 목록</button>
                       </div>
@@ -147,7 +147,7 @@
                                 <td>구하는 서적</td>
                                 <td>교수</td>
                                 <td>제목</td>
-                                <td>판매하는 서적</td>
+                                <td>판매하는 과목</td>
                                 <td>교수</td>
                                 <td>제목</td>
                                 <td>게시날짜</td>
@@ -204,7 +204,7 @@
                           %>
                                          <div class = "modal" id= "Show_app_Modal<%=oneItem.id%>" style="display:none;">
                                          <div class = "modal-dialog">
-                                           <div class = "modal-content">
+                                           <div class = "modal-content" id = "modal-app-content">
 
                                            </div>
                                            </div>

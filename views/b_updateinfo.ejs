@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src = "/javascripts/ft_updateinfo.js"></script>
+     <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+    <link rel = 'stylesheet' href='/stylesheets/new_mypage_revise.css'/><script></script>
+  </head>
+   <body ondragstart="return false">
+      <div id="wrapper">
+        <div id="first_area">
+             <div id="div_logo">
+                <img src="/images/b로고.png" id="logo"></img>
+             </div>
+             <div id="z">
+             </div>
+
+           </div>
+           <div id="line_1">
+           </div>
+           <div id="wrap">
+      <div id="d1"><p class="p_style2">이메일</p>
+    </div>
+    <div id="d2"><p class="p_style2">이름</p>
+    </div>
+    <div id="d7" style="display : inline-block;">
+      <div id="d7_1" style="margin-left : 50px; margin-top : 10px;">
+        <%    var oneItem = rows[0];
+          %>
+            <%=oneItem.name%>
+        </div>
+    </div>
+    <div id="d3"><p class="p_style2">비밀번호</p>
+    </div>
+    <div id="d8"><input type="password" class="a1" id="update_password" placeholder = "8자리 이상 입력하세요">
+    </div>
+    <div id="d4"><p class="p_style2">비밀번호 확인</p>
+    </div>
+    <div id="d9"><input type="password" class="a1" id = "update_password_check">
+      <p id="password_correct">비밀번호가 일치합니다.</p><p id="password_incorrect">비밀번호가 불일치합니다.</p>
+    </div>
+    <div id="d6" style="display : inline-block;">
+      <div id="d6_1" style="margin-left : 50px; margin-top : 10px;">
+        <%     var oneItem = rows[0];  %>
+              <%=oneItem.email%>
+            </div>
+    </div>
+    <div id="d5"><p class="p_style2">휴대전화 번호</p>
+    </div>
+    <div id="d10"><input type="text" class="a1" id = "update_cellphone" placeholder = "하이픈('-') 제외하고 입력하세요">
+      <form>
+      <input type="radio" name="phoneradio" value= "공개" id="ok"> 공개
+      <input type="radio" name="phoneradio" value= "비공개" id="not_ok"> 비공개
+    </form style="margin-left: 250px; margin-top: 550px;">
+      <p id="p">공개로 설정하시면 게시물을 보는<br>사람들에게 당신의 전화번호가 보여집니다.</p>
+    </div>
+      <input type = "button" value = "수정완료" id="updatefinButton">
+    </div>
+    <div id="main_area_second">
+
+    </div>
+    </div>
+
+</div>
+  </body>
+</html>

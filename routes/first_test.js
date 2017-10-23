@@ -408,6 +408,8 @@ module.exports = function(app){
     });
   });
 
+
+
   router.post('/join1',function(req,res,next){
     agree = req.body.agree;
     req.session.agree = agree;
