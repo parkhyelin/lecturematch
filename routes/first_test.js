@@ -408,8 +408,6 @@ module.exports = function(app){
     });
   });
 
-
-
   router.post('/join1',function(req,res,next){
     agree = req.body.agree;
     req.session.agree = agree;
@@ -579,7 +577,7 @@ module.exports = function(app){
                 conn.query(sql4, [user_email], function(error, results){
                   if(error){console.log(error);}
                   else{
-                    conn.query(sql10, [user_email], function(error, results){
+                    conn.quety(sql10, [user_email], function(error, results){
                       if(error){console.log(error);}
                       else{
                     conn.query(sql5, [user_email], function(error, results){
@@ -1121,7 +1119,7 @@ router.get('/requestdelete/:id',function(req,res){
       res.render('ft_findID');
     });
 
-    router.post('/findID_success',function(req,res){
+    router.get('/findID_success',function(req,res){
       name = req.body.f_name;
       number = req.body.f_number;
       console.log(name);
@@ -1131,7 +1129,7 @@ router.get('/requestdelete/:id',function(req,res){
         if(error){console.log(error);}
         else{
           console.log(result);
-          res.end('success');
+          res.render('ft_findID_success', {result:result});
         }
       });
     });
