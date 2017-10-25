@@ -97,6 +97,19 @@ transition: width 1s;
   margin-left: 80px;
   cursor: pointer;
 }
+#book_mark{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 25px;
+  cursor: pointer;
+}
+#book_mark_no_session{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 80px;
+  cursor: pointer;
+}
+
 #line_1
 {
   background-color: rgb(75, 108, 138);

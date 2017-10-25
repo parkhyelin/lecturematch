@@ -224,3 +224,8 @@ float : right;
  margin-right: 110px;
  z-index: 18;
 }
+#book_mark{
+  margin-left : 80px;
+  margin-top : 10px;
+  cursor: pointer;
+}

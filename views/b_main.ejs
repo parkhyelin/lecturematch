@@ -30,15 +30,15 @@
       -->
       <div id="change">
         <ul class = "tabs" role= "tablist" id="tabs">
-        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">강의교환</p><div id="small_rectangle"></div></a></li>
-        <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">버림/구함</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">책교환</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">책게시판</p><div id="small_rectangle"></div></a></li>
       </ul>
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <div id="book_mark_no_session"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <div id="book_mark"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
           <%
             if(mailflag.length == 0){
               %>
@@ -111,13 +111,13 @@
                 <div class = "combobox">
 
                   <button class="dropdown-toggle" type ="button" data-toggle="dropdown" onclick="clickfunction()" id="dropdown_btn">
-                    버림/구함
+                    책관련
                   </button>
 
-                  <div id="combobox_content" class = "combobox-content">
+                <!--  <div id="combobox_content" class = "combobox-content">
                     <a href = "/first_test/main/1/guham">구함</a>
                     <a href = "/first_test/main/1/beorim">버림</a>
-                  </div>
+                  </div>-->
 
                 </div>
 
@@ -141,15 +141,15 @@
     <div id="main_area_second">
     <div class = "tab-content">
         <div id="board" class="tab-pane">
-          <p id="mention3">버림/구함</p>
+          <p id="mention3">책게시판</p>
           <div id="rectangle_2"></div>
           <table class="type07">
               <thead>
                 <tr>
                   <td>게시글번호</td>
+                  <td>책제목</td>
+                  <td>저자</td>
                   <td>작성자</td>
-                  <td>버림/구함</td>
-                  <td>글제목</td>
                   <td>작성일자</td>
                </tr>
               </thead>
@@ -177,7 +177,7 @@
                           </td>
                           <div class = "modal" id= "board_content_view_modal<%=item.id%>" style="display:none;" >
                           <div class = "modal-dialog">
-                            <div class = "modal-content" id = "modal-boardview-content">
+                            <div class = "modal-content">
                               <!-- remote ajax call이 되는영역 -->
                             </div>
                             </div>
@@ -317,19 +317,20 @@
         </div>
 
         <div id="exchange" class="tab-pane active">
-          <p id="mention3">강의교환</p>
+          <p id="mention3">책교환</p>
           <div id="rectangle_2"></div>
           <table class="type08">
             <thead>
               <tr>
                 <td class="ex_num">번호</td>
-                <td class="ex_writer">작성자</td>
-                <td class= "ex_subject">구하는 과목명</td>
-                <td class= "ex_professor">교수</td>
-                <td class = "ex_time">시간</td>
-                <td class = "ex_subject">버리는 과목명</td>
-                <td class = "ex_proffessor">교수</td>
-                <td class = "ex_time">시간</td>
+                <td class="ex_writer">책제목</td>
+                <td class= "ex_subject">저자명</td>
+                <td class= "ex_professor">출판사</td>
+                <td class = "ex_time">교환할 책제목</td>
+                <td class = "ex_subject">저자명</td>
+                <td class = "ex_proffessor">출판사</td>
+                <td>작성자</td>
+                <td class = "ex_time">작성일자</td>
                 <td id = "exchange_req_td">교환신청</td>
               </tr>
             </thead>
@@ -419,7 +420,7 @@
             %>
 
               <button type = "button" id="write_matching_modalbtn" class = "write_matching_modalbtn_cls" data-toggle"modal">
-                강의교환글쓰기
+                책교환글쓰기
               </button>
               <div class = "modal" id= "write_matching_modal" tabindex="-1" role="dialog" aria-labelledby="WriteMatchingModalLabel" aria-hidden="true">
                 <div class = "modal-dialog">

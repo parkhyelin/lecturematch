@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+ <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no” />
+   <head>
+    <title><%= title %></title>
+    <script type="text/javascript" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src = "/javascripts/ft_mypage.js"></script>
+    <link rel = 'stylesheet' href='/stylesheets/new_mypage.css'/><script></script>
+  </head>
+  <body ondragstart="return false">
+    <div id="wrapper">
+      <div id="first_area">
+        <div id="div_logo">
+            <img src="/images/b로고.png" id="logo"></img>
+        </div>
+        <div id="z">
+        </div>
+        <div id="div_login">
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <%
+          if(mailflag.length == 0){
+            %>
+            <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+            <%
+          }else{
+            for( var i = 0 ; i < mailflag.length; i ++){
+            var Item = mailflag[i];
+            if(Item.recv_read == 'Y'){
+              if(i == mailflag.length -1){
+                %>
+                <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+                <%
+              }
+              continue;
+            }
+            else if(Item.recv_read == 'N'){
+              %>
+              <img id="MailBoxbtn" src="/images/자산 4.png"></img>
+              <%
+              break;
+            }
+          }
+        }
+        %>
+
+              <div class = "modal" id= "MailBoxModal" style="display:none;" >
+              <div class = "modal-dialog">
+                <div class = "modal-content">
+                  <!-- remote ajax call이 되는영역 -->
+                </div>
+                </div>
+                </div>
+              </div>
+    </div>
+    <div id="line_1">
+    </div>
+            <div style="margin-top : -150px;">
+              <p id="mypage_logo">MY<br>PAGE</p>
+              <div id="rectangle_2">
+              </div>
+
+               <div id="rectangle_5">
+                      <p id="info">회원정보</p>
+                      <p id="e_mail">이메일 :
+                         <%     var oneItem = rows[0];  %>
+                              <%=oneItem.email%></p>
+                      <p id="nickname">이름 :
+                        <%    var oneItem = rows[0];
+                          %>
+                            <%=oneItem.name%></p>
+                      <p id="phone">전화번호 :
+                      <%
+                        var oneItem = rows[0];
+                      %>
+                        <%=oneItem.phone%>
+                      </p>
+                      <p id="phoneopen">
+                        전화번호 공개여부 :
+                        <%var oneItem = rows[0]%>
+                        <%=oneItem.phoneopen%>
+                      </p>
+
+                      <p id="change"><a href = '/first_test/updatebefore' style="text-decoration:none;">수정 </a></p>
+                      <p id="leave"><a href ='/first_test/leave1' style="text-decoration:none;">탈퇴</a></p>
+                    </div>
+                    <div id="rectangle_2_1">
+                    </div>
+                    <div id="rectangle_5_1">
+                    <!--  <p id="my_board">내가 쓴 게시물</p> -->
+                      <div class="tab">
+                        <button class="tablinks" onclick="postexchange(event, 'post_i_wrote')">내가 쓴 버림/구함 게시물</button>
+                        <button class="tablinks" onclick="postexchange(event, 'exchange_i_wrote')">내가 쓴 교환 게시물</button>
+                        <button class="tablinks" onclick="postexchange(event, 'request_list')">내가 신청한 목록</button>
+                      </div>
+
+                      <div id="post_i_wrote" class="tabcontent">
+                        <h2>내가 쓴 게시물</h2>
+                        <table class="type08">
+                            <thead>
+                              <tr>
+                                <td>구입/판매</td>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                                <td>작성자</td>
+                                <td>삭제</td>
+
+                             </tr>
+                            </thead>
+                            <% var reverse=result.reverse();%>
+                              <% console.log("길이"+result.length)%>
+                              <%
+                                for(var i = 0 ; i < result.length; i++){
+                                  var oneItem = result[i];
+                              %>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <%=oneItem.choice%>
+                                  </td>
+                                  <td class='titleButton'>
+                                    <%=oneItem.title%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.date%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.writer_name%>
+                                  </td>
+                                  <td><input type='button' value='삭제' onclick="location.href='/first_test/boarddelete/<%=oneItem.id%>'"></td>
+
+                               </tr>
+
+                              <%
+                                }
+                              %>
+                            </tbody>
+                          </table>
+                      </div>
+
+                      <div id="exchange_i_wrote" class="tabcontent">
+                        <h2>교환 신청 작성 목록</h2>
+                        <table class="type08">
+                            <thead>
+                              <tr>
+                                <td>구하는 서적</td>
+                                <td>교수</td>
+                                <td>제목</td>
+                                <td>판매하는 과목</td>
+                                <td>교수</td>
+                                <td>제목</td>
+                                <td>게시날짜</td>
+                                <td>교환완료여부</td>
+                                <td>삭제</td>
+                                <td>신청자보기</td>
+                             </tr>
+                            </thead>
+                            <% var reverse=result2.reverse();%>
+                              <%
+                                for(var i = 0 ; i < result2.length; i++){
+                                  var oneItem = result2[i];
+                              %>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <%=oneItem.class_name%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.prof_name%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.time%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.change_class_name%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.change_prof_name%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.change_time%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.post_date%>
+                                  </td>
+                                  <td>
+                                    <%=oneItem.request%>
+                                  </td>
+                                  <td><input type='button' value='삭제' onclick="location.href='/first_test/exchangedelete/<%=oneItem.id%>'"></td>
+                                  <td>
+                                  <a href = "#Show_app_Modal<%=oneItem.id%>" id = "Show_app_btn<%=oneItem.id%>" data-toggle = "modal" data-target="Show_app_Modal<%=oneItem.id%>">신청자 보기</a>
+                                </td>
+                               </tr>
+                              <%
+                                }
+                              %>
+                            </tbody>
+                          </table>
+
+                          <%
+                            for(var i = 0 ; i < result2.length; i++){
+                              var oneItem = result2[i];
+                          %>
+                                         <div class = "modal" id= "Show_app_Modal<%=oneItem.id%>" style="display:none;">
+                                         <div class = "modal-dialog">
+                                           <div class = "modal-content" id = "modal-app-content">
+
+                                           </div>
+                                           </div>
+                                           </div>
+
+                                       <script>
+                                       $('#Show_app_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
+                                           $('#Show_app_Modal<%=oneItem.id%>').modal({
+                                             remote : '/first_test/showapp_test1111/<%=oneItem.id%>'
+                                           });
+                                         });
+                                         $('#Show_app_Modal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+                                           $('#Show_app_Modal<%=oneItem.id%>').modal('show');
+                                         });
+                                         $('#Show_app_Modal<%=oneItem.id%>').on('hidden', function () {
+                                             $(this).data('modal', null);
+                                         });
+
+                                       </script>
+                          <%
+                            }
+                          %>
+                      </div>
+
+                      <div id="request_list" class="tabcontent">
+                              <h2>내가 신청한 목록</h2>
+
+                                <table class="type08">
+                                    <thead>
+                                      <tr>
+                                        <td>신청일자</td>
+                                        <td>내용</td>
+                                        <td>상대방수락여부</td>
+                                        <td>게시물보기</td>
+                                        <td>취소/삭제</td>
+                                     </tr>
+                                    </thead>
+                                    <%
+                                      for(var i = 0 ; i < result3.length; i++){
+                                        var oneItem = result3[i];
+                                      %>
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            <%=oneItem.app_date%>
+                                          </td>
+                                          <td>
+                                            <%=oneItem.content%>
+                                          </td>
+                                          <td>
+                                            <%=oneItem.accept%>
+                                          </td>
+                                          <td>
+                                            <a href = "#Show_post_Modal<%=oneItem.id%>" id = "Show_post_btn<%=oneItem.id%>" data-toggle = "modal" >게시물 보기</a>
+                                          </td>
+                                          <%
+                                            if(oneItem.accept != '대기중'){
+                                          %>
+                                            <td><input type='button' value='삭제' onclick="location.href='/first_test/requestdelete/<%=oneItem.id%>'"></td>
+                                          <%
+                                        }else{
+                                          %>
+                                          <td><input type='button' value='신청취소' onclick="location.href='/first_test/requestdelete/<%=oneItem.id%>'"></td>
+                                       </tr>
+                                      <%
+                                    }
+                                        }
+                                      %>
+                                    </tbody>
+                                  </table>
+
+
+                                          <%
+                                            for(var i = 0 ; i < result3.length; i++){
+                                              var oneItem = result3[i];
+                                          %>
+                                                         <div class = "modal" id= "Show_post_Modal<%=oneItem.id%>" style="display:none;">
+                                                         <div class = "modal-dialog">
+                                                           <div class = "modal-content" style="z-index : 33;">
+                                                             <!-- remote ajax call이 되는영역 -->
+                                                           </div>
+                                                           </div>
+                                                           </div>
+
+                                                       <script>
+                                                       $('#Show_post_btn<%=oneItem.id%>').click('show.bs.modal',function(event){
+                                                           $('#Show_post_Modal<%=oneItem.id%>').modal({
+                                                             remote : '/first_test/showpost/<%=oneItem.id%>'
+                                                           });
+                                                         });
+                                                         $('#Show_post_Modal<%=oneItem.id%>').on('loaded.bs.modal',function(event){
+                                                           $('#Show_post_Modal<%=oneItem.id%>').modal('show');
+                                                         });
+                                                         $('#Show_post_Modal<%=oneItem.id%>').on('hidden.bs.modal', function () {
+                                                             $(this).removeData('bs.modal');
+                                                         });
+
+                                                       </script>
+                                          <%
+                                            }
+                                          %>
+                      </div>
+                      <script>
+                      function postexchange(evt, postexitem) {
+                          var i, tabcontent, tablinks;
+                          tabcontent = document.getElementsByClassName("tabcontent");
+                          for (i = 0; i < tabcontent.length; i++) {
+                              tabcontent[i].style.display = "none";
+                          }
+                          tablinks = document.getElementsByClassName("tablinks");
+                          for (i = 0; i < tablinks.length; i++) {
+                              tablinks[i].className = tablinks[i].className.replace(" active", "");
+                          }
+                          document.getElementById(postexitem).style.display = "block";
+                          evt.currentTarget.className += " active";
+                      }
+                      </script>
+
+
+                    </div>
+                  </div>
+
+                </div>
+  </body>
+</html>
