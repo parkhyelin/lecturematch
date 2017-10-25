@@ -1129,7 +1129,7 @@ router.get('/requestdelete/:id',function(req,res){
         if(error){console.log(error);}
         else{
           console.log(result);
-          res.render('ft_findID_success',{result:result});
+          res.end('success');
         }
       });
     });
