@@ -1120,17 +1120,28 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
     router.get('/findID_success',function(req,res){
+<<<<<<< HEAD
       name = req.body.f_name;
       number = req.body.f_number;
       console.log(name);
       console.log(number);
 
+=======
+      name = req.query.f_name;
+      number = req.query.f_number;
+      console.log("name :"+name);
+      console.log("number :"+number);
+>>>>>>> c576e27dab3126f2e21e015cdee1a1b5a72e067a
       var sql = "select * from ft_user where name =? and phone =?";
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
         else{
+<<<<<<< HEAD
           console.log(result);
           console.log(result);
+=======
+          console.log(result[0]);
+>>>>>>> c576e27dab3126f2e21e015cdee1a1b5a72e067a
           res.render('ft_findID_success', {result:result});
         }
       });
