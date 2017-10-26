@@ -53,4 +53,10 @@ $(document).ready(function(){
   $('#first_login').click(function(){
     $(window).attr('location','/first_test/login');
   });
+  $('#input_area').keypress(function(event){
+     if ( event.which == 13 ) {
+         $('#loginButton').click();
+         return false;
+     }
+});
 });
