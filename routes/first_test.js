@@ -1120,28 +1120,19 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
     router.get('/findID_success',function(req,res){
-<<<<<<< HEAD
-      name = req.body.f_name;
-      number = req.body.f_number;
-      console.log(name);
-      console.log(number);
 
-=======
       name = req.query.f_name;
       number = req.query.f_number;
       console.log("name :"+name);
       console.log("number :"+number);
->>>>>>> c576e27dab3126f2e21e015cdee1a1b5a72e067a
+
       var sql = "select * from ft_user where name =? and phone =?";
       conn.query(sql, [name, number], function(error, result){
         if(error){console.log(error);}
         else{
-<<<<<<< HEAD
-          console.log(result);
-          console.log(result);
-=======
+
           console.log(result[0]);
->>>>>>> c576e27dab3126f2e21e015cdee1a1b5a72e067a
+
           res.render('ft_findID_success', {result:result});
         }
       });
@@ -1784,7 +1775,7 @@ router.get('/bookrequestdelete/:id',function(req,res){
               conn.query(sql4, [req.session.authId], function(error, mailflag){
                 res.render('b_main', {mailflag : mailflag, result2 : result2 ,result : result,checkdrop : checkdrop, page : page, dropflag : dropflag, flag : flag,leng : Object.keys(result).length-1, leng2 : Object.keys(result2).length-1, page_num : 10, session : req.session.authId});
 
-              })
+              });
             }
           })
         }
