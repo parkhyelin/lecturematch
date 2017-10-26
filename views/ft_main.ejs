@@ -30,15 +30,15 @@
       -->
       <div id="change">
         <ul class = "tabs" role= "tablist" id="tabs">
-        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">강의교환</p><div id="small_rectangle"></div></a></li>
-        <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">버림/구함</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">도서교환</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">판매/구입</p><div id="small_rectangle"></div></a></li>
       </ul>
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <div id="book_mark_no_session"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
           <% } else  {%>
-          <div id="book_mark"><img src = "/images/book.png"></div><p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
           <%
             if(mailflag.length == 0){
               %>
@@ -111,12 +111,12 @@
                 <div class = "combobox">
 
                   <button class="dropdown-toggle" type ="button" data-toggle="dropdown" onclick="clickfunction()" id="dropdown_btn">
-                    버림/구함
+                    판매/구입
                   </button>
 
                   <div id="combobox_content" class = "combobox-content">
-                    <a href = "/first_test/main/1/guham">구함</a>
-                    <a href = "/first_test/main/1/beorim">버림</a>
+                    <a href = "/first_test/main/1/guham">구입</a>
+                    <a href = "/first_test/main/1/beorim">판매</a>
                   </div>
 
                 </div>
@@ -141,14 +141,14 @@
     <div id="main_area_second">
     <div class = "tab-content">
         <div id="board" class="tab-pane">
-          <p id="mention3">버림/구함</p>
+          <p id="mention3">판매/구입</p>
           <div id="rectangle_2"></div>
           <table class="type07">
               <thead>
                 <tr>
                   <td>게시글번호</td>
                   <td>작성자</td>
-                  <td>버림/구함</td>
+                  <td>판매/구입</td>
                   <td>글제목</td>
                   <td>작성일자</td>
                </tr>
@@ -264,8 +264,8 @@
                 <div class = "modal-body">
                 <form>
                   <div class = "form-group">
-                <input type="radio" name="choice" value="버림">버림 &nbsp; &nbsp; &nbsp; &nbsp;
-                <input type="radio" name="choice" value="구함">구함
+                <input type="radio" name="choice" value="버림">판매 &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="choice" value="구함">구입
               </div>
               <div class = "form-group">
               <div class='area'>   <label for="title" class="control-labels"> 글제목 </label></div>
@@ -317,17 +317,17 @@
         </div>
 
         <div id="exchange" class="tab-pane active">
-          <p id="mention3">강의교환</p>
+          <p id="mention3">도서교환</p>
           <div id="rectangle_2"></div>
           <table class="type08">
             <thead>
               <tr>
                 <td class="ex_num">번호</td>
                 <td class="ex_writer">작성자</td>
-                <td class= "ex_subject">구하는 과목명</td>
+                <td class= "ex_subject">구입 교재</td>
                 <td class= "ex_professor">교수</td>
                 <td class = "ex_time">시간</td>
-                <td class = "ex_subject">버리는 과목명</td>
+                <td class = "ex_subject">판매 교재</td>
                 <td class = "ex_proffessor">교수</td>
                 <td class = "ex_time">시간</td>
                 <td id = "exchange_req_td">교환신청</td>
@@ -419,7 +419,7 @@
             %>
 
               <button type = "button" id="write_matching_modalbtn" class = "write_matching_modalbtn_cls" data-toggle"modal">
-                강의교환글쓰기
+                도서교환글쓰기
               </button>
               <div class = "modal" id= "write_matching_modal" tabindex="-1" role="dialog" aria-labelledby="WriteMatchingModalLabel" aria-hidden="true">
                 <div class = "modal-dialog">
@@ -433,28 +433,28 @@
                     <div class= "modal-body">
                       <form>
                         <div class = "form-group">
-                          <label for="class-name" class="control-label" id='subject'> 구하는 과목  </label>
+                          <label for="class-name" class="control-label" id='subject'>구하는 교재  </label>
                           <input type = "text" class = "form-control" id = "class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="prof-name" class="control-label" id='prof'> 교수 </label>
+                          <label for="prof-name" class="control-label" id='prof'> 교수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="time" class="control-label" id='timelabel'> 시간 </label>
+                          <label for="time" class="control-label" id='timelabel'> 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "time">
                         </div>
                         <div id='line'></div>
                         <div class = "form-group">
-                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 과목 </label>
+                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 교재 &nbsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-prof-name" class="control-label" id='prof2'> 교수 </label>
+                          <label for="change-prof-name" class="control-label" id='prof2'> 교수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-time" class="control-label" id='time2'> 시간 </label>
+                          <label for="change-time" class="control-label" id='time2'> 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                           <input type = "text" class = "form-control" id = "change_time">
                         </div>
                       </form>
