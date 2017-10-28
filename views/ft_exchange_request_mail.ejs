@@ -4,10 +4,10 @@
   </button>
   <!-- <h4 class = "modal-title" id = "ExchangeRequestLabel"> 교환신청 </h4> -->
   <p id ="recipientname_request">
-      보낸사람 : <%=rows[0].writer%><br>
+      <span class="frontMention">받는사람</span> <span class="nickMention"><%=rows[0].writer%></span><br>
     </p>
     <p id ="phone_request">
-      번호공개여부 :
+      <span class="frontMention">번호공개여부</span>
     <%
       if( rows2[0].phoneopen == '비공개')
       {
@@ -22,10 +22,11 @@
      %>
    </p>
 </div>
+<div class="divider"></div>
 <div class= "modal-request-body">
-      <!-- <label for="message-text" class="control-label"> 자신이 가지고 있는 과목의 이름과 교수, 시간을 적어주세요. </label> -->
-      <input class = "form-control" id = "message_text2" type="text" name="name2" placeholder="자신이 가지고 있는 교재의 이름과 교수, 시간을 적어주세요. " autocomplete="off"></input>
+      <input class = "form-control" id = "message_text2" type="text" name="name2" placeholder="자신이 가지고 있는 과목의 이름과 교수, 시간을 적어주세요. " autocomplete="off"></input>
 </div>
+<div class="divider"></div>
 <div class = "modal-request-footer">
   <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="request_close_btn"> 취소 </button>
   <button type = "button" id = "SendReplybtn" class = "btn btn-primary"> 교환신청 </button>

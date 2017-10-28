@@ -1,133 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
+body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif;}
+a{color: #00B7FF;}
+#wrapper{width:1020px;margin:0 auto;}
+#first_area{width:1020px;height:170px;display:inline-flex;}
+#div_logo{height:150px;width:300px;padding:10px;}
+#z{width:420px;height:170px;}
+#logo{font-size: 50px;font-family:"NanumBarunGothic";color:rgb(58,74,88);cursor:pointer;margin-top:80px;}
+#div_login{height:170px;width:300px;}
+#first_login{font-size:15px;float:right;margin-left:30px;padding:1px;margin-top:10px;cursor: pointer;}
+.login_mention{float:right;margin-top:4px;margin-left:30px;padding:1px;cursor: pointer;font-size:15px;}
+.join_mention{font-size:15px;float:right;margin-left:10px;padding:1px;margin-top:4px;margin-right:10px;cursor:pointer;}
+#change{margin-top: -15px;position: absolute;margin-left:-40px;width:800px;}
+.searchText{width:200px;background-color:#fafafa;text-align:center;background-position: 10px 10px;background-repeat: no-repeat;}
+.searchText:focus{width:350px;border:1px solid skyblue;background-color:white;text-align:left;background-position: 10px 10px;background-repeat: no-repeat;padding:4px;transition: width 1s;}
+.mypage_mention{float:right;margin-top:4px;margin-left: 30px;padding:1px;cursor: pointer;font-size:15px;}
+.logout_mention{float:right;margin-top:4px; margin-right:10px;margin-left:10px;padding:1px;font-size:15px;cursor: pointer;}
+#MailBoxbtn{position : absolute;float : right;margin-top: 10px;margin-left: 70px;cursor: pointer;}
 
-
-#wrapper
-{
-  width : 1020px;
-  margin : 0 auto;
-
-}
-#first_area
-{
-  width : 1020px;
-  height : 170px;
-
-  display: inline-flex;
-}
-#div_logo
-{
-  height : 150px;
-
-  width : 300px;
-  padding : 10px;
-}
-#z{
-  width: 420px;
-
-  height: 170px;
-}
-#logo
-{
-  font-size: 50px;
-  font-family: "NanumBarunGothic";
-  color: rgb(58, 74, 88);
-  cursor: pointer;
-  margin-top: 80px;
-}
-#div_login
-{
-  height : 170px;
-  width : 300px;
-}
-
-#first_login
-{
-  font-size:15px;
-  float:right;
-  margin-left: 30px;
-  padding:1px;
-  margin-top:10px;
-  cursor: pointer;
-}
-.login_mention
-{
-  float:right;
-  margin-top:4px;
-  margin-left: 30px;
-  padding:1px;
-  cursor: pointer;
-  font-size:15px;
-}
-.join_mention
-{
-  font-size : 15px;
-  float : right;
-  margin-left: 10px;
-  padding:1px;
-  margin-top:4px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-#change
-{
-  margin-top: -15px;
-  position: absolute;
-  margin-left: -40px;
-  width : 800px;
-}
-.searchText
-{
-  width:200px;
-  background-color:#fafafa;
-  text-align:center;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-}
-.searchText:focus
-{
-  width:350px;
-border:1px solid skyblue;
-background-color:white;
-text-align:left;
-background-position: 10px 10px;
-background-repeat: no-repeat;
-padding:4px;
-transition: width 1s;
-}
-.mypage_mention
-{
-  float:right;
-  margin-top:4px;
-  margin-left: 30px;
-  padding:1px;
-  cursor: pointer;
-  font-size:15px;
-}
-.logout_mention
-{
-  float:right;
-  margin-top:4px;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding:1px;
-  font-size:15px;
-  cursor: pointer;
-}
-#MailBoxbtn
-{
-  position : absolute;
-  float : right;
-  margin-top: 10px;
-  margin-left: 70px;
-  cursor: pointer;
-}
 #book_mark{
   position : absolute;
   margin-top: 10px;
@@ -221,7 +110,7 @@ transition: width 1s;
 }
 #form
 {
-  margin-top: 20px;
+  margin-top: 14px;
   margin-left: 400px;
 }
 #main_area_second
@@ -280,19 +169,16 @@ transition: width 1s;
   font-weight: bold;
   z-index: 13;
 }
-
-#content{
-  heigth:30%;
-}
 #dialog{
   height:60%;
 }
 .control-labels{
   margin-right:70%;
 }
+/*
 .form-controls{
   width:80%;
-}
+}*/
 .area{
   margin-bottom:1%;
 }
@@ -316,8 +202,8 @@ transition: width 1s;
     margin: auto;
     padding: 27px;
     border: 1px solid #888;
-    width: 80%;
-    height:80%;
+    width: 370px;
+    height:360px;
     border-radius:5%;
 }
 
@@ -330,7 +216,7 @@ transition: width 1s;
 
 .form-group{
   text-align:center;
-  margin-bottom:7%;
+  margin-bottom:25px;
 }
 /* The Close Button */
 .close {
@@ -712,7 +598,7 @@ table.type08 td .ex_time{
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   position: absolute;
-  margin-left: 200px;
+  margin-left:9px;
   width: 70px;
   height:29px;
   z-index: 11;
@@ -730,6 +616,30 @@ table.type08 td .ex_time{
   z-index: 12;
 }
 #Okbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  margin-left: 110px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+#ok{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+.Okbtn3{
   border-radius: 5px;
   font-size: 13px;
   font-family: "NanumBarunGothic";
@@ -824,10 +734,17 @@ table.type08 td .ex_time{
 .frontMention{
   margin-right: 8px;
   color: black;
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
 }
 .backMention{
   color: black;
   margin-right: 8px;
+  font-family: "NanumBarunGothic";
+}
+.nickMention{
+  color: #074F65;
+  margin-right:8px;
 }
 #send_time{
   font-size: 15px;
@@ -851,11 +768,11 @@ table.type08 td .ex_time{
 }
 .modal-request-header{
   width :100%;
-  height : 60px;
+  height : 50px;
 }
 .modal-request-body{
   width :100%;
-  height : 55px;
+  height : 45px;
 }
 .modal-request-footer{
     width :100%;
@@ -905,7 +822,7 @@ table.type08 td .ex_time{
 
 .modal-boardview-header{
   width :100%;
-  height : 110px;
+  height : 80px;
 }
 .modal-boardview-body{
   width :100%;
@@ -964,8 +881,7 @@ table.type08 td .ex_time{
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
-  position: absolute;
-  margin-left: 90px;
+  margin-left: 110px;
   width: 70px;
   height:29px;
   z-index: 12;
@@ -978,12 +894,23 @@ table.type08 td .ex_time{
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
+  /*margin-left: 10px;*/
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+.Closebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
   margin-left: 10px;
   width: 70px;
   height:29px;
   z-index: 12;
 }
-
 #Closebtn2{
   border-radius: 5px;
   font-size: 13px;
@@ -1023,17 +950,16 @@ table.type08 td .ex_time{
 }
 
 #request_close_btn{
+  width: 70px;
+  height:29px;
+  margin-left : 190px;
   border-radius: 5px;
   font-size: 13px;
   font-family: "NanumBarunGothic";
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
-  position: absolute;
-  width: 70px;
-  height:29px;
   z-index: 12;
-  margin-left : 280px;
 }
 
 #SendReplybtn{
@@ -1044,10 +970,10 @@ table.type08 td .ex_time{
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   position: absolute;
+  margin-left:9px;
   width: 70px;
   height:29px;
   z-index: 11;
-  margin-left : 190px;
 }
 
 #sendmailbtn{
@@ -1138,23 +1064,113 @@ table.type08 td .ex_time{
   margin-top : 13px;
   z-index: 13;
 }
-.divider {
-  height: 1px;
-  width:100%;
-  display:block; /* for use on default inline elements like span */
-  margin: 9px 0;
-  overflow: hidden;
-  background-color: #e5e5e5;
+.tc_ta{
+  margin-left:15px;
+  width:80%;
+  height:180px;
+  padding:7px;
+  border: 2px solid grey;
+  font-family:tahoma, arial, sans-serif;
 }
-input[type=text] {
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+.divider {height: 1px;width:100%;display:block;margin: 9px 0;overflow: hidden;background-color: #e5e5e5;}
+.searchtf {
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 5px 8px 5px 10px;
+}
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 300px;
+  height: 40px;
+  background: white;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+.container-1 input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 18px;
+  margin-top: 10px;
+  z-index: 1;
+  color: #4f5b66;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+.exchangeTf{
+  position:relative;
+  margin-left:90px;
+  border:none;
+  border-bottom: 2px solid grey;
+  font-family:tahoma, arial, sans-serif;
+}
+.exchangelabel{
+  position: absolute;
+  margin-right:10px;
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
+  color: rgb(90, 90, 90);
+  font-weight: bold;
+  line-height: 1.2;
+  z-index: 3;
+}
+.tf{
+  /*position:absolute;*/
+  margin-left:5px;
+  width:70%;
+  border:none;
+  border-bottom: 2px solid grey;
+  font-family:tahoma, arial, sans-serif;
+}
+.ta{
+  /*position: absolute;*/
+  margin-left:5px;
+  width:270px;
+  height:180px;
+  padding:7px;
+  border: 2px solid grey;
+  font-family:tahoma, arial, sans-serif;
+}
+.modal-post-header{
+width:100%;
+height:10px;
+}
+.modal-post-body{
+width:100%;
+height:300px;
+}
+.modal-post-footer{
+  width:100%;
+  height:40px;
+  text-align: center;
 }

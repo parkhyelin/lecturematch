@@ -1,21 +1,18 @@
   <div class = "modal-boardview-header">
-    <p id ="tc_1"> 범주 : <%=rows[0].choice%></p><br>
-    <p id = "tc_2"> 작성자 : <%=rows[0].writer_name%></p><br>
-    <p id = "tc_3"> 날짜 : <%=rows[0].date%></p><br>
-    <p id = "tc_4"> 글제목 : <%=rows[0].title%></p>
-      <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div id ="tc_1" style="padding:3px;margin:2px;"> <span class="frontMention">범주</span>  <%=rows[0].choice%></div><br>
+    <div id = "tc_2" style="padding:3px;margin:2px;"> <span class="frontMention">작성자</span>  <%=rows[0].writer_name%></div><br>
+    <div id = "tc_3" style="padding:3px;margin:2px;"> <span class="frontMention">날짜</span>  <%=rows[0].date%></div><br>
+    <div id = "tc_4" style="padding:3px;margin:2px;"> <span class="frontMention">글제목</span>  <%=rows[0].title%></div>
     </div>
-
+<div class="divider"></div>
     <div class= "modal-boardview-body">
-      <textarea row= "5" cols= "50" readonly class="form-control">
+      <textarea row= "5" cols= "50" readonly class="tc_ta">
         <%=rows[0].text%>
       </textarea>
-
+      <div class="divider"></div>
     </div>
     <div class = "modal-boardview-footer">
-      <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Closebtn2"> Close </button>
+      <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Closebtn2"> 닫기 </button>
       <button type = "button"  href = "/first_test/boardsendmail/<%=rows[0].id%>" id="sendmailbtn" data-toggle="modal" data-target="#board_send_mail_modal<%=rows[0].id%>" class= "btn btn-primary"> 쪽지보내기 </button>
     </div>
 

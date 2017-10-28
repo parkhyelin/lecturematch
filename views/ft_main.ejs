@@ -7,6 +7,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
        <script src="/javascripts/ft_main.js"></script>
   </head>
@@ -74,24 +76,28 @@
         if(!dropflag){
       %>
           <form id="form" action="/first_test/search/1" method="get">
-              <input type="text" name="searchText" class="searchtf" placeholder="검색">
-              <input type="submit" id="btn_search" value="검색">
+            <div class="container-1">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" name="searchText" class="searchtf" id="search" placeholder="검색">
+          </div>
           </form>
       <%
         }else{
           if(!checkdrop){
       %>
             <form id="form" action="/first_test/main/1/beorim/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
+              <div class="container-1">
+              <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="text" name="searchText" class="searchtf"id="search" placeholder="검색">
+            </form></div>
       <%
           }else{
       %>
             <form id="form" action="/first_test/main/1/guham/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
+              <div class="container-1">
+              <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="text" name="searchText" class="searchtf" id="search" placeholder="검색">
+            </form></div>
       <%
           }
         }
@@ -245,30 +251,30 @@
             <div id="myModal" class="modal">
               <div class= "modal-dialog" id='dialog'>
               <div class="modal-content">
-                <div class = "modal-header">
-                  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
+                <div class = "modal-post-header">
+                  <!-- <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
                       <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> -->
                 </div>
-                <div class = "modal-body">
-                <form>
+                <div class = "modal-post-body">
                   <div class = "form-group">
-                <input type="radio" name="choice" value="판매">판매 &nbsp; &nbsp; &nbsp; &nbsp;
-                <input type="radio" name="choice" value="구입">구입
+                <input type="radio" name="choice" value="판매" ><span class="frontMention">판매</span>
+                <input type="radio" name="choice" value="구입"><span class="frontMention">구입</span>
               </div>
+              <div class="divider"></div>
               <div class = "form-group">
-              <div class='area'>   <label for="title" class="control-labels"> 글제목 </label></div>
-                <input type='text' class = "form-controls" id='title'>
+              <span class="frontMention"style="float:left;margin-left:16px;">제목</span>
+                <input type='text' class ="tf" id='title'>
               </div>
               <div class ="form-group">
-              <div class='area'>   <label for="content" class="control-labels"> 내용  &nbsp;&nbsp;</label></div>
-                  <textarea rows='5'  name='comments' class = "form-controls" id='content'></textarea>
+              <div><span class="frontMention"style="float:left;margin-left:16px;">내용</span></div>
+                  <textarea rows='5'  name='comments' class = "ta" id='content'></textarea>
               </div>
-              </form>
-              <div class = "modal-footer">
-                <input type='button' id='ok' class = "btn btn-primary" value='등록'>
-                <input type='button' id='out' class = "btn btn-default" data-dismiss = "modal" value='취소'>
               </div>
+              <div class="divider"></div>
+              <div class = "modal-post-footer">
+                <input type='button' id='out' class = "Closebtn" data-dismiss = "modal" value='닫기'>
+                <input type='button' id='ok' class = "OKbtn3" value='확인'>
               </div>
               </div>
             </div>
@@ -412,45 +418,46 @@
               </button>
               <div class = "modal" id= "write_matching_modal" tabindex="-1" role="dialog" aria-labelledby="WriteMatchingModalLabel" aria-hidden="true">
                 <div class = "modal-dialog">
-                  <div class = "modal-content">
+                  <div class = "modal-content" style="height:320px;">
                     <div class = "modal-header">
-                      <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                      <!-- <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close"> -->
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                      <!-- </button> -->
                     <!--  <h4 class = "modal-title" id = "write_matching_title"> 강의교환글쓰기 </h4>-->
                     </div>
                     <div class= "modal-body">
                       <form>
                         <div class = "form-group">
-                          <label for="class-name" class="control-label" id='subject'>구하는 교재  </label>
-                          <input type = "text" class = "form-control" id = "class_name">
+                          <label for="class-name" class="exchangelabel">구하는 도서명</label>
+                          <input type = "text" class = "exchangeTf"id = "class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="prof-name" class="control-label" id='prof'> 교수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                          <input type = "text" class = "form-control" id = "prof_name">
+                          <label for="prof-name" class="exchangelabel"> 저자</label>
+                          <input type = "text" class = "exchangeTf" id = "prof_name">
                         </div>
                         <div class = "form-group">
-                          <label for="time" class="control-label" id='timelabel'> 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                          <input type = "text" class = "form-control" id = "time">
+                          <label for="time" class="exchangelabel"> 출판사</label>
+                          <input type = "text" class = "exchangeTf" id = "time">
                         </div>
-                        <div id='line'></div>
+                        <div class="divider"></div>
                         <div class = "form-group">
-                          <label for="change-class-name" class="control-label" id='c_s'> 바꿀 교재 &nbsp;&nbsp;&nbsp;</label>
-                          <input type = "text" class = "form-control" id = "change_class_name">
-                        </div>
-                        <div class = "form-group">
-                          <label for="change-prof-name" class="control-label" id='prof2'> 교수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                          <input type = "text" class = "form-control" id = "change_prof_name">
+                          <label for="change-class-name" class="exchangelabel"> 바꿀 도서명</label>
+                          <input type = "text" class = "exchangeTf" id = "change_class_name">
                         </div>
                         <div class = "form-group">
-                          <label for="change-time" class="control-label" id='time2'> 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                          <input type = "text" class = "form-control" id = "change_time">
+                          <label for="change-prof-name" class="exchangelabel"> 저자</label>
+                          <input type = "text" class = "exchangeTf" id = "change_prof_name">
+                        </div>
+                        <div class = "form-group">
+                          <label for="change-time" class="exchangelabel"> 출판사</label>
+                          <input type = "text" class = "exchangeTf" id = "change_time">
                         </div>
                       </form>
                     </div>
+                    <div class="divider"></div>
                     <div class = "modal-footer">
-                      <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Closebtn"> Close </button>
-                      <button type = "button" class = "btn btn-primary" id = "OKbtn"> 올리기 </button>
+                      <button type = "button" class = "Closebtn" data-dismiss = "modal" id="Closebtn"> 닫기 </button>
+                      <button type = "button" class = "OKbtn3" id = "OKbtn"> 확인 </button>
                   </div>
                 </div>
               </div>
