@@ -565,7 +565,7 @@ table.type08 td .ex_time{
    left : 50%;
    top : 0px;
    width:360px;
-   height:190px;
+   height:370px;
    z-index:1000;
    background-color: #fefefe;
    margin: auto;
@@ -593,7 +593,6 @@ table.type08 td .ex_time{
   color: rgb(255, 255, 255);
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
-  position: absolute;
   margin-left:9px;
   width: 70px;
   height:29px;
@@ -619,6 +618,18 @@ table.type08 td .ex_time{
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
   margin-left: 110px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+#Sendbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
   width: 70px;
   height:29px;
   z-index: 12;
@@ -686,14 +697,11 @@ table.type08 td .ex_time{
 }
 
 #message_text{
-  border-width: 1px;
- border-color: rgb(190, 190, 190);
- border-style: solid;
- position: absolute;
- margin-left: 15px;
- width: 331px;
- height: 280px;
- z-index: 5;
+  width:310px;
+  height:260px;
+  padding:7px;
+  border: 2px solid grey;
+  font-family:tahoma, arial, sans-serif;
 }
 
 #message_text2{
@@ -822,11 +830,20 @@ table.type08 td .ex_time{
 }
 .modal-boardview-body{
   width :100%;
-  height : 52px;
+  height : 240px;
 }
 .modal-boardview-footer{
   width :100%;
   height : 60px;
+}
+#recipientname33{
+  font-size: 15px;
+  font-family: "NanumBarunGothic";
+  color: #074F65;
+  font-weight: bold;
+  line-height: 1.2;
+  position: absolute;
+  z-index: 13;
 }
 #recipientname{
   font-size: 15px;
@@ -964,7 +981,6 @@ table.type08 td .ex_time{
   color: rgb(255, 255, 255);
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
-  position: absolute;
   margin-left:9px;
   width: 70px;
   height:29px;
@@ -1061,7 +1077,7 @@ table.type08 td .ex_time{
 }
 .tc_ta{
   margin-left:15px;
-  width:80%;
+  width:310px;
   height:180px;
   padding:7px;
   border: 2px solid grey;
@@ -1168,4 +1184,16 @@ height:300px;
   width:100%;
   height:40px;
   text-align: center;
+}
+.modal-boardmail-header{
+  width:100%;
+  heignt:30px;
+}
+.modal-boardmail-body{
+  width:100%;
+  height:280px;
+}
+.modal-boardmail-footer{
+  width:100%;
+  height:40px;
 }

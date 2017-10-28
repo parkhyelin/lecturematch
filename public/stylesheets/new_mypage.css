@@ -524,13 +524,12 @@ table.mailtable tbody td {
   border: 1px solid #888;
 }
 #modal-app-content {
-  left : 50%;
-  top : 0px;
-  width:722px;
-  z-index:1000;
-  background-color: #fefefe;
-  margin: auto;
-  border: 1px solid #888;
+  width: 722px;
+    z-index: 1000;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    height: 120px;
 }
  #modal-send-content{
    left : 50%;
@@ -563,7 +562,6 @@ table.mailtable tbody td {
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
-  position: absolute;
   margin-left: 90px;
   width: 70px;
   height:29px;
@@ -705,15 +703,13 @@ table.mailtable tbody td {
   height : 40px;
 }
 
-#recipientname{
+#recipientname32{
   font-size: 17px;
   font-family: "NanumBarunGothic";
   color: rgb(90, 90, 90);
   font-weight: bold;
   line-height: 1.2;
   position: absolute;
-  margin-left : 13px;
-  margin-top : 13px;
   z-index: 13;
 }
 #recipientname_2{
@@ -755,7 +751,6 @@ table.mailtable tbody td {
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
-  position: absolute;
   margin-left: 90px;
   width: 70px;
   height:29px;
@@ -782,7 +777,6 @@ table.mailtable tbody td {
   color: rgb(255, 255, 255);
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
-  position: absolute;
   margin-left: 200px;
   width: 70px;
   height:29px;
@@ -796,7 +790,6 @@ table.mailtable tbody td {
   color: rgb(255, 255, 255);
   background-color : rgb(153, 153, 153);
   line-height: 1.2;
-  position: absolute;
   margin-left: 90px;
   width: 70px;
   height:29px;
@@ -814,4 +807,52 @@ table.mailtable tbody td {
   width: 70px;
   height:29px;
   z-index: 12;
+}
+#SendClosebtn22{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color : rgb(153, 153, 153);
+  line-height: 1.2;
+  width: 70px;
+  margin-left: 105px;
+  height:29px;
+  z-index: 12;
+}
+#Acceptbtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+#Okbtn22{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
+.modal-accept-header{
+  width:100%;
+  height:30px;
+}
+.modal-accept-body{
+  width:100%;
+  height:280px;
+}
+.modal-accept-footer{
+  width:100%;
+  height:36px;
 }

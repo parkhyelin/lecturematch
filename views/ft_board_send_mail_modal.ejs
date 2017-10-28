@@ -1,21 +1,16 @@
-<div class = "modal-header">
-  <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">x</button>
-  <h4 class = "modal-title" id = "ModalLabel"> 쪽지보내기 </h4>
+<div class = "modal-boardmail-header">
+     <span class="frontMention">받는사람</span><label id="recipientname33" class="control-label"><%=rows[0].writer_name%></label>
 </div>
-<div class= "modal-body">
-  <form>
+<div class ="divider"></div>
+<div class= "modal-boardmail-body">
     <div class = "form-group">
-       받은사람 : <label id="recipientname" class="control-label"><%=rows[0].writer_name%></label>
-    </div>
-    <div class = "form-group">
-      <label for="message-text" class="control-label"> 내용 : </label>
       <textarea class= "form-control" id="message_text"></textarea>
     </div>
-  </form>
 </div>
-<div class = "modal-footer">
-  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> Close </button>
-  <button type = "button" id = "Sendbtn" class = "btn btn-primary"> Send Mail </button>
+<div class="divider"></div>
+<div class = "modal-boardmail-footer">
+  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> 닫기 </button>
+  <button type = "button" id = "Sendbtn" class = "btn btn-primary"> 확인 </button>
 </div>
 
 
