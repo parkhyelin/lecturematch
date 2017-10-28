@@ -6,7 +6,7 @@
     <title>join3_page</title>
     <script type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+
        <link type="text/css" rel="stylesheet" href="/stylesheets/new_join3.css">
        <script src="/javascripts/ft_join.js"></script>
   </head>
@@ -20,10 +20,10 @@
         </div>
         <div id="div_login">
           <% if(!session) { %>
-          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >JOIN</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">LOGIN</a></p>
+          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none; color: #00B7FF;" >JOIN</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none; color: #00B7FF;">LOGIN</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">LOGOUT</a></p>
-          <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">MYPAGE</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none; color: #00B7FF;">LOGOUT</a></p>
+          <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none; color: #00B7FF;">MYPAGE</a></p>
           <% } %>
                   <div class = "modal" id= "MailBoxModal" style="display:none;" >
                   <div class = "modal-dialog">

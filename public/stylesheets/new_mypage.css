@@ -34,8 +34,8 @@
 #MailBoxbtn
 {
   position : absolute;
-  margin-top: 10px;
-  margin-left: 130px;
+  margin-top: 20px;
+  margin-left: 150px;
   cursor:pointer;
 }
 #div_login
@@ -51,7 +51,7 @@
   float:right;
   margin-left: 30px;
   padding:1px;
-  margin-top:10px;
+  margin-top:20px;
   cursor: pointer;
 }
 #first_join
@@ -60,7 +60,7 @@
   float : right;
   margin-left: 30px;
   padding:1px;
-  margin-top:10px;
+  margin-top:20px;
   margin-right: 10px;
   cursor: pointer;
 }
