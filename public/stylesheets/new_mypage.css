@@ -4,11 +4,10 @@
   height : 950px;
   margin : 0 auto;
 }
-#first_area
+#first_areaa
 {
   width : 1020px;
   height : 170px;
-
   display: inline-flex;
 }
 #div_logo
@@ -31,17 +30,16 @@
   cursor: pointer;
   margin-top: 80px;
 }
-#MailBoxbtn
+#MailBoxbtn1
 {
   position : absolute;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-left: 150px;
   cursor:pointer;
 }
-#div_login
+#div_login1
 {
   height : 170px;
-
   width : 300px;
 }
 
@@ -60,7 +58,7 @@
   float : right;
   margin-left: 30px;
   padding:1px;
-  margin-top:20px;
+  margin-top:5px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -166,7 +164,7 @@ position: absolute;
 margin-top : 200px;
 z-index: 11;
 }
-#rectangle_2
+#rectangle_21
 {
   background-color: rgb(128, 175, 181);
 position: absolute;
@@ -279,7 +277,7 @@ z-index: 19;
   top : 200px;
   z-index: 14;
 }
-#change
+#change1
 {
   font-size: 16px;
 font-family: "NanumBarunGothic";

@@ -5,9 +5,9 @@
 }
 #first_area
 {
+  margin-top: 50px;
   width : 1020px;
   height : 170px;
-
   display: inline-flex;
 }
 #div_logo
@@ -62,7 +62,7 @@
   float:right;
   margin-left: 30px;
   padding:1px;
-  margin-top:7px;
+  margin-top:10px;
   cursor: pointer;
 }
 #line_1
@@ -78,7 +78,7 @@
 {
   position : absolute;
   margin-top: 10px;
-  margin-left: 80px;
+  margin-left: 65px;
   cursor:pointer;
 }
 #main_area
