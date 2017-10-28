@@ -22,14 +22,22 @@
     <input type="button" value="다음" id="rectangle_8_2">
       <div id="first_area">
         <div id="div_logo">
-          <img src="/images/로고b.png" id="logo"></img>
+         <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
         </div>
         <div id="z">
         </div>
         <div id="div_login">
-       <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
-       <p id="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;">mypage</a></p>
-       <img id="MailBoxbtn" src="/images/자산 3.png"></img>
+          <% if(!session) { %>
+       <p id="first_join"><a href = "/first_test/join1">JOIN</a></p><p id="first_login"><a href = "/first_test/login">LOGIN</a></p>
+       <% } else  {%>
+       <p id="first_join"><a href = "/first_test/logout">LOGOUT</a></p>
+       <% } %>
+       <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+
+               <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
+                       메일함
+               </button>
+
                <div class = "modal" id= "MailBoxModal" style="display:none;" >
                <div class = "modal-dialog">
                  <div class = "modal-content">
