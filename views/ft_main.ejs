@@ -7,6 +7,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
        <script src="/javascripts/ft_main.js"></script>
   </head>
@@ -74,24 +76,28 @@
         if(!dropflag){
       %>
           <form id="form" action="/first_test/search/1" method="get">
-              <input type="text" name="searchText" class="searchtf" placeholder="검색">
-              <input type="submit" id="btn_search" value="검색">
+            <div class="container-1">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" name="searchText" class="searchtf" id="search" placeholder="검색">
+          </div>
           </form>
       <%
         }else{
           if(!checkdrop){
       %>
             <form id="form" action="/first_test/main/1/beorim/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
+              <div class="container-1">
+              <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="text" name="searchText" class="searchtf"id="search" placeholder="검색">
+            </form></div>
       <%
           }else{
       %>
             <form id="form" action="/first_test/main/1/guham/search/" method="get">
-                <input type="text" name="searchText">
-                <input type="submit" class="btn" value='검색'>
-            </form>
+              <div class="container-1">
+              <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="text" name="searchText" class="searchtf" id="search" placeholder="검색">
+            </form></div>
       <%
           }
         }
