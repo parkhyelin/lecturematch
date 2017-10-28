@@ -1014,7 +1014,7 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
 
-    //검색기능 - 구함
+    //검색기능 - 구입
     router.get('/main/:page/guham/search/',function(req,res){
       search=req.query.searchText;
       var page = req.params.page;
@@ -1022,7 +1022,7 @@ router.get('/requestdelete/:id',function(req,res){
       var checkdrop = true;
       var dropflag = false;
 
-      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='구함'";
+      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='구입'";
       var sql2="select * from class_info where class_name LIKE ?";
       var sql4 = "select * from ft_mail where recv_email = ?";
       conn.query(sql,'%'+search+'%',function(error,result){
@@ -1039,7 +1039,7 @@ router.get('/requestdelete/:id',function(req,res){
         }
       })
     });
-    //검색기능 - 버림
+    //검색기능 - 판매
     router.get('/main/:page/beorim/search/',function(req,res){
       search=req.query.searchText;
       var page = req.params.page;
@@ -1047,7 +1047,7 @@ router.get('/requestdelete/:id',function(req,res){
       var checkdrop = false;
       var dropflag = false;
 
-      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='버림'";
+      var sql="SELECT * FROM postboard WHERE title LIKE ? and choice='판매'";
       var sql2="select * from class_info where change_class_name LIKE ?";
       var sql4 = "select * from ft_mail where recv_email = ?";
 
@@ -1067,13 +1067,13 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
     router.get('/main/:page/guham', function(req,res){
-      var sql = "select * from postboard where choice ='구함'";
+      var sql = "select * from postboard where choice ='구입'";
       var sql2 ="select * from class_info";
       var sql4 = "select * from ft_mail where recv_email = ?";
       var page = req.params.page;
       var flag = false;
       var dropflag = true; //드랍다운 플래그
-      var checkdrop = true; // 구함이면 값이 true, 버림이면 false
+      var checkdrop = true; // 구입이면 값이 true, 판매이면 false
       conn.query(sql, function(error, result){
         if(error){console.log(error);}
         else{
@@ -1091,7 +1091,7 @@ router.get('/requestdelete/:id',function(req,res){
     });
 
     router.get('/main/:page/beorim',function(req,res){
-      var sql = "select * from postboard where choice ='버림'";
+      var sql = "select * from postboard where choice ='판매'";
       var sql2 ="select * from class_info";
       var sql4 = "select * from ft_mail where recv_email = ?";
 
@@ -1765,7 +1765,7 @@ router.get('/bookrequestdelete/:id',function(req,res){
       var page = req.params.page;
       var flag = false;
       var dropflag = true; //드랍다운 플래그
-      var checkdrop = true; // 구함이면 값이 true, 버림이면 false
+      var checkdrop = true; // 구입이면 값이 true, 판매이면 false
       conn.query(sql, function(error, result){
         if(error){console.log(error);}
         else{

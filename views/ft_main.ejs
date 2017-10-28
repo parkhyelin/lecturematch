@@ -24,19 +24,15 @@
         </div>
         <div id="z">
         </div>
-        <!--
-        <p id="mention1">강의교환</p><div id="small_rectangle"></div>
-        <p id="mention2">버림/구함</p><div id="small_rectangle"></div>
-      -->
       <div id="change">
         <ul class = "tabs" role= "tablist" id="tabs">
-        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">도서교환</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">교환</p><div id="small_rectangle"></div></a></li>
         <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">판매/구입</p><div id="small_rectangle"></div></a></li>
       </ul>
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >JOIN</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">LOGIN</a></p>
           <% } else  {%>
           <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
           <%
@@ -259,13 +255,12 @@
                   <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                <!--    <h2 class = "modal-title" id = "write_matching_title" style="font-family: NanumBarunGothic;"> 버림/구함 글쓰기 </h4>-->
                 </div>
                 <div class = "modal-body">
                 <form>
                   <div class = "form-group">
-                <input type="radio" name="choice" value="버림">판매 &nbsp; &nbsp; &nbsp; &nbsp;
-                <input type="radio" name="choice" value="구함">구입
+                <input type="radio" name="choice" value="판매">판매 &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="choice" value="구입">구입
               </div>
               <div class = "form-group">
               <div class='area'>   <label for="title" class="control-labels"> 글제목 </label></div>

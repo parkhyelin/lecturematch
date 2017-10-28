@@ -14,7 +14,7 @@ $(document).ready(function() {
       if (title == '')
         alert("제목을 입력하세요");
       else if (choice == '')
-        alert('버림/구함 항목을 선택하세요');
+        alert('판매/구입 항목을 선택하세요');
       var data = {
         'choice': choice,
         'title': title,
