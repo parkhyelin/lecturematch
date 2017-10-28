@@ -24,7 +24,7 @@ a{color: #00B7FF;}
 .searchText:focus{width:350px;border:1px solid skyblue;background-color:white;text-align:left;background-position: 10px 10px;background-repeat: no-repeat;padding:4px;transition: width 1s;}
 .mypage_mention{float:right;margin-top:4px;margin-left: 30px;padding:1px;cursor: pointer;font-size:15px;}
 .logout_mention{float:right;margin-top:4px; margin-right:10px;margin-left:10px;padding:1px;font-size:15px;cursor: pointer;}
-#MailBoxbtn{position : absolute;float : right;margin-top: 10px;margin-left: 70px;cursor: pointer;}
+#MailBoxbtn{position : absolute;float : right;margin-top: 5px;margin-left: 130px;cursor: pointer;}
 
 #book_mark{
   position : absolute;

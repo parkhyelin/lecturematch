@@ -7,7 +7,7 @@
 {
   width : 1020px;
   height : 170px;
-
+  margin-top: 30px;
   display: inline-flex;
 }
 #div_logo
@@ -98,7 +98,8 @@
   width : 1020px;
   height : 480px;
   padding: 0.1px;
-  background-color: rgb(244, 244, 244);
+  display: inline-flex;
+  background-color: white;
 }
 #first_1
 {
@@ -217,8 +218,15 @@
   border-radius: 7px;
   background-color: rgb(128, 175, 181);
   position: absolute;
-  margin-top: 100px;
+  margin-top: 370px;
   margin-left: 450px;
   width: 149px;
   height: 40px;
+}
+#successjoin{
+  margin : 0 auto;
+  margin-top: 50px;
+  width : 700px;
+  height : 300px;
+  z-index: 3;
 }

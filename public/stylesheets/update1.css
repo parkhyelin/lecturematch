@@ -5,9 +5,9 @@
 }
 #first_area
 {
+  margin-top: 50px;
   width : 1020px;
   height : 170px;
-  margin-top: 30px;
   display: inline-flex;
 }
 #div_logo
@@ -36,27 +36,7 @@
 
   width : 300px;
 }
-#MailBoxbtn
-{
-  font-size : 15px;
-  float : right;
-  margin-left: 30px;
-  padding:1px;
-  margin-top:10px;
-  margin-right: 10px;
 
-}
-#mypage_mention
-{
-  font-size : 15px;
-  float : right;
-  margin-left: 30px;
-  padding:1px;
-  margin-top:10px;
-  margin-right: 10px;
-
-  cursor: pointer;
-}
 #first_login
 {
   font-size:15px;
@@ -76,6 +56,15 @@
   margin-right: 10px;
   cursor: pointer;
 }
+#mypage_mention
+{
+  font-size:15px;
+  float:right;
+  margin-left: 30px;
+  padding:1px;
+  margin-top:10px;
+  cursor: pointer;
+}
 #line_1
 {
   background-color: rgb(75, 108, 138);
@@ -84,6 +73,13 @@
   width: 1020px;
   height: 4px;
   z-index: 6;
+}
+#MailBoxbtn
+{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 65px;
+  cursor:pointer;
 }
 #main_area
 {
@@ -94,14 +90,15 @@
 #main_area_first
 {
   width : 1020px;
-  height : 120px;
+  height : 100px;
   display: inline-flex;
   background-color: white;
 }
 #main_area_second
 {
+  margin-top: 15px;
   width : 1020px;
-  height : 480px;
+  height : 460px;
 
   background-color: rgb(244, 244, 244);
 }
@@ -197,32 +194,51 @@
 }
 #arrow1
 {
-  margin-top: 65px;
+  margin-left: 20px;
+  margin-top: 70px;
   cursor : default;
 }
 #arrow2
 {
   margin-left: 40px;
-  margin-top: 65px;
+  margin-top: 70px;
   cursor : default;
 }
-#textarea
+#d3
 {
-  margin-left: 110px;
-  margin-top: 40px;
-  border-style: dotted;
-  width : 793px;
-  height : 276px;
+  position : absolute;
+  width : 150px;
+  height:50px;
+  background-color: white;
+  margin-left: 100px;
+  margin-top: 450px;
 }
-#second_area_2
+#p_style2
 {
-  width : 1020px;
-  height : 40px;
+  margin-left: 15px;
+  font-size: 15px;
+  text-align: left;
+  font-family: "NanumBarunGothic";
 }
-#second_area_3
+#d4
 {
-  width : 1020px;
-  height : 100px;
+  position : absolute;
+  width : 700px;
+  height:47px;
+  background-color: white;
+  margin-left: 250px;
+  margin-top: 450px;
+  border : 2px solid white;
+  background-color: rgb(244, 244, 244);
+}
+#password
+{
+    border-radius: 4px;
+    margin-top: 9px;
+    margin-bottom: 7px;
+    width : 200px;
+    height : 23px;
+    margin-left: 40px;
 }
 #rectangle_8_1{
   font-size: 18px;
@@ -230,21 +246,42 @@
   color: rgb(255, 255, 255);
   border-radius: 7px;
  background-color: rgb(128, 175, 181);
- margin-left: 330px;
- margin-top: 20px;
+ position: absolute;
+ margin-left: 300px;
+ margin-top: 650px;
  width: 149px;
  height: 40px;
  z-index: 24;
 }
 #rectangle_8_2
 {
+  margin-left: 500px;
+  margin-top: 650px;
   font-size: 18px;
  font-family: "NanumBarunGothic";
  color: rgb(255, 255, 255);
  border-radius: 7px;
 background-color: rgb(75, 108, 138);
-margin-left: 50px;
+position: absolute;
 width: 149px;
 height: 40px;
  z-index: 26;
+}
+.a1
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
+}
+#update_password_before
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
 }
