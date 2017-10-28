@@ -1,14 +1,13 @@
+
 body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif;}
 a{color: #00B7FF;}
 #wrapper{width:1020px;margin:0 auto;}
 #first_area{width:1020px;height:170px;display:inline-flex;}
 #div_logo{height:150px;width:300px;padding:10px;}
 #z{width:420px;height:170px;}
-#logo
-{font-size: 50px;font-family:"NanumBarunGothic";color:rgb(58,74,88);cursor:pointer;margin-top:80px;}
+#logo{font-size: 50px;font-family:"NanumBarunGothic";color:rgb(58,74,88);cursor:pointer;margin-top:80px;}
 #div_login{height:170px;width:300px;}
-#first_login
-{font-size:15px;float:right;margin-left:30px;padding:1px;margin-top:10px;cursor: pointer;}
+#first_login{font-size:15px;float:right;margin-left:30px;padding:1px;margin-top:10px;cursor: pointer;}
 .login_mention{float:right;margin-top:4px;margin-left:30px;padding:1px;cursor: pointer;font-size:15px;}
 .join_mention{font-size:15px;float:right;margin-left:10px;padding:1px;margin-top:4px;margin-right:10px;cursor:pointer;}
 #change{margin-top: -15px;position: absolute;margin-left:-40px;width:800px;}
