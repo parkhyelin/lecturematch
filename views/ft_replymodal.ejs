@@ -3,20 +3,29 @@
     <label id="recipientname" class="send_mail_who"><%=rows[0].send_name%></label>
     <label id="recipientname_2">님에게 쪽지보내기</label>
 </div>
+<div class="divider"></div>
+
 <div class= "modal-reply-body">
   <form>
   <div class = "form-group">
       <textarea class= "form-control" id="message_text3"></textarea>
+      <span id="counter" style="float:right; margin-right:10px;">0/1000</span>
     </div>
   </form>
 </div>
+<div class="divider"></div>
 <div class = "modal-reply-footer">
   <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="SendClosebtn"> 취소 </button>
   <button type = "button" id = "SendReplybtn" class = "btn btn-primary">  보내기 </button>
 </div>
-
-
 <script>
+      $('#message_text3').keyup(function (e){
+          var content = $(this).val();
+          // $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+          $('#counter').html(content.length + '/1000');
+      });
+      $('#content').keyup();
+
   $('#SendReplybtn').click(function(){
     var recv_email = '<%=rows[0].send_email%>';
     var content = $('#message_text').val();

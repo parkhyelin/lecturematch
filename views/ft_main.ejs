@@ -7,18 +7,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
        <script src="/javascripts/ft_main.js"></script>
   </head>
   <body ondragstart="return false">
     <div id="wrapper">
-
-<!--
-      <p id="mention3">강의교환</p>
-      <div id="rectangle_2"></div>
--->
-
-      <div id="first_area">
+    <div id="first_area">
         <div id="div_logo">
           <img src="/images/로고b.png" id="logo"></img>
         </div>
@@ -80,8 +74,8 @@
         if(!dropflag){
       %>
           <form id="form" action="/first_test/search/1" method="get">
-              <input type="text" name="searchText">
-              <input type="submit" id="btn_search" value='검색'>
+              <input type="text" name="searchText" class="searchtf" placeholder="검색">
+              <input type="submit" id="btn_search" value="검색">
           </form>
       <%
         }else{
@@ -169,7 +163,7 @@
                             <%=item.choice%>
                           </td>
                           <td>
-                            <a href = "#board_content_view_modal<%=item.id%>" id = "board_content_view_title<%=item.id%>" data-toggle = "modal" ><%=item.title%></a>
+                            <a href = "#board_content_view_modal<%=item.id%>" id = "board_content_view_title<%=item.id%>" data-toggle = "modal" style="text-decoration:none"><%=item.title%></a>
                           </td>
                           <div class = "modal" id= "board_content_view_modal<%=item.id%>" style="display:none;" >
                           <div class = "modal-dialog">
