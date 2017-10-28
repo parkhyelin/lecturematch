@@ -933,8 +933,8 @@ table.type08 td .ex_time{
   line-height: 1.2;
   width: 90px;
   position  :absolute;
-  margin-top: 5px;
-  height:50px;
+  margin-top: 3px;
+  height:30px;
   z-index: 11;
 }
 
@@ -1084,6 +1084,7 @@ table.type08 td .ex_time{
   background-repeat: no-repeat;
   padding: 5px 8px 5px 10px;
 }
+
 .container-1{
   width: 300px;
   vertical-align: middle;
