@@ -1,6 +1,15 @@
 body {
 
+=======
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+a {
+  color: #00B7FF;
+}
+
+
 #wrapper
 {
   width : 1020px;
@@ -49,13 +58,22 @@ body {
   margin-top:10px;
   cursor: pointer;
 }
-#first_join
+.login_mention
+{
+  float:right;
+  margin-top:4px;
+  margin-left: 30px;
+  padding:1px;
+  cursor: pointer;
+  font-size:15px;
+}
+.join_mention
 {
   font-size : 15px;
   float : right;
-  margin-left: 30px;
+  margin-left: 10px;
   padding:1px;
-  margin-top:10px;
+  margin-top:4px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -87,18 +105,29 @@ transition: width 1s;
 }
 .mypage_mention
 {
-  font-size:15px;
   float:right;
+  margin-top:4px;
   margin-left: 30px;
   padding:1px;
+  cursor: pointer;
+  font-size:15px;
+}
+.logout_mention
+{
+  float:right;
   margin-top:4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding:1px;
+  font-size:15px;
   cursor: pointer;
 }
 #MailBoxbtn
 {
   position : absolute;
+  float : right;
   margin-top: 10px;
-  margin-left: 80px;
+  margin-left: 70px;
   cursor: pointer;
 }
 #book_mark{
@@ -131,7 +160,7 @@ transition: width 1s;
   line-height: 1.2;
   position: absolute;
   margin-top : 140px;
-  margin-left: 200px;
+  margin-left: 250px;
   z-index: 7;
   position:absolute;
 }
@@ -287,7 +316,7 @@ transition: width 1s;
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 27px;
     border: 1px solid #888;
     width: 80%;
     height:80%;
@@ -324,8 +353,6 @@ transition: width 1s;
 /* Style the tab */
 div.tab {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
 }
 
 .tab-pane.active{
@@ -352,7 +379,7 @@ div.tab button:hover {
 
 /* Create an active/current tablink class */
 div.tab button.active {
-    background-color: #ccc;
+    background-color: #248FB0;
 }
 
 /* Style the tab content */
@@ -689,7 +716,18 @@ table.type08 td .ex_time{
   height:29px;
   z-index: 11;
 }
-
+#RecvBoxClosebtn{
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 74, 88);
+  line-height: 1.2;
+  margin-left: 10px;
+  width: 70px;
+  height:29px;
+  z-index: 12;
+}
 #Okbtn{
   border-radius: 5px;
   font-size: 13px;
@@ -779,6 +817,17 @@ table.type08 td .ex_time{
   margin-left : 13px;
   z-index: 3;
 }
+.whoMention{
+  color: #074F65;
+}
+.frontMention{
+  margin-right: 8px;
+  color: black;
+}
+.backMention{
+  color: black;
+  margin-right: 8px;
+}
 #send_time{
   font-size: 15px;
   font-family: "NanumBarunGothic";
@@ -813,23 +862,26 @@ table.type08 td .ex_time{
 }
 .modal-mail-header{
   width :100%;
-  height : 110px;
+  height : 70px;
+  padding : 10px;
 }
 .modal-mail-body{
   width :100%;
-  height : 300px;
+  height : 270px;
+  padding : 10px 0;
 }
 .modal-mail-footer{
   width :100%;
-  height : 40px;
+  height : 30px;
 }
-.modal-reply-header{
+.modal-reply-header{R
   width :100%;
-  height : 80px;
+  height : 50px;
 }
 .modal-reply-body{
   width :100%;
-  height : 330px;
+  height: 310px;
+  margin-top: 20px;
 }
 .modal-reply-footer{
   width :100%;
@@ -838,11 +890,12 @@ table.type08 td .ex_time{
 
 .modal-send-header{
   width :100%;
-  height : 100px;
+  height : 80px;
 }
 .modal-send-body{
   width :100%;
-  height : 310px;
+  height : 290px;
+  margin-top: 14px;
 }
 .modal-send-footer{
   width :100%;
@@ -862,9 +915,9 @@ table.type08 td .ex_time{
   height : 60px;
 }
 #recipientname{
-  font-size: 17px;
+  font-size: 15px;
   font-family: "NanumBarunGothic";
-  color: rgb(90, 90, 90);
+  color: #074F65;
   font-weight: bold;
   line-height: 1.2;
   position: absolute;
@@ -873,7 +926,7 @@ table.type08 td .ex_time{
   z-index: 13;
 }
 #recipientname_2{
-  font-size: 17px;
+  font-size: 15px;
   font-family: "NanumBarunGothic";
   color: rgb(90, 90, 90);
   line-height: 1.2;
@@ -883,7 +936,7 @@ table.type08 td .ex_time{
   z-index: 13;
 }
 #when_send{
-  font-size: 17px;
+  font-size: 15px;
   font-family: "NanumBarunGothic";
   color: rgb(90, 90, 90);
   line-height: 1.2;
@@ -893,7 +946,7 @@ table.type08 td .ex_time{
   z-index: 13;
 }
 #read_flag{
-  font-size: 17px;
+  font-size: 15px;
   font-family: "NanumBarunGothic";
   color: rgb(90, 90, 90);
   line-height: 1.2;
@@ -1082,4 +1135,24 @@ table.type08 td .ex_time{
   position: absolute;
   margin-top : 13px;
   z-index: 13;
+}
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
 }

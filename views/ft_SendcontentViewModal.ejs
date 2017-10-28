@@ -2,19 +2,20 @@
   <div class = "modal-send-header">
     <label id="recipientname" class="send_mail_who"><%=rows[0].recv_name%></label>
     <label id="recipientname_2">님에게 보낸 쪽지</label>
-    <label id="when_send">보낸 시간 : <%=rows[0].date_sent%></label>
-    <label id="read_flag">읽음 여부 : <%=rows[0].recv_read%></label>
+    <label id="when_send"><span style="margin-right:8px">보낸 시간</span> <%=rows[0].date_sent%></label>
+    <label id="read_flag"><span style="margin-right:8px">읽음 여부</span> <%=rows[0].recv_read%></label>
 
         <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div> <!-- modal-header -->
-
+<div class="divider"></div>
       <div class= "modal-send-body">
           <textarea id="message_text" row= "20" cols= "44" readonly>
             <%=rows[0].content%>
           </textarea>
       </div> <!-- modal-body -->
+      <div class="divider"></div>
       <div class = "modal-send-footer">
           <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="Okbtn2"> 확인</button>
       </div>

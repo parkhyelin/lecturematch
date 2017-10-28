@@ -7,6 +7,7 @@
     <script type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="/stylesheets/new_join2.css">
+    
     <script src="/javascripts/ft_join.js"></script>
   </head>
   <body ondragstart="return false">
@@ -49,9 +50,9 @@
            </div>
            <div id="div_login">
              <% if(!session) { %>
-             <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+             <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >JOIN</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">LOGIN</a></p>
              <% } else  {%>
-             <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
+             <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">LOGOUT</a></p>  <button type = "button" id="MailBoxbtn" data-toggle="modal">메일함</button>
              <% } %>
 
                      <div class = "modal" id= "MailBoxModal" style="display:none;" >

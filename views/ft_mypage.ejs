@@ -8,17 +8,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src = "/javascripts/ft_mypage.js"></script>
     <link rel = 'stylesheet' href='/stylesheets/new_mypage.css'/><script></script>
-  </head>
+    </head>
   <body ondragstart="return false">
     <div id="wrapper">
       <div id="first_area">
         <div id="div_logo">
-            <img src="/images/로고b.png" id="logo"></img>
+              <img src="/images/로고b.png" id="logo"></img>
         </div>
         <div id="z">
         </div>
         <div id="div_login">
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">LOGOUT</a></p>
           <%
           if(mailflag.length == 0){
             %>
@@ -90,7 +90,7 @@
                     <div id="rectangle_5_1">
                     <!--  <p id="my_board">내가 쓴 게시물</p> -->
                       <div class="tab">
-                        <button class="tablinks" onclick="postexchange(event, 'post_i_wrote')">내가 쓴 버림/구함 게시물</button>
+                        <button class="tablinks" onclick="postexchange(event, 'post_i_wrote')">내가 쓴 판매/구입 게시물</button>
                         <button class="tablinks" onclick="postexchange(event, 'exchange_i_wrote')">내가 쓴 교환 게시물</button>
                         <button class="tablinks" onclick="postexchange(event, 'request_list')">내가 신청한 목록</button>
                       </div>
@@ -100,7 +100,7 @@
                         <table class="type08">
                             <thead>
                               <tr>
-                                <td>버림/구함</td>
+                                <td>판매/구입</td>
                                 <td>글제목</td>
                                 <td>작성일자</td>
                                 <td>작성자</td>

@@ -6,39 +6,29 @@
         <script type="text/javascript" ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>board</title>
        <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
        <script src="/javascripts/ft_main.js"></script>
   </head>
   <body ondragstart="return false" stryle = "background-color : red;">
     <div id="wrapper">
-
-<!--
-      <p id="mention3">강의교환</p>
-      <div id="rectangle_2"></div>
--->
-
-      <div id="first_area">
+    <div id="first_area">
         <div id="div_logo">
           <img src="/images/로고b.png" id="logo"></img>
         </div>
         <div id="z">
         </div>
-        <!--
-        <p id="mention1">강의교환</p><div id="small_rectangle"></div>
-        <p id="mention2">버림/구함</p><div id="small_rectangle"></div>
-      -->
       <div id="change">
         <ul class = "tabs" role= "tablist" id="tabs">
-        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">도서교환</p><div id="small_rectangle"></div></a></li>
+        <li role = "presentation" class = "active"> <a href = "#exchange" role="tab" data-toggle = "tab"> <p id="mention1">교환</p><div id="small_rectangle"></div></a></li>
         <li role = "presentation"> <a href = "#board" role="tab" data-toggle = "tab"> <p id="mention2">판매/구입</p><div id="small_rectangle"></div></a></li>
       </ul>
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >회원가입</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">로그인</a></p>
+          <p class="join_mention"><a href = "/first_test/join1" style="text-decoration:none;" class="join_mention" >JOIN</a></p><p class="login_mention"><a href = "/first_test/login" style="text-decoration:none;" class="login_mention">LOGIN</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">로그아웃</a></p>
+          <p class="logout_mention"><a href = "/first_test/logout" style="text-decoration:none;" class="logout_mention">LOGOUT</a></p>
           <%
             if(mailflag.length == 0){
               %>
@@ -64,7 +54,7 @@
             }
           }
           %>
-           <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">mypage</a></p>
+           <p class="mypage_mention"><a href = "/first_test/mypage" style="text-decoration:none;" class="mypage_mention">MYPAGE</a></p>
           <% } %>
 
               <div class = "modal" id= "MailBoxModal" style="display:none;" >
@@ -84,8 +74,8 @@
         if(!dropflag){
       %>
           <form id="form" action="/first_test/search/1" method="get">
-              <input type="text" name="searchText">
-              <input type="submit" id="btn_search" value='검색'>
+              <input type="text" name="searchText" class="searchtf" placeholder="검색">
+              <input type="submit" id="btn_search" value="검색">
           </form>
       <%
         }else{
@@ -173,7 +163,7 @@
                             <%=item.choice%>
                           </td>
                           <td>
-                            <a href = "#board_content_view_modal<%=item.id%>" id = "board_content_view_title<%=item.id%>" data-toggle = "modal" ><%=item.title%></a>
+                            <a href = "#board_content_view_modal<%=item.id%>" id = "board_content_view_title<%=item.id%>" data-toggle = "modal" style="text-decoration:none"><%=item.title%></a>
                           </td>
                           <div class = "modal" id= "board_content_view_modal<%=item.id%>" style="display:none;" >
                           <div class = "modal-dialog">
@@ -259,13 +249,12 @@
                   <button type = "button" class = "close" data-dismiss="modal" aria-label = "Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                <!--    <h2 class = "modal-title" id = "write_matching_title" style="font-family: NanumBarunGothic;"> 버림/구함 글쓰기 </h4>-->
                 </div>
                 <div class = "modal-body">
                 <form>
                   <div class = "form-group">
-                <input type="radio" name="choice" value="버림">판매 &nbsp; &nbsp; &nbsp; &nbsp;
-                <input type="radio" name="choice" value="구함">구입
+                <input type="radio" name="choice" value="판매">판매 &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="choice" value="구입">구입
               </div>
               <div class = "form-group">
               <div class='area'>   <label for="title" class="control-labels"> 글제목 </label></div>

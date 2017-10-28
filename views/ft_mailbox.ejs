@@ -14,7 +14,7 @@
     <table id = "RecvMailBoxTable" class="mailtable">
       <thead>
       <tr>
-        <td> 발신자 </td>
+        <td> 보낸사람 </td>
         <td> 내용 </td>
         <td> 날짜 </td>
         <td> 삭제 </td>
@@ -41,10 +41,10 @@
     %>
         <tr>
             <td class="normal_td"><%=oneItem.send_name%></td>
-            <td class="normal_td"><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+            <td class="normal_td"><a href = "#contentViewModal<%=oneItem.id%>" id = "contentView<%=oneItem.id%>" data-toggle = "modal" style="text-decoration:none"><%=oneItem.content%></a></td>
 
             <td class="normal_td"><%=oneItem.date_sent%></td>
-            <td class="normal_td"><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+            <td class="normal_td"><a href = "/first_test/deletemail/<%=oneItem.id%>" style=" text-decoration:none">삭제</a></td>
         </tr>
     <%
             }
@@ -91,7 +91,7 @@
     <table id = "SendMailBoxTable" class="mailtable">
       <thead>
       <tr>
-        <td> 수신자 </td>
+        <td> 받은사람 </td>
         <td> 내용 </td>
         <td> 날짜 </td>
         <td> 삭제 </td>
@@ -106,9 +106,9 @@
     %>
         <tr>
             <td><%=oneItem.recv_name%></td>
-            <td><a href = "#SendcontentViewModal<%=oneItem.id%>" id = "SendcontentView<%=oneItem.id%>" data-toggle = "modal" ><%=oneItem.content%></a></td>
+            <td><a href = "#SendcontentViewModal<%=oneItem.id%>" id = "SendcontentView<%=oneItem.id%>" data-toggle = "modal" style="text-decoration:none"><%=oneItem.content%></a></td>
             <td><%=oneItem.date_sent%></td>
-            <td><a href = "/first_test/deletemail/<%=oneItem.id%>">삭제</a></td>
+            <td><a href = "/first_test/deletemail/<%=oneItem.id%>" style="text-decoration:none">삭제</a></td>
           </tr>
     <%
           }
@@ -169,5 +169,5 @@
 
 </div>
 <div class = "modal-footer">
-  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="RecvBoxClosebtn"> Close </button>
+  <button type = "button" class = "btn btn-default" data-dismiss = "modal" id="RecvBoxClosebtn"> 닫기 </button>
 </div>

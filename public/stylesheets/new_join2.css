@@ -394,13 +394,13 @@
   left :440px;
   top : 0px;
 }
-#joinButton
+#cancelButton
 {
   font-size: 18px;
   font-family: "NanumBarunGothic";
   color: rgb(255, 255, 255);
   border-radius: 7px;
-  background-color: rgb(128, 175, 181);
+ background-color: rgb(75, 108, 138);
   position: absolute;
   margin-left: 320px;
   margin-top: 650px;
@@ -408,13 +408,13 @@
   height: 40px;
   z-index :22;
 }
-#cancelButton
+#joinButton
 {
   font-size: 18px;
  font-family: "NanumBarunGothic";
  color: rgb(255, 255, 255);
  border-radius: 7px;
-background-color: rgb(75, 108, 138);
+background-color: rgb(128, 175, 181);
 position: absolute;
 margin-left: 530px;
 margin-top: 650px;

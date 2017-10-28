@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel = 'stylesheet' href='/stylesheets/new_leave2.css'/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
       <script src = "/javascripts/ft_leave.js"></script>
   </head>
   <body style=" width: 1200px; height: 768px; position : relative;">
@@ -18,11 +20,11 @@
       <p id="logo"><a href = "/first_test/main/1">LOGO</a></P>
       <p id="first_FAQ">FAQ</p>
       <% if(!session) { %>
-      <p id="first_join"><a href = "/first_test/join1">회원가입</a></p><p id="first_login"><a href = "/first_test/login">로그인</a></p>
+      <p id="first_join"><a href = "/first_test/join1">JOIN</a></p><p id="first_login"><a href = "/first_test/login">LOGIN</a></p>
       <% } else  {%>
-      <p id="first_join"><a href = "/first_test/logout">로그아웃</a></p>
+      <p id="first_join"><a href = "/first_test/logout">LOGOUT</a></p>
       <% } %>
-      <p id="mypage_mention"><a href = "/first_test/mypage">mypage</a></p>
+      <p id="mypage_mention"><a href = "/first_test/mypage">MYPAGE</a></p>
 
               <button type = "button" id="MailBoxbtn" class = "mailbox-modal-btn" data-toggle="modal">
                       메일함
