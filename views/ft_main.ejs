@@ -32,9 +32,9 @@
     </div>
         <div id="div_login">
           <% if(!session) { %>
-          <p id="first_join"><a href = "/first_test/join1" style="text-decoration:none;" >JOIN</a></p><p id="first_login"><a href = "/first_test/login" style="text-decoration:none;">LOGIN</a></p>
+          <p class="join_mention"><a href = "/first_test/join1" style="text-decoration:none;" class="join_mention" >JOIN</a></p><p class="login_mention"><a href = "/first_test/login" style="text-decoration:none;" class="login_mention">LOGIN</a></p>
           <% } else  {%>
-          <p id="first_join"><a href = "/first_test/logout" style="text-decoration:none;">LOGOUT</a></p>
+          <p class="logout_mention"><a href = "/first_test/logout" style="text-decoration:none;" class="logout_mention">LOGOUT</a></p>
           <%
             if(mailflag.length == 0){
               %>

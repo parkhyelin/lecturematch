@@ -45,13 +45,22 @@
   margin-top:10px;
   cursor: pointer;
 }
-#first_join
+.login_mention
+{
+  float:right;
+  margin-top:4px;
+  margin-left: 30px;
+  padding:1px;
+  cursor: pointer;
+  font-size:15px;
+}
+.join_mention
 {
   font-size : 15px;
   float : right;
-  margin-left: 30px;
+  margin-left: 10px;
   padding:1px;
-  margin-top:10px;
+  margin-top:4px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -83,11 +92,21 @@ transition: width 1s;
 }
 .mypage_mention
 {
-  font-size:15px;
   float:right;
+  margin-top:4px;
   margin-left: 30px;
   padding:1px;
+  cursor: pointer;
+  font-size:15px;
+}
+.logout_mention
+{
+  float:right;
   margin-top:4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding:1px;
+  font-size:15px;
   cursor: pointer;
 }
 #MailBoxbtn
