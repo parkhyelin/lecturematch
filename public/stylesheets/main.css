@@ -1,6 +1,4 @@
 body {
-
-=======
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -562,8 +560,10 @@ table.mailtable tbody td {
   line-height: 1.2;
   position: absolute;
   margin-top: 10px;
-  width: 140px;
+  width: 130px;
   height:30px;
+  top : 740px;
+  margin-left: 850px;
   z-index: 11;
 }
 #writeButton
@@ -573,10 +573,11 @@ table.mailtable tbody td {
   font-family: "NanumBarunGothic";
   color: rgb(255, 255, 255);
   background-color: rgb(58, 74, 88);
-  line-height: 1.2;
   position: absolute;
   width: 90px;
   height:30px;
+  top : 750px;
+  margin-left: 890px;
   z-index: 11;
 }
 #exchange_req_td{
@@ -696,11 +697,11 @@ table.type08 td .ex_time{
   background-color: rgb(58, 74, 88);
   line-height: 1.2;
   position: absolute;
-  width: 70px;
-  height : 30px;
+  width: 100px;
+  height : 50px;
   z-index: 11;
   margin-left: 190px;
-  margin-top: -28px;
+  margin-top: -45px;
 }
 
 #Replybtn{
@@ -1005,7 +1006,8 @@ table.type08 td .ex_time{
   line-height: 1.2;
   width: 90px;
   position  :absolute;
-  height:30px;
+  margin-top: 5px;
+  height:50px;
   z-index: 11;
 }
 
