@@ -5,9 +5,9 @@
 }
 #first_area
 {
+  margin-top: 50px;
   width : 1020px;
   height : 170px;
-
   display: inline-flex;
 }
 #div_logo
@@ -56,7 +56,7 @@
   margin-right: 10px;
   cursor: pointer;
 }
-#first_mypage
+#mypage_mention
 {
   font-size:15px;
   float:right;
@@ -74,6 +74,13 @@
   height: 4px;
   z-index: 6;
 }
+#MailBoxbtn
+{
+  position : absolute;
+  margin-top: 10px;
+  margin-left: 65px;
+  cursor:pointer;
+}
 #main_area
 {
   width : 1020px;
@@ -83,7 +90,7 @@
 #main_area_first
 {
   width : 1020px;
-  height : 120px;
+  height : 100px;
   display: inline-flex;
   background-color: white;
 }
@@ -119,6 +126,7 @@
 }
 #rectangle_2
 {
+  margin-top: 29px;
   background-color: rgb(128, 175, 181);
   width: 111px;
   height: 7px;
@@ -127,10 +135,10 @@
 {
   font-size: 20px;
  font-family: "NanumBarunGothic";
- color: rgb(153, 153, 153);
+  color: rgb(153, 153, 153);
  line-height: 1.2;
  position : relative;
- margin-top: 80px;
+ margin-top: 50px;
  z-index: 15;
  margin-right: 20px;
 }
@@ -141,7 +149,7 @@
  font-family: "NanumBarunGothic";
  color: rgb(153, 153, 153);
  font-weight: bold;
- line-height: 1.2;
+ line-height: 2.2;
  margin-left: 70px;
  z-index: 14;
 }
@@ -152,7 +160,7 @@
  font-family: "NanumBarunGothic";
  color: rgb(153, 153, 153);
  font-weight: bold;
- line-height: 1.2;
+ line-height: 2.2;
  margin-left: 50px;
 
 }
@@ -163,7 +171,7 @@
  font-family: "NanumBarunGothic";
  color: rgb(58, 74, 88);
  font-weight: bold;
- line-height: 1.2;
+ line-height: 2.2;
  margin-left: 50px;
 
 }
@@ -171,30 +179,112 @@
 {
   font-size: 20px;
    font-family: "NanumBarunGothic";
-   color: rgb(58, 74, 88);
+   color: rgb(153, 153, 153);
    line-height: 1.2;
    margin-left: -10px;
-   margin-top: 80px;
+   margin-top: 50px;
 }
 #c
 {
   font-size: 20px;
    font-family: "NanumBarunGothic";
-   color: rgb(58, 74, 88);
+    color: rgb(58, 74, 88);
    line-height: 1.2;
-   margin-top: 80px;
+   margin-top: 50px;
 }
 #arrow1
 {
   margin-left: 20px;
-  margin-top: 70px;
+  margin-top: 40px;
   cursor : default;
 }
 #arrow2
 {
   margin-left: 40px;
-  margin-top: 70px;
+  margin-top: 40px;
   cursor : default;
+}
+#d3
+{
+  position : absolute;
+  width : 150px;
+  height:50px;
+  background-color: white;
+  margin-left: 100px;
+  margin-top: 450px;
+}
+#p_style2
+{
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size: 15px;
+  text-align: left;
+  font-family: "NanumBarunGothic";
+}
+#d4
+{
+  position : absolute;
+  width : 700px;
+  height:47px;
+  background-color: white;
+  margin-left: 250px;
+  margin-top: 450px;
+  border : 2px solid white;
+  background-color: rgb(244, 244, 244);
+}
+#password
+{
+    border-radius: 4px;
+    margin-top: 9px;
+    margin-bottom: 7px;
+    width : 200px;
+    height : 23px;
+    margin-left: 40px;
+}
+#rectangle_8_1{
+  font-size: 18px;
+  font-family: "NanumBarunGothic";
+  color: rgb(255, 255, 255);
+  border-radius: 7px;
+ background-color: rgb(128, 175, 181);
+ position: absolute;
+ margin-left: 300px;
+ margin-top: 650px;
+ width: 149px;
+ height: 40px;
+ z-index: 24;
+}
+#rectangle_8_2
+{
+  margin-left: 500px;
+  margin-top: 650px;
+  font-size: 18px;
+ font-family: "NanumBarunGothic";
+ color: rgb(255, 255, 255);
+ border-radius: 7px;
+background-color: rgb(75, 108, 138);
+position: absolute;
+width: 149px;
+height: 40px;
+ z-index: 26;
+}
+.a1
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
+}
+#update_password_before
+{
+  border-radius: 4px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width : 200px;
+  height : 23px;
+  margin-left: 40px;
 }
 #ok_mention
 {

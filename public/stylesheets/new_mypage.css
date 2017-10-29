@@ -31,7 +31,7 @@
   cursor: pointer;
   margin-top: 80px;
 }
-#MailBoxbtn
+#MailBoxbtn1
 {
   position : absolute;
   margin-top: 20px;
@@ -54,14 +54,14 @@
   margin-top:20px;
   cursor: pointer;
 }
-#first_join
+#first_join1
 {
   font-size : 15px;
   float : right;
-  margin-left: 30px;
+  margin-left: 20px;
   padding:1px;
-  margin-top:20px;
-  margin-right: 10px;
+  margin-top:10px;
+  margin-right: 80px;
   cursor: pointer;
 }
 #first_mypage
@@ -166,7 +166,7 @@ position: absolute;
 margin-top : 200px;
 z-index: 11;
 }
-#rectangle_2
+#rectangle_2_2
 {
   background-color: rgb(128, 175, 181);
 position: absolute;
@@ -279,7 +279,7 @@ z-index: 19;
   top : 200px;
   z-index: 14;
 }
-#change
+#change1
 {
   font-size: 16px;
 font-family: "NanumBarunGothic";
