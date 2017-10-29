@@ -577,7 +577,7 @@ module.exports = function(app){
                 conn.query(sql4, [user_email], function(error, results){
                   if(error){console.log(error);}
                   else{
-                    conn.quety(sql10, [user_email], function(error, results){
+                    conn.query(sql10, [user_email], function(error, results){
                       if(error){console.log(error);}
                       else{
                     conn.query(sql5, [user_email], function(error, results){
@@ -641,7 +641,6 @@ module.exports = function(app){
     var re=/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     var sql = "SELECT * FROM ft_user WHERE email=?";
     if(user_email.length < 6 || !re.test(user_email)){
-      console.log('사용할 수 없는 이메일');
       res.end('error');
     }else{
     conn.query(sql, [user_email], function(error,results,fields){
@@ -651,10 +650,8 @@ module.exports = function(app){
           var user = results[0];
 
           if(!user){
-            console.log('사용가능한 이메일');
             res.end('success');
           }else if(user_email == user.email){
-            console.log('이미 존재하는 이메일');
             res.end('error');
           }
       }
