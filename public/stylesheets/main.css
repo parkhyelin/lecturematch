@@ -1,5 +1,5 @@
 
-body{padding : 50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif;background: linear-gradient(white 6%, rgb(193,215,222) 94%);}
+body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif;background: linear-gradient(white 6%, rgb(193,215,222) 94%);}
 a{color: #00B7FF;}
 #wrapper
 {
@@ -457,7 +457,7 @@ table.mailtable tbody td {
   margin-top: 10px;
   width: 130px;
   height:30px;
-  top : 740px;
+  top : 690px;
   margin-left: 850px;
   z-index: 11;
 }
@@ -471,7 +471,7 @@ table.mailtable tbody td {
   position: absolute;
   width: 90px;
   height:30px;
-  top : 750px;
+  top : 700px;
   margin-left: 890px;
   z-index: 11;
 }

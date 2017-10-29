@@ -1,6 +1,8 @@
+body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif;background: linear-gradient(white 30%, rgb(193,215,222) 70%);}
 #wrapper
 {
   width : 1020px;
+  height : 750px;;
   margin : 0 auto;
 
 }
@@ -8,7 +10,7 @@
 {
   width : 1020px;
   height : 170px;
-  margin-top: 30px;
+
   display: inline-flex;
 }
 #div_logo
